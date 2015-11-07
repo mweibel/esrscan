@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ESRScanner
+//  einzahlungsschein
 //
-//  Created by Michael on 06.11.15.
+//  Created by Michael on 03.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
 //
 
