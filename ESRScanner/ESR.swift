@@ -28,29 +28,32 @@ public class ESR {
             )
         ))!
         if hasAmount {
-            let amount = Int(newStr.substringWithRange(
+            let amount = Double(newStr.substringWithRange(
                 Range<String.Index>(
-                    start: newStr.startIndex.advancedBy(1),
-                    end: newStr.startIndex.advancedBy(Int(angleIndex.value) - 2)
+                    start: newStr.startIndex.advancedBy(2),
+                    end: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
                 )
                 ))!
-            self.amount = Double(amount / 100)
+            self.amount = amount / 100.0
         }
         let afterAngle = Int(angleIndex.value) + 1
-        self.userNumber = Int(newStr.substringWithRange(
-            Range<String.Index>(
-                start: newStr.startIndex.advancedBy(afterAngle),
-                end: newStr.startIndex.advancedBy(afterAngle + 6)
-            )
-        ))!
+
         let plusRange = newStr.rangeOfString("+")!
         let plusIndex = newStr.startIndex.distanceTo(plusRange.startIndex)
 
         self.refNum = newStr.substringWithRange(
             Range<String.Index>(
-                start: newStr.startIndex.advancedBy(afterAngle + 7),
+                start: newStr.startIndex.advancedBy(afterAngle),
                 end: newStr.startIndex.advancedBy(Int(plusIndex.value))
-        ))
+            ))
+
+        //usernumber is a substring of the ref num
+        self.userNumber = Int(refNum.substringWithRange(
+            Range<String.Index>(
+                start: refNum.startIndex,
+                end: refNum.startIndex.advancedBy(6)
+            )
+        ))!
         let accNum = Int(newStr.substringWithRange(
             Range<String.Index>(
                 start: newStr.startIndex.advancedBy(Int(plusIndex.value) + 2),

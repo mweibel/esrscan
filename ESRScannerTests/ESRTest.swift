@@ -26,7 +26,7 @@ class ESRTest: XCTestCase {
         let esr = ESR.init(str: code)
         XCTAssertEqual(2, esr.checkSum)
         XCTAssertEqual(nil, esr.amount)
-        XCTAssertEqual("06506727328000000001102", esr.refNum)
+        XCTAssertEqual("000006506727328000000001102", esr.refNum)
         XCTAssertEqual(10322486, esr.accNum.num)
         XCTAssertEqual(6, esr.userNumber)
 
@@ -34,7 +34,7 @@ class ESRTest: XCTestCase {
         let esr2 = ESR.init(str: code2)
         XCTAssertEqual(3, esr2.checkSum)
         XCTAssertEqual(583.90, esr2.amount)
-        XCTAssertEqual("000000000000030000605611", esr2.refNum)
+        XCTAssertEqual("000000000000030000605614712", esr2.refNum)
         XCTAssertEqual(10089006, esr2.accNum.num)
         XCTAssertEqual(0, esr2.userNumber)
     }
