@@ -9,8 +9,8 @@
 import Foundation
 
 class AccountNumber {
-    var num: Int
-    init(num: Int) {
+    var num: String
+    init(num: String) {
         self.num = num
     }
 

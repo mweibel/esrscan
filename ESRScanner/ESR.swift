@@ -9,6 +9,7 @@
 import Foundation
 
 public class ESR {
+    var fullStr: String
     var checkSum: Int
     var amount: Double?
     var userNumber: Int
@@ -18,6 +19,8 @@ public class ESR {
     init(str: String) {
         print("ESR.init:str: " + str)
         let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
+        self.fullStr = newStr
+
         let hasAmount = str.hasPrefix("01")
         let angleRange = newStr.rangeOfString(">")!
         let angleIndex = newStr.startIndex.distanceTo(angleRange.startIndex)
@@ -54,13 +57,34 @@ public class ESR {
                 end: refNum.startIndex.advancedBy(6)
             )
         ))!
-        let accNum = Int(newStr.substringWithRange(
+        let accNum = newStr.substringWithRange(
             Range<String.Index>(
-                start: newStr.startIndex.advancedBy(Int(plusIndex.value) + 2),
+                start: newStr.startIndex.advancedBy(Int(plusIndex.value) + 1),
                 end: newStr.endIndex.advancedBy(-1)
             )
-        ))!
+        )
         self.accNum = AccountNumber.init(num: accNum)
+    }
+
+    func checkSumValid() -> Bool {
+        let table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5]
+        var carry = 0
+
+        let angleRange = self.fullStr.rangeOfString(">")!
+        let angleIndex = self.fullStr.startIndex.distanceTo(angleRange.startIndex)
+        let str = self.fullStr.substringWithRange(
+            Range<String.Index>(
+                start: self.fullStr.startIndex,
+                end: self.fullStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
+            )
+        )
+
+        for char in str.characters {
+            let num = Int.init(String(char), radix: 10)!
+            carry = table[(carry + num) % 10]
+        }
+        let checkSum = (10 - carry) % 10
+        return self.checkSum == checkSum
     }
 
     func string() -> String {
@@ -68,6 +92,7 @@ public class ESR {
         if self.amount != nil {
             str.appendContentsOf("\nAmount: \(self.amount)")
         }
+        str.appendContentsOf("\nValid? \(self.checkSumValid())")
         return str
     }
 }
