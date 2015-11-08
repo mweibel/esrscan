@@ -14,6 +14,7 @@ public class ESR {
     var amount: Double?
     var userNumber: Int
     var refNum: String
+    var refNumCheckDigit: Int
     var accNum: AccountNumber
 
     init(str: String) {
@@ -41,14 +42,15 @@ public class ESR {
         }
         let afterAngle = Int(angleIndex.value) + 1
 
-        let plusRange = newStr.rangeOfString("+")!
-        let plusIndex = newStr.startIndex.distanceTo(plusRange.startIndex)
-
+        let refNumStart = newStr.startIndex.advancedBy(afterAngle)
         self.refNum = newStr.substringWithRange(
             Range<String.Index>(
-                start: newStr.startIndex.advancedBy(afterAngle),
-                end: newStr.startIndex.advancedBy(Int(plusIndex.value))
+                start: refNumStart,
+                end: refNumStart.advancedBy(27)
             ))
+
+        let idx = self.refNum.endIndex.advancedBy(-1)
+        self.refNumCheckDigit = Int(self.refNum.substringFromIndex(idx))!
 
         //usernumber is a substring of the ref num
         self.userNumber = Int(refNum.substringWithRange(
@@ -59,7 +61,7 @@ public class ESR {
         ))!
         let accNum = newStr.substringWithRange(
             Range<String.Index>(
-                start: newStr.startIndex.advancedBy(Int(plusIndex.value) + 1),
+                start: newStr.endIndex.advancedBy(-10),
                 end: newStr.endIndex.advancedBy(-1)
             )
         )
@@ -81,9 +83,8 @@ public class ESR {
     func refNumCheckDigitValid() -> Bool {
         let idx = self.refNum.endIndex.advancedBy(-1)
         let refNum = self.refNum.substringToIndex(idx)
-        let checkDigit = Int(self.refNum.substringFromIndex(idx))!
 
-        return checkDigit == calcControlDigit(refNum)
+        return self.refNumCheckDigit == calcControlDigit(refNum)
     }
 
     func string() -> String {
