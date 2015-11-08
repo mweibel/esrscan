@@ -24,21 +24,24 @@ class ESRTest: XCTestCase {
     func testESRParsing() {
         let code = "042>000006506727328000000001102+ 010322486>"
         let esr = ESR.init(str: code)
-        XCTAssertEqual(2, esr.checkSum)
+        XCTAssertEqual(2, esr.amountCheckDigit)
         XCTAssertEqual(nil, esr.amount)
         XCTAssertEqual("000006506727328000000001102", esr.refNum)
         XCTAssertEqual("010322486", esr.accNum.num)
         XCTAssertEqual(6, esr.userNumber)
-        XCTAssertEqual(true, esr.checkSumValid())
+        XCTAssertEqual(true, esr.amountCheckDigitValid())
+        XCTAssertEqual(true, esr.refNumCheckDigitValid())
+
 
         let code2 = "0100000583903>000000000000030000605614712+ 010089006>"
         let esr2 = ESR.init(str: code2)
-        XCTAssertEqual(3, esr2.checkSum)
+        XCTAssertEqual(3, esr2.amountCheckDigit)
         XCTAssertEqual(583.90, esr2.amount)
         XCTAssertEqual("000000000000030000605614712", esr2.refNum)
         XCTAssertEqual("010089006", esr2.accNum.num)
         XCTAssertEqual(0, esr2.userNumber)
-        XCTAssertEqual(true, esr2.checkSumValid())
+        XCTAssertEqual(true, esr2.amountCheckDigitValid())
+        XCTAssertEqual(true, esr2.refNumCheckDigitValid())
     }
     
 }

@@ -10,7 +10,7 @@ import Foundation
 
 public class ESR {
     var fullStr: String
-    var checkSum: Int
+    var amountCheckDigit: Int
     var amount: Double?
     var userNumber: Int
     var refNum: String
@@ -24,7 +24,7 @@ public class ESR {
         let hasAmount = str.hasPrefix("01")
         let angleRange = newStr.rangeOfString(">")!
         let angleIndex = newStr.startIndex.distanceTo(angleRange.startIndex)
-        self.checkSum = Int(newStr.substringWithRange(
+        self.amountCheckDigit = Int(newStr.substringWithRange(
             Range<String.Index>(
                 start: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1),
                 end: newStr.startIndex.advancedBy(angleIndex)
@@ -66,10 +66,7 @@ public class ESR {
         self.accNum = AccountNumber.init(num: accNum)
     }
 
-    func checkSumValid() -> Bool {
-        let table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5]
-        var carry = 0
-
+    func amountCheckDigitValid() -> Bool {
         let angleRange = self.fullStr.rangeOfString(">")!
         let angleIndex = self.fullStr.startIndex.distanceTo(angleRange.startIndex)
         let str = self.fullStr.substringWithRange(
@@ -78,13 +75,15 @@ public class ESR {
                 end: self.fullStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
             )
         )
+        return self.amountCheckDigit == calcControlDigit(str)
+    }
 
-        for char in str.characters {
-            let num = Int.init(String(char), radix: 10)!
-            carry = table[(carry + num) % 10]
-        }
-        let checkSum = (10 - carry) % 10
-        return self.checkSum == checkSum
+    func refNumCheckDigitValid() -> Bool {
+        let idx = self.refNum.endIndex.advancedBy(-1)
+        let refNum = self.refNum.substringToIndex(idx)
+        let checkDigit = Int(self.refNum.substringFromIndex(idx))!
+
+        return checkDigit == calcControlDigit(refNum)
     }
 
     func string() -> String {
@@ -92,7 +91,18 @@ public class ESR {
         if self.amount != nil {
             str.appendContentsOf("\nAmount: \(self.amount)")
         }
-        str.appendContentsOf("\nValid? \(self.checkSumValid())")
+        str.appendContentsOf("\nAmount Valid? \(self.amountCheckDigitValid())")
+        str.appendContentsOf("\nRefNum Valid? \(self.refNumCheckDigitValid())")
         return str
+    }
+
+    private func calcControlDigit(str: String) -> Int {
+        let table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5]
+        var carry = 0
+        for char in str.characters {
+            let num = Int.init(String(char), radix: 10)!
+            carry = table[(carry + num) % 10]
+        }
+        return (10 - carry) % 10
     }
 }
