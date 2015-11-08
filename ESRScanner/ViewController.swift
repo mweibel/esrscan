@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import AVFoundation
-import TesseractOCR
-import GPUImage
 
-class ViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, G8TesseractDelegate {
+class ViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,19 +17,11 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 
     func performImageRecognition(image: UIImage) {
         print("PROCESSING")
-        let tesseract = G8Tesseract.init(language: "eng")
-        assert(tesseract.engineConfigured)
-        tesseract.delegate = self;
-        tesseract.charWhitelist = "0123456789<>+";
-        tesseract.engineMode = .TesseractOnly
-        tesseract.pageSegmentationMode = .AutoOSD
-        tesseract.image = image
-        tesseract.setVariableValue("0123456789<>+", forKey: "tessedit_char_whitelist")
+        let ocr = OCR.init()
+        ocr.recognise(image)
+        imageView.image = ocr.processedImage()
 
-        tesseract.recognize()
-        imageView.image = tesseract.thresholdedImage
-
-        let text = tesseract.recognizedText
+        let text = ocr.recognisedText()
         print(text)
         let textArr = text.componentsSeparatedByString("\n").filter{ $0.containsString(">") }
         if textArr.count > 0 {
@@ -42,24 +31,6 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         }
 
         removeActivityIndicator()
-    }
-
-    func progressImageRecognitionForTesseract(tesseract : G8Tesseract) {
-        print(tesseract.progress)
-    }
-
-    func shouldCancelImageRecognitionForTesseract(tesseract : G8Tesseract) -> Bool {
-        return false
-    }
-
-    func preprocessedImageForTesseract(tesseract: G8Tesseract!, sourceImage: UIImage!) -> UIImage! {
-        print("preprocessing")
-        let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-        stillFilter.blurRadiusInPixels = 4.0
-
-        let filteredImage = stillFilter.imageByFilteringImage(sourceImage)
-
-        return filteredImage
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
@@ -126,29 +97,6 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     @IBAction func shareTextView(sender: AnyObject) {
         let activtyCtrl = UIActivityViewController.init(activityItems: [self.textView.text], applicationActivities: nil)
         self.presentViewController(activtyCtrl, animated: true, completion: nil)
-    }
-
-    func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
-
-        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
-        var scaleFactor: CGFloat
-
-        if image.size.width > image.size.height {
-            scaleFactor = image.size.height / image.size.width
-            scaledSize.width = maxDimension
-            scaledSize.height = scaledSize.width * scaleFactor
-        } else {
-            scaleFactor = image.size.width / image.size.height
-            scaledSize.height = maxDimension
-            scaledSize.width = scaledSize.height * scaleFactor
-        }
-
-        UIGraphicsBeginImageContext(scaledSize)
-        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return scaledImage
     }
 
     // Activity Indicator methods

@@ -16,6 +16,8 @@
 		4C1CD4921BED2EC900B2CF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */; };
 		4C1CD4951BED2EC900B2CF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */; };
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
+		4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E6FE1BEF537C00F66D9F /* OCR.swift */; };
+		4C63E7011BEF554800F66D9F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E7001BEF554800F66D9F /* Util.swift */; };
 		4C64D1FF1BEE14DE0087F774 /* ESRTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */; };
 		6C8B528B6C643922F0B59533 /* Pods_ESRScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41129A272A4AE57862BCED86 /* Pods_ESRScannerTests.framework */; };
 		AF078F77A71E72987460BA9E /* Pods_ESRScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */; };
@@ -46,6 +48,8 @@
 		4C1CD49B1BED2EC900B2CF00 /* ESRScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESRScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CD4A11BED2EC900B2CF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		4C63E6FE1BEF537C00F66D9F /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
+		4C63E7001BEF554800F66D9F /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESRTest.swift; sourceTree = "<group>"; };
 		7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,8 @@
 				4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */,
 				4C1CD4961BED2EC900B2CF00 /* Info.plist */,
 				4C11FDCD1BED2FE300501D16 /* IMG_0938.JPG */,
+				4C63E6FE1BEF537C00F66D9F /* OCR.swift */,
+				4C63E7001BEF554800F66D9F /* Util.swift */,
 			);
 			path = ESRScanner;
 			sourceTree = "<group>";
@@ -353,9 +359,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1CD48D1BED2EC900B2CF00 /* ViewController.swift in Sources */,
+				4C63E7011BEF554800F66D9F /* Util.swift in Sources */,
 				4C1CD48B1BED2EC900B2CF00 /* AppDelegate.swift in Sources */,
 				4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */,
 				4C11FDCE1BED2FE300501D16 /* AccountNumber.swift in Sources */,
+				4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
