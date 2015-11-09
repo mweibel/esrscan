@@ -1,1 +1,0 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/G8TesseractDelegate.h
