@@ -45,7 +45,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TpR-WY-wwI">
-                                <rect key="frame" x="20" y="20" width="560" height="201"/>
+                                <rect key="frame" x="20" y="20" width="560" height="181"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -55,15 +55,11 @@
                                 </connections>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUR-cs-gvY">
-                                <rect key="frame" x="12" y="37" width="315" height="168"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xva-rh-32K" userLabel="Image View3">
-                                <rect key="frame" x="12" y="381" width="315" height="168"/>
+                                <rect key="frame" x="12" y="209" width="315" height="168"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-5X-AJf" userLabel="Image View2">
-                                <rect key="frame" x="12" y="209" width="315" height="168"/>
+                                <rect key="frame" x="12" y="381" width="315" height="168"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -79,7 +75,6 @@
                     <connections>
                         <outlet property="imageView" destination="pUR-cs-gvY" id="OOk-VU-QwI"/>
                         <outlet property="imageView2" destination="D4g-5X-AJf" id="s3V-46-Q5A"/>
-                        <outlet property="imageView3" destination="Xva-rh-32K" id="eXF-8O-bD6"/>
                         <outlet property="textView" destination="TpR-WY-wwI" id="G1r-Kv-qaO"/>
                     </connections>
                 </viewController>

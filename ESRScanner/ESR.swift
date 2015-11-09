@@ -22,7 +22,6 @@ public class ESR {
         let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
         self.fullStr = newStr
 
-        let hasAmount = str.hasPrefix("01")
         let angleRange = newStr.rangeOfString(">")!
         let angleIndex = newStr.startIndex.distanceTo(angleRange.startIndex)
         self.amountCheckDigit = Int(newStr.substringWithRange(
@@ -31,7 +30,7 @@ public class ESR {
                 end: newStr.startIndex.advancedBy(angleIndex)
             )
         ))!
-        if hasAmount {
+        if Int(angleIndex.value) > 3 {
             let amount = Double(newStr.substringWithRange(
                 Range<String.Index>(
                     start: newStr.startIndex.advancedBy(2),
@@ -43,10 +42,18 @@ public class ESR {
         let afterAngle = Int(angleIndex.value) + 1
 
         let refNumStart = newStr.startIndex.advancedBy(afterAngle)
+        var refNumLength = 27
+
+        let plusRange = newStr.rangeOfString("+")
+        if plusRange != nil {
+            let plusIndex = refNumStart.distanceTo(plusRange!.startIndex)
+            refNumLength = plusIndex
+        }
+
         self.refNum = newStr.substringWithRange(
             Range<String.Index>(
                 start: refNumStart,
-                end: refNumStart.advancedBy(27)
+                end: refNumStart.advancedBy(refNumLength)
             ))
 
         let idx = self.refNum.endIndex.advancedBy(-1)
