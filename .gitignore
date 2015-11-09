@@ -53,7 +53,6 @@
 # In particular, if you're using CocoaPods, you'll want to comment-out this line:
 #*.lock
 
-Pods/
 
 #
 # profile - REMOVED temporarily (on double-checking, I can't find it in OS X docs?)

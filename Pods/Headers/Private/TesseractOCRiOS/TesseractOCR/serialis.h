@@ -1,0 +1,1 @@
+../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/serialis.h
