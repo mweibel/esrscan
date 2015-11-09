@@ -14,7 +14,7 @@ class OCR : NSObject, G8TesseractDelegate {
     var tesseract : G8Tesseract
 
     override init() {
-        self.tesseract = G8Tesseract.init(language: "eng")
+        self.tesseract = G8Tesseract.init(language: "ocrbv2")
         super.init()
 
         assert(self.tesseract.engineConfigured)
@@ -23,14 +23,24 @@ class OCR : NSObject, G8TesseractDelegate {
         // not sure which one is correct to use.. ;)
         self.tesseract.charWhitelist = "0123456789<>+";
         self.tesseract.setVariableValue("0123456789<>+", forKey: "tessedit_char_whitelist")
-        self.tesseract.setVariableValue("true", forKey: "tessedit_write_images")
+        self.tesseract.setVariablesFromDictionary([
+            "tessedit_char_whitelist": "0123456789<>+",
+            "load_system_dawg": "F",
+            "load_freq_dawg": "F",
+            "load_unambig_dawg": "F",
+            "load_punc_dawg": "F",
+            "load_number_dawg": "F",
+            "load_fixed_length_dawgs": "F",
+            "load_bigram_dawg": "F",
+            "wordrec_enable_assoc": "F",
+        ])
 
         self.tesseract.engineMode = .TesseractOnly
         self.tesseract.pageSegmentationMode = .AutoOSD
     }
 
     func recognise(image : UIImage) {
-        self.tesseract.image = blackAndWhite(image)
+        self.tesseract.image = image
         self.tesseract.recognize()
     }
 
@@ -49,9 +59,9 @@ class OCR : NSObject, G8TesseractDelegate {
     func shouldCancelImageRecognitionForTesseract(tesseract : G8Tesseract) -> Bool {
         return false
     }
-
+/*
     func preprocessedImageForTesseract(tesseract: G8Tesseract!, sourceImage: UIImage!) -> UIImage! {
         print("preprocessing")
-        return adaptiveThreshold(grayscale(sourceImage))
-    }
+        return adaptiveThreshold(sourceImage)
+    }*/
 }

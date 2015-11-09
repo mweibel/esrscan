@@ -32,6 +32,7 @@ class ESRTest: XCTestCase {
         XCTAssertEqual(true, esr.amountCheckDigitValid())
         XCTAssertEqual(true, esr.refNumCheckDigitValid())
 
+                     0100000583903>000000000000030000605614712+ 010089006>
         let code2 = "0100000583903>000000000000030000605614712+ 010089006>"
         let esr2 = ESR.init(str: code2)
         XCTAssertEqual(3, esr2.amountCheckDigit)

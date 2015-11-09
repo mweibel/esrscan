@@ -9,33 +9,34 @@
 import UIKit
 import GPUImage
 
-func luminanceThreshold(image : UIImage) -> UIImage {
-    let stillFilter = GPUImageLuminanceThresholdFilter.init()
-    stillFilter.threshold = 0.3
-
-    return stillFilter.imageByFilteringImage(image)
-}
-
 func adaptiveThreshold(image : UIImage) -> UIImage {
     let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-    stillFilter.blurRadiusInPixels = 4.0
+    stillFilter.blurRadiusInPixels = 5.0
 
     return stillFilter.imageByFilteringImage(image)
 }
 
 func blackAndWhite(image: UIImage) -> UIImage {
+    let filterGroup = GPUImageFilterGroup.init()
     let filter = GPUImageSaturationFilter.init()
     filter.saturation = 0
-    var newImage = filter.imageByFilteringImage(image)
+    filterGroup.addFilter(filter)
 
     let filter2 = GPUImageContrastFilter.init()
     filter2.contrast = 4.0
-    newImage = filter2.imageByFilteringImage(newImage)
+    filterGroup.addFilter(filter2)
+
 
 /*    let filter3 = GPUImageExposureFilter.init()
     filter3.exposure = 1.0
     return filter3.imageByFilteringImage(newImage)*/
-    return newImage
+
+    return filterGroup.imageByFilteringImage(image)
+}
+
+func invert(image: UIImage) -> UIImage {
+    let filter = GPUImageColorInvertFilter.init()
+    return filter.imageByFilteringImage(image)
 }
 
 

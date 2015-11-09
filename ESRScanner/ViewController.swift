@@ -20,13 +20,16 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         print("PROCESSING")
         let ocr = OCR.init()
         ocr.recognise(image)
-        imageView.image = ocr.processedImage()
+        imageView.image = invert(ocr.processedImage())
 
-        imageView2.image = adaptiveThreshold(blackAndWhite(image))
+        imageView2.image = adaptiveThreshold(image)
 
         let text = ocr.recognisedText()
         print(text)
-        let textArr = text.componentsSeparatedByString("\n").filter{ $0.containsString(">") }
+        let textArr = text.componentsSeparatedByString("\n").filter{
+            // count checking is already some preprocessing to fix some possibly wrong detections
+            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
+        }
         if textArr.count > 0 {
             let esrCode = ESR.init(str: textArr[0])
             textView.text.appendContentsOf(esrCode.string())
