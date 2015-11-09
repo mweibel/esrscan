@@ -19,10 +19,10 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     func performImageRecognition(image: UIImage) {
         print("PROCESSING")
         let ocr = OCR.init()
-        ocr.recognise(image)
+        ocr.recognise(sharpen(image))
         imageView.image = invert(ocr.processedImage())
 
-        imageView2.image = adaptiveThreshold(image)
+        imageView2.image = adaptiveThreshold(sharpen(image))
 
         let text = ocr.recognisedText()
         print(text)

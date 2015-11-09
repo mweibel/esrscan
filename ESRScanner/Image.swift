@@ -39,6 +39,12 @@ func invert(image: UIImage) -> UIImage {
     return filter.imageByFilteringImage(image)
 }
 
+func sharpen(image: UIImage) -> UIImage {
+    let filter = GPUImageSharpenFilter.init()
+    filter.sharpness = 1.0
+    return filter.imageByFilteringImage(image)
+}
+
 
 func grayscale(image: UIImage) -> UIImage {
     let filter = GPUImageGrayscaleFilter.init()
