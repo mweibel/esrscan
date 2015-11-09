@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -21,14 +23,17 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         ocr.recognise(image)
         imageView.image = ocr.processedImage()
 
+        imageView2.image = grayscale(image)
+        imageView3.image = adaptiveThreshold(image)
+
         let text = ocr.recognisedText()
         print(text)
-        let textArr = text.componentsSeparatedByString("\n").filter{ $0.containsString(">") }
+        /*let textArr = text.componentsSeparatedByString("\n").filter{ $0.containsString(">") }
         if textArr.count > 0 {
             let esrCode = ESR.init(str: textArr[0])
             textView.text.appendContentsOf(esrCode.string())
             textView.text.appendContentsOf("\n\n----\n\n")
-        }
+        }*/
 
         removeActivityIndicator()
     }

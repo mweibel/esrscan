@@ -23,13 +23,14 @@ class OCR : NSObject, G8TesseractDelegate {
         // not sure which one is correct to use.. ;)
         self.tesseract.charWhitelist = "0123456789<>+";
         self.tesseract.setVariableValue("0123456789<>+", forKey: "tessedit_char_whitelist")
+        self.tesseract.setVariableValue("true", forKey: "tessedit_write_images")
 
         self.tesseract.engineMode = .TesseractOnly
         self.tesseract.pageSegmentationMode = .AutoOSD
     }
 
     func recognise(image : UIImage) {
-        self.tesseract.image = image
+        self.tesseract.image = grayscale(image)
         self.tesseract.recognize()
     }
 
@@ -51,11 +52,6 @@ class OCR : NSObject, G8TesseractDelegate {
 
     func preprocessedImageForTesseract(tesseract: G8Tesseract!, sourceImage: UIImage!) -> UIImage! {
         print("preprocessing")
-        let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-        stillFilter.blurRadiusInPixels = 4.0
-
-        let filteredImage = stillFilter.imageByFilteringImage(sourceImage)
-
-        return filteredImage
+        return adaptiveThreshold(sourceImage)
     }
 }
