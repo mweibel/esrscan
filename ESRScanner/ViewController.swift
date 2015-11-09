@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         ocr.recognise(image)
         imageView.image = ocr.processedImage()
 
-        imageView2.image = adaptiveThreshold(grayscale(image))
+        imageView2.image = adaptiveThreshold(blackAndWhite(image))
 
         let text = ocr.recognisedText()
         print(text)

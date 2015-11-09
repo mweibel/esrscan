@@ -30,7 +30,7 @@ class OCR : NSObject, G8TesseractDelegate {
     }
 
     func recognise(image : UIImage) {
-        self.tesseract.image = grayscale(image)
+        self.tesseract.image = blackAndWhite(image)
         self.tesseract.recognize()
     }
 
@@ -52,6 +52,6 @@ class OCR : NSObject, G8TesseractDelegate {
 
     func preprocessedImageForTesseract(tesseract: G8Tesseract!, sourceImage: UIImage!) -> UIImage! {
         print("preprocessing")
-        return adaptiveThreshold(sourceImage)
+        return adaptiveThreshold(grayscale(sourceImage))
     }
 }

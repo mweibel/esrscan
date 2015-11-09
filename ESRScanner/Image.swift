@@ -18,10 +18,26 @@ func luminanceThreshold(image : UIImage) -> UIImage {
 
 func adaptiveThreshold(image : UIImage) -> UIImage {
     let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-    stillFilter.blurRadiusInPixels = 4.0
+    stillFilter.blurRadiusInPixels = 2.0
 
     return stillFilter.imageByFilteringImage(image)
 }
+
+func blackAndWhite(image: UIImage) -> UIImage {
+    let filter = GPUImageSaturationFilter.init()
+    filter.saturation = 0
+    var newImage = filter.imageByFilteringImage(image)
+
+    let filter2 = GPUImageContrastFilter.init()
+    filter2.contrast = 4.0
+    newImage = filter2.imageByFilteringImage(newImage)
+
+/*    let filter3 = GPUImageExposureFilter.init()
+    filter3.exposure = 1.0
+    return filter3.imageByFilteringImage(newImage)*/
+    return newImage
+}
+
 
 func grayscale(image: UIImage) -> UIImage {
     let filter = GPUImageGrayscaleFilter.init()
