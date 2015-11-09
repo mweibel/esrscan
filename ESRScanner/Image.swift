@@ -18,7 +18,7 @@ func luminanceThreshold(image : UIImage) -> UIImage {
 
 func adaptiveThreshold(image : UIImage) -> UIImage {
     let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-    stillFilter.blurRadiusInPixels = 2.0
+    stillFilter.blurRadiusInPixels = 4.0
 
     return stillFilter.imageByFilteringImage(image)
 }
