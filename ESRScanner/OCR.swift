@@ -40,7 +40,7 @@ class OCR : NSObject, G8TesseractDelegate {
     }
 
     func recognise(image : UIImage) {
-        self.tesseract.image = image
+        self.tesseract.image = sharpen(image)
         self.tesseract.recognize()
     }
 
