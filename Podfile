@@ -7,6 +7,7 @@ def shared_pods
 	#pod 'TesseractOCRiOS', '4.0.0'
 	pod 'TesseractOCRiOS', :path => '~/code/receipt-parser/einzahlungsschein/Tesseract-OCR-iOS'
 	pod 'GPUImage', '0.1.7'
+	pod 'OpenCV', '2.4.10'
 end
 
 target 'ESRScanner' do
