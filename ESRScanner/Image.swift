@@ -29,53 +29,163 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     var x1 = 0
     let x2 = width-1
 
-    for var y = y1; y > 0; y-- {
+    print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: 85, y: 387))
+
+    let first = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y2)
+    var greatestDiff = 0
+    for var y = y2; y > 0; y = y-50 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)
-        if colors.isWhite() {
+        let diff = getDifference(colors, comp: first)
+        print("1 -- \(x2):\(y) - \(colors) - \(diff)")
+        if diff > greatestDiff {
+            greatestDiff = diff
+        }
+        if diff > 50 {
+            // some border is needed
             y1 = y
-        } else {
             break
         }
     }
-    for var x = x2; x > 0; x-- {
+
+    print(greatestDiff)
+    greatestDiff = 0
+
+    for var x = x2; x > 0; x = x-50 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x, y: y2)
-        if colors.isWhite() {
+        let diff = getDifference(colors, comp: first)
+        print("2 -- \(x):\(y2) - \(colors) - \(diff)")
+        if diff > greatestDiff {
+            greatestDiff = diff
+        }
+        if diff > 50 {
+            // some border is needed
             x1 = x
-        } else {
             break
         }
     }
-    print(y1, y2, x1, x2)
+    print(greatestDiff)
+    print(x1, y1, x2, y2)
     print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x1, y: y1))
     print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y2))
 
     rawData.destroy()
 
-    return CGRect.init(x: x1, y: x2, width: width, height: height)
+    let rect = CGRectMake(CGFloat(x1), CGFloat(y1), CGFloat(x2 - x1), CGFloat(y2 - y1))
+    return rect
 }
 
-struct Colors{
-    var red : UInt8
-    var green: UInt8
-    var blue: UInt8
-    var alpha: UInt8
+func getDifference(real : Colors, comp : Colors) -> Int {
+    let red = abs(Int(real.red) - Int(comp.red))
+    let green = abs(Int(real.green) - Int(comp.green))
+    let blue = abs(Int(real.blue) - Int(comp.blue))
+    return red + green + blue
+}
 
-    func isWhite() -> Bool {
-        return red > 250 && green > 250 && blue > 250 && alpha > 250
+func getBrightnessDiff(real : Colors, comp : Colors) -> Double {
+    return real.Brightness() - comp.Brightness()
+}
+
+
+struct Colors{
+    var red : UInt16
+    var green: UInt16
+    var blue: UInt16
+
+    func Brightness() -> Double {
+        return Double(self.red + self.green + self.blue) / 3.0
     }
 }
 func getColors(rawData : UnsafeMutablePointer<UInt8>, bytesPerRow : Int, bytesPerPixel : Int, x: Int, y: Int) -> Colors {
     let byteIndex = (bytesPerRow * y) + x * bytesPerPixel;
-    let red = rawData[byteIndex];
-    let green = rawData[byteIndex + 1];
-    let blue = rawData[byteIndex + 2];
-    let alpha = rawData[byteIndex + 3];
-    return Colors(red: red, green: green, blue: blue, alpha: alpha)
+    let red = UInt16(rawData[byteIndex])
+    let green = UInt16(rawData[byteIndex + 1])
+    let blue = UInt16(rawData[byteIndex + 2])
+    return Colors(red: red, green: green, blue: blue)
+}
+func getAverageColorWithinDiameter(rawData : UnsafeMutablePointer<UInt8>, bytesPerRow : Int, bytesPerPixel : Int, x: Int, y: Int, diameter : Int, width: Int, height: Int) -> Colors {
+
+    var startX = x - (diameter / 2)
+    if startX < 0 {
+        startX = 0
+    }
+    var startY = y - (diameter / 2)
+    if startY < 0 {
+        startY = 0
+    }
+    if (startY + diameter > height) || (startX + diameter > width) {
+        let nextX = (startX + diameter > height) ? x - 1 : x
+        let nextY = (startY + diameter > height) ? y - 1 : y
+        return getAverageColorWithinDiameter(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: nextX, y: nextY, diameter: diameter, width: width, height: height)
+    }
+
+    var red = Int(0)
+    var green = Int(0)
+    var blue = Int(0)
+    for var xx = 0; xx < diameter; xx++ {
+        for var yy = 0; yy < diameter; yy++ {
+            let byteIndex = (bytesPerRow * (startY + yy)) + (startX + xx) * bytesPerPixel
+            red += Int(rawData[byteIndex])
+            green += Int(rawData[byteIndex + 1])
+            blue += Int(rawData[byteIndex + 2])
+        }
+    }
+    let count = diameter * diameter
+    return Colors(red: UInt16(red/count), green: UInt16(green/count), blue: UInt16(blue/count))
 }
 
 func crop(image: UIImage, cropRect: CGRect) -> UIImage {
-    let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-    return UIImage.init(CGImage: imageRef!)
+    print("crop:", cropRect.width, cropRect.height, cropRect.minX, cropRect.minY)
+    let filter = GPUImageCropFilter.init(cropRegion: cropRect)
+    return filter.imageByFilteringImage(image)
+}
+
+func edgeDetection(image: UIImage) -> UIImage {
+    let filter = GPUImageToonFilter.init()
+    return filter.imageByFilteringImage(image)
+}
+
+func drawRect(image: UIImage, rect: CGRect) -> UIImage {
+    UIGraphicsBeginImageContext(image.size)
+    image.drawAtPoint(CGPointZero)
+    let ctx = UIGraphicsGetCurrentContext()
+    UIColor.redColor().setStroke()
+
+    CGContextStrokeRect(ctx, rect)
+    let retImage = UIGraphicsGetImageFromCurrentImageContext()
+
+    UIGraphicsEndImageContext()
+
+    return retImage
+}
+
+func colorMask(image: UIImage) -> UIImage {
+    let colorMasking:[CGFloat] = [0.0, 0.0, 0.0, 0.0, 0.0, 4.0]
+    let maskImage = CGImageCreateWithMaskingColors(removeAlphaChannel(image).CGImage, colorMasking)
+    return UIImage.init(CGImage: maskImage!)
+}
+
+func removeAlphaChannel(image: UIImage) -> UIImage {
+    // Load the image and check if it still has an alpha channel
+    let source = image.CGImage
+    if CGImageGetAlphaInfo(source) == CGImageAlphaInfo.None {
+        return image
+    }
+
+    // Remove the alpha channel
+    let width = CGImageGetWidth(source)
+    let height = CGImageGetHeight(source)
+    let colorSpace = CGColorSpaceCreateDeviceRGB()
+    let bytesPerPixel = 4
+    let bytesPerRow = bytesPerPixel * width
+    let bitsPerComponent = 8
+    let rawData = UnsafeMutablePointer<UInt8>.alloc(height * width * 4)
+    rawData.initialize(0)
+
+    let context = CGBitmapContextCreate(rawData, width, height, bitsPerComponent, bytesPerRow, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue | CGBitmapInfo.ByteOrder32Big.rawValue)
+    CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), source)
+    let retImage = CGBitmapContextCreateImage(context)!
+    UIGraphicsEndImageContext()
+    return UIImage.init(CGImage: retImage)
 }
 
 func adaptiveThreshold(image : UIImage) -> UIImage {
@@ -83,6 +193,18 @@ func adaptiveThreshold(image : UIImage) -> UIImage {
     stillFilter.blurRadiusInPixels = 5.0
 
     return stillFilter.imageByFilteringImage(image)
+}
+
+func gamma(image : UIImage) -> UIImage {
+    let filter = GPUImageGammaFilter.init()
+    filter.gamma = 0.1
+    return filter.imageByFilteringImage(image)
+}
+
+func contrast(image : UIImage) -> UIImage {
+    let filter = GPUImageContrastFilter.init()
+    filter.contrast = 4.0
+    return filter.imageByFilteringImage(image)
 }
 
 func blackAndWhite(image: UIImage) -> UIImage {

@@ -1,11 +1,9 @@
 PODS:
   - GPUImage (0.1.7)
-  - OpenCV (2.4.10)
   - TesseractOCRiOS (4.0.0)
 
 DEPENDENCIES:
   - GPUImage (= 0.1.7)
-  - OpenCV (= 2.4.10)
   - TesseractOCRiOS (from `~/code/receipt-parser/einzahlungsschein/Tesseract-OCR-iOS`)
 
 EXTERNAL SOURCES:
@@ -14,7 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  OpenCV: 26e7fa4f6f727a50467c245b2eee1489f478d0f5
   TesseractOCRiOS: 729989db3984bb60ba3addb053569b172d48c409
 
 COCOAPODS: 0.39.0

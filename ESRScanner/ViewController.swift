@@ -18,13 +18,20 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 
     func performImageRecognition(image: UIImage) {
         print("PROCESSING")
+        let rImage = rotate(image)
+        
         let ocr = OCR.init()
-        ocr.recognise(rotate(image))
+        ocr.recognise(rImage)
         imageView.image = invert(ocr.processedImage())
 
-        let rImage = rotate(image)
-        let coords = getWhiteRectangle(rImage)
-        imageView2.image = adaptiveThreshold(sharpen(crop(rImage, cropRect: coords)))
+        detectFeatures(adaptiveThreshold(rImage), typ: CIDetectorTypeRectangle)
+        detectFeatures(rImage, typ: CIDetectorTypeText)
+
+        let coords = getWhiteRectangle(adaptiveThreshold(rImage))
+//        imageView2.image = adaptiveThreshold(sharpen(crop(rImage, cropRect: coords)))
+//        let coords = CGRectMake(CGFloat(85), CGFloat(388), CGFloat(50), CGFloat(50))
+        print(coords)
+        imageView2.image = edgeDetection(rImage)
 
         let text = ocr.recognisedText()
         print(text)
