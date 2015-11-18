@@ -37,10 +37,10 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         print(text)
         let textArr = text.componentsSeparatedByString("\n").filter{
             // count checking is already some preprocessing to fix some possibly wrong detections
-            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
+            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53 && ($0.hasPrefix("01") || $0.hasPrefix("04"))
         }
         if textArr.count > 0 {
-            let esrCode = ESR.init(str: textArr[0])
+            let esrCode = ESR.init(str: textArr[textArr.count-1])
             textView.text.appendContentsOf(esrCode.string())
             textView.text.appendContentsOf("\n\n----\n\n")
         }
