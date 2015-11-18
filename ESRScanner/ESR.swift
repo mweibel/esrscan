@@ -12,7 +12,6 @@ public class ESR {
     var fullStr: String
     var amountCheckDigit: Int
     var amount: Double?
-    var userNumber: Int
     var refNum: String
     var refNumCheckDigit: Int
     var accNum: AccountNumber
@@ -59,13 +58,6 @@ public class ESR {
         let idx = self.refNum.endIndex.advancedBy(-1)
         self.refNumCheckDigit = Int(self.refNum.substringFromIndex(idx))!
 
-        //usernumber is a substring of the ref num
-        self.userNumber = Int(refNum.substringWithRange(
-            Range<String.Index>(
-                start: refNum.startIndex,
-                end: refNum.startIndex.advancedBy(6)
-            )
-        ))!
         let accNum = newStr.substringWithRange(
             Range<String.Index>(
                 start: newStr.endIndex.advancedBy(-10),
