@@ -10,6 +10,22 @@ import UIKit
 import GPUImage
 import Foundation
 
+func ==(lhs: Point, rhs: Point) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
+
+struct Point : Hashable {
+    var x : Int
+    var y : Int
+
+    var hashValue : Int {
+        get {
+            return "\(self.x),\(self.y)".hashValue
+        }
+    }
+
+}
+
 func getWhiteRectangle(image: UIImage) -> CGRect {
     let img = image.CGImage
     let width = CGImageGetWidth(img)
@@ -29,41 +45,64 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     var x1 = 0
     let x2 = width-1
 
-    print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: 85, y: 387))
+//    print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: 85, y: 387))
 
     let first = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y2)
+    let possiblyOrange = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: 0, y: y2)
+    let rootDiff = getDifference(first, comp: possiblyOrange)
+
+    var colorList = [Point : HSVColors]()
+
+    print("rootdiff: \(rootDiff)")
     var greatestDiff = 0
-    for var y = y2; y > 0; y = y-50 {
+    for var y = y2; y > 0; y = y-5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)
-        let diff = getDifference(colors, comp: first)
-        print("1 -- \(x2):\(y) - \(colors) - \(diff)")
+//        print("1 -- pb: \(colors.perceivedBrightness()) b: \(colors.brightness()) -- hsv: \(colors.ToHSV())")
+        let diff = getDifference(colors, comp: possiblyOrange)
+//        print("1 -- \(x2):\(y) - \(colors) - \(diff)")
         if diff > greatestDiff {
             greatestDiff = diff
         }
-        if diff > 50 {
-            // some border is needed
-            y1 = y
-            break
+        let hsv = colors.ToHSV()
+        let point = Point(x: x2, y: y)
+        print("\(point): \(hsv)")
+        print("HSV2: \(colors.ToHSV2())")
+        if hsv.hue >= 0 && hsv.hue <= 35 && hsv.val >= 150 && hsv.sat >= 0.25 {
+            print("IN")
+            if y1 == 0 {
+                y1 = y - 10
+            }
+            //break
+            colorList[point] = hsv
         }
     }
 
     print(greatestDiff)
     greatestDiff = 0
 
-    for var x = x2; x > 0; x = x-50 {
+    for var x = x2; x > 0; x = x-5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x, y: y2)
-        let diff = getDifference(colors, comp: first)
-        print("2 -- \(x):\(y2) - \(colors) - \(diff)")
+//        print("2 -- pb: \(colors.perceivedBrightness()) b: \(colors.brightness()) -- hsv: \(colors.ToHSV())")
+        let diff = getDifference(colors, comp: possiblyOrange)
+//        print("2 -- \(x):\(y2) - \(colors) - \(diff)")
         if diff > greatestDiff {
             greatestDiff = diff
         }
-        if diff > 50 {
-            // some border is needed
-            x1 = x
-            break
+        let hsv = colors.ToHSV()
+        let point = Point(x: x, y: y2)
+        print("\(point): \(hsv)")
+        print("HSV2: \(colors.ToHSV2())")
+        if hsv.hue >= 0 && hsv.hue <= 35 && hsv.val >= 150 && hsv.sat >= 0.25 {
+            print("IN")
+            if x1 == 0 {
+                x1 = x - 10
+            }
+            //break
+            colorList[point] = hsv
         }
     }
-    print(greatestDiff)
+
+    print(colorList)
     print(x1, y1, x2, y2)
     print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x1, y: y1))
     print(getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y2))
@@ -75,14 +114,49 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
 }
 
 func getDifference(real : Colors, comp : Colors) -> Int {
-    let red = abs(Int(real.red) - Int(comp.red))
-    let green = abs(Int(real.green) - Int(comp.green))
-    let blue = abs(Int(real.blue) - Int(comp.blue))
-    return red + green + blue
+    let red = max(real.red, comp.red) - min(real.red, comp.red)
+    let green = max(real.green, comp.green) - min(real.green, comp.green)
+    let blue = max(real.blue, comp.blue) - min(real.blue, comp.blue)
+    return Int(red + green + blue)
+}
+
+func getDistance(real : Colors, comp : Colors) -> Double {
+    let red = pow(Double(real.red) - Double(comp.red), 2)
+    let green = pow(Double(real.green) - Double(comp.green), 2)
+    let blue = pow(Double(real.blue) - Double(comp.blue), 2)
+    return sqrt(red + green + blue)
 }
 
 func getBrightnessDiff(real : Colors, comp : Colors) -> Double {
-    return real.Brightness() - comp.Brightness()
+    return real.brightness() - comp.brightness()
+}
+
+struct HSVColors {
+    var hue: Double
+    var sat: Double
+    var val: Double
+}
+
+func min3(a: UInt16, _ b: UInt16, _ c: UInt16) -> UInt16 {
+    var m = a
+    if m > b {
+        m = b
+    }
+    if m > c {
+        m = c
+    }
+    return m
+}
+
+func max3(a: UInt16, _ b: UInt16, _ c: UInt16) -> UInt16 {
+    var m = a
+    if m < b {
+        m = b
+    }
+    if m < c {
+        m = c
+    }
+    return m
 }
 
 
@@ -91,9 +165,85 @@ struct Colors{
     var green: UInt16
     var blue: UInt16
 
-    func Brightness() -> Double {
+    func brightness() -> Double {
         return Double(self.red + self.green + self.blue) / 3.0
     }
+    func perceivedBrightness() -> Double {
+        let red = 0.299 * Double(self.red)
+        let green = 0.587 * Double(self.green)
+        let blue = 0.114 * Double(self.blue)
+        return red + green + blue
+    }
+    func ToHSV() -> HSVColors {
+        var hsv = HSVColors(hue: 0, sat: 0, val: 0)
+
+        let red = Double(self.red)
+        let green = Double(self.green)
+        let blue = Double(self.blue)
+
+        let rgbMin = min(red, min(green, blue))
+        let rgbMax = max(red, max(green, blue))
+        let diff = rgbMax - rgbMin
+
+        if (rgbMax == rgbMin) {
+            hsv.hue = 0;
+        } else if (rgbMax == red) {
+            hsv.hue = 60.0 * ((green - blue) / diff)
+            hsv.hue = fmod(hsv.hue, 360.0);
+            if hsv.hue < 0 {
+                print("#########: \(green) \(blue) \(diff)")
+            }
+        } else if (rgbMax == green) {
+            hsv.hue = 60.0 * ((blue - red) / diff) + 120.0
+            if hsv.hue < 0 {
+                print("*********: \(blue) \(red) \(diff)")
+            }
+        } else if (rgbMax == blue) {
+            hsv.hue = 60.0 * ((red - green) / diff) + 240.0
+            if hsv.hue < 0 {
+                print("%%%%%%%%%: \(red) \(green) \(diff)")
+            }
+        }
+        hsv.hue = abs(hsv.hue)
+        hsv.val = rgbMax;
+        if (rgbMax == 0) {
+            hsv.sat = 0;
+        } else {
+            hsv.sat = 1.0 - (rgbMin / rgbMax);
+        }
+        return hsv
+    }
+
+
+    func ToHSV2() -> HSVColors {
+        var hsv = HSVColors(hue: 0, sat: 0, val: 0)
+        let rd: Double = Double(self.red)
+        let gd: Double = Double(self.green)
+        let bd: Double = Double(self.blue)
+
+        let maxV: Double = max(rd, max(gd, bd))
+        let minV: Double = min(rd, min(gd, bd))
+        let diff: Double = maxV - minV
+
+        hsv.val = maxV
+        hsv.sat = maxV == 0 ? 0 : diff / minV;
+
+        if (maxV == minV) {
+            hsv.hue = 0
+        } else {
+            if (maxV == rd) {
+                hsv.hue = (gd - bd) / diff + (gd < bd ? 6 : 0)
+            } else if (maxV == gd) {
+                hsv.hue = (bd - rd) / diff + 2
+            } else if (maxV == bd) {
+                hsv.hue = (rd - gd) / diff + 4
+            }
+
+            hsv.hue /= 6;
+        }
+        return hsv
+    }
+
 }
 func getColors(rawData : UnsafeMutablePointer<UInt8>, bytesPerRow : Int, bytesPerPixel : Int, x: Int, y: Int) -> Colors {
     let byteIndex = (bytesPerRow * y) + x * bytesPerPixel;
@@ -140,8 +290,26 @@ func crop(image: UIImage, cropRect: CGRect) -> UIImage {
 }
 
 func edgeDetection(image: UIImage) -> UIImage {
-    let filter = GPUImageToonFilter.init()
+    let filter = GPUImageSobelEdgeDetectionFilter.init()
     return filter.imageByFilteringImage(image)
+}
+
+func histogram(image: UIImage) -> UIImage {
+    let filter = GPUImageHistogramFilter.init(histogramType: kGPUImageHistogramRGB)
+
+    let gammaFilter = GPUImageGammaFilter.init()
+    gammaFilter.addTarget(filter)
+
+    let generator = GPUImageHistogramGenerator.init()
+    generator.forceProcessingAtSize(CGSizeMake(256.0, 330.0))
+    filter.addTarget(generator)
+
+    let blendFilter = GPUImageAlphaBlendFilter.init()
+    blendFilter.mix = 0.75
+    blendFilter.forceProcessingAtSize(CGSizeMake(256.0, 330.0))
+    generator.addTarget(blendFilter)
+
+    return generator.imageByFilteringImage(image)
 }
 
 func drawRect(image: UIImage, rect: CGRect) -> UIImage {
@@ -189,10 +357,29 @@ func removeAlphaChannel(image: UIImage) -> UIImage {
 }
 
 func adaptiveThreshold(image : UIImage) -> UIImage {
-    let stillFilter = GPUImageAdaptiveThresholdFilter.init()
-    stillFilter.blurRadiusInPixels = 5.0
+    let filter = GPUImageAdaptiveThresholdFilter.init()
+    filter.blurRadiusInPixels = 5.0
 
-    return stillFilter.imageByFilteringImage(image)
+    return filter.imageByFilteringImage(image)
+}
+
+func falseColor(image : UIImage) -> UIImage {
+    let filter = GPUImageFalseColorFilter.init()
+    return filter.imageByFilteringImage(image)
+}
+
+func highlightShadow(image : UIImage) -> UIImage {
+    let filter = GPUImageHighlightShadowFilter.init()
+    filter.highlights = 0.0
+    filter.shadows = 1.0
+    return filter.imageByFilteringImage(image)
+}
+
+
+func luminanceThreshold(image : UIImage) -> UIImage {
+    let filter = GPUImageLuminanceThresholdFilter.init()
+    filter.threshold = 0.1
+    return filter.imageByFilteringImage(image)
 }
 
 func gamma(image : UIImage) -> UIImage {
@@ -204,6 +391,12 @@ func gamma(image : UIImage) -> UIImage {
 func contrast(image : UIImage) -> UIImage {
     let filter = GPUImageContrastFilter.init()
     filter.contrast = 4.0
+    return filter.imageByFilteringImage(image)
+}
+
+func saturationZero(image: UIImage) -> UIImage {
+    let filter = GPUImageSaturationFilter.init()
+    filter.saturation = 0.0
     return filter.imageByFilteringImage(image)
 }
 

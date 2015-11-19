@@ -17,21 +17,23 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     var activityIndicator: UIActivityIndicatorView!
 
     func performImageRecognition(image: UIImage) {
-        print("PROCESSING")
+        print("PROCESSING \(image.size)")
         let rImage = rotate(image)
         
         let ocr = OCR.init()
         ocr.recognise(rImage)
         imageView.image = invert(ocr.processedImage())
 
-        detectFeatures(adaptiveThreshold(rImage), typ: CIDetectorTypeRectangle)
+        detectFeatures(perspectiveCorrection(rImage), typ: CIDetectorTypeRectangle)
         detectFeatures(rImage, typ: CIDetectorTypeText)
 
-        let coords = getWhiteRectangle(adaptiveThreshold(rImage))
+        let coords = getWhiteRectangle(rImage)
 //        imageView2.image = adaptiveThreshold(sharpen(crop(rImage, cropRect: coords)))
 //        let coords = CGRectMake(CGFloat(85), CGFloat(388), CGFloat(50), CGFloat(50))
         print(coords)
-        imageView2.image = edgeDetection(rImage)
+//        imageView2.image = edgeDetection(rImage)
+//        imageView2.image = histogram(rImage)
+        imageView2.image = drawRect(rImage, rect: coords)
 
         let text = ocr.recognisedText()
         print(text)
