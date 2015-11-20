@@ -17,29 +17,22 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     var activityIndicator: UIActivityIndicatorView!
 
     func performImageRecognition(image: UIImage) {
-        print("PROCESSING \(image.size)")
         let rImage = rotate(image)
+        let coords = getWhiteRectangle(rImage)
+        var croppedImage = rImage
+        if coords.origin.x >= 0 || coords.origin.y >= 0 {
+           croppedImage = crop(rImage, cropRect: coords)
+        }
+        imageView2.image = preprocessImage(croppedImage)
         
         let ocr = OCR.init()
-        ocr.recognise(rImage)
+        ocr.recognise(croppedImage)
         imageView.image = invert(ocr.processedImage())
 
-        detectFeatures(perspectiveCorrection(rImage), typ: CIDetectorTypeRectangle)
-        detectFeatures(rImage, typ: CIDetectorTypeText)
-
-        let coords = getWhiteRectangle(rImage)
-//        imageView2.image = adaptiveThreshold(sharpen(crop(rImage, cropRect: coords)))
-//        let coords = CGRectMake(CGFloat(85), CGFloat(388), CGFloat(50), CGFloat(50))
-        print(coords)
-//        imageView2.image = edgeDetection(rImage)
-//        imageView2.image = histogram(rImage)
-        imageView2.image = drawRect(rImage, rect: coords)
-
         let text = ocr.recognisedText()
-        print(text)
         let textArr = text.componentsSeparatedByString("\n").filter{
-            // count checking is already some preprocessing to fix some possibly wrong detections
-            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53 && ($0.hasPrefix("01") || $0.hasPrefix("04"))
+            // make sure only valid strings in the array go in.
+            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
         }
         if textArr.count > 0 {
             let esrCode = ESR.init(str: textArr[textArr.count-1])
@@ -135,6 +128,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 extension ViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+            // TODO: This was probably added for testing, not sure if it's still needed.
             let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
             addActivityIndicator()
 

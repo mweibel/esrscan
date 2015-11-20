@@ -28,7 +28,6 @@ class ESRTest: XCTestCase {
         XCTAssertEqual(nil, esr.amount)
         XCTAssertEqual("000006506727328000000001102", esr.refNum)
         XCTAssertEqual("010322486", esr.accNum.num)
-        XCTAssertEqual(6, esr.userNumber)
         XCTAssertEqual(true, esr.amountCheckDigitValid())
         XCTAssertEqual(true, esr.refNumCheckDigitValid())
 
@@ -38,7 +37,6 @@ class ESRTest: XCTestCase {
         XCTAssertEqual(583.90, esr2.amount)
         XCTAssertEqual("000000000000030000605614712", esr2.refNum)
         XCTAssertEqual("010089006", esr2.accNum.num)
-        XCTAssertEqual(0, esr2.userNumber)
         XCTAssertEqual(true, esr2.amountCheckDigitValid())
         XCTAssertEqual(true, esr2.refNumCheckDigitValid())
     }
@@ -50,7 +48,6 @@ class ESRTest: XCTestCase {
         XCTAssertEqual(nil, esr.amount)
         XCTAssertEqual("000006506727328000000001102", esr.refNum)
         XCTAssertEqual("010322486", esr.accNum.num)
-        XCTAssertEqual(6, esr.userNumber)
         XCTAssertEqual(true, esr.amountCheckDigitValid())
         XCTAssertEqual(true, esr.refNumCheckDigitValid())
 
@@ -60,7 +57,6 @@ class ESRTest: XCTestCase {
         XCTAssertEqual(583.90, esr2.amount)
         XCTAssertEqual("000000000000030000605614712", esr2.refNum)
         XCTAssertEqual("010089006", esr2.accNum.num)
-        XCTAssertEqual(0, esr2.userNumber)
         XCTAssertEqual(true, esr2.amountCheckDigitValid())
         XCTAssertEqual(true, esr2.refNumCheckDigitValid())
     }

@@ -17,7 +17,6 @@ public class ESR {
     var accNum: AccountNumber
 
     init(str: String) {
-        print("ESR.init:str: " + str)
         let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
         self.fullStr = newStr
 

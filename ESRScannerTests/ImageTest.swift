@@ -25,7 +25,9 @@ class ImageTest: XCTestCase {
         let img = UIImage.init(named: "IMG_1009.JPG")!
         let rect = getWhiteRectangle(img)
 
-        print(rect)
-        XCTAssertEqual(true, true)
+        XCTAssertEqual(29.0, rect.origin.x)
+        XCTAssertEqual(149.0, rect.origin.y)
+        XCTAssertEqual(610.0, rect.width)
+        XCTAssertEqual(330.0, rect.height)
     }
 }
