@@ -24,6 +24,7 @@
 		4C72435C1BF3269E006303F2 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72435B1BF3269E006303F2 /* Discover.swift */; };
 		4C7C48601BF7ACB700FD6BC5 /* ImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */; };
 		4C7C48611BF7AE0C00FD6BC5 /* IMG_0938.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4C11FDCD1BED2FE300501D16 /* IMG_0938.JPG */; };
+		4C7E605B1BFF9ABF00A9D9F3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E605A1BFF9ABF00A9D9F3 /* Connection.swift */; };
 		4C7FDD8B1BEFB47800FFAD62 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FDD8A1BEFB47800FFAD62 /* Image.swift */; };
 		6C8B528B6C643922F0B59533 /* Pods_ESRScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41129A272A4AE57862BCED86 /* Pods_ESRScannerTests.framework */; };
 		AF078F77A71E72987460BA9E /* Pods_ESRScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */; };
@@ -60,6 +61,7 @@
 		4C7078A01BF2A3260086A6BD /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
 		4C72435B1BF3269E006303F2 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
+		4C7E605A1BFF9ABF00A9D9F3 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		4C7FDD8A1BEFB47800FFAD62 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				4C72435B1BF3269E006303F2 /* Discover.swift */,
+				4C7E605A1BFF9ABF00A9D9F3 /* Connection.swift */,
 			);
 			name = discovery;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C7FDD8B1BEFB47800FFAD62 /* Image.swift in Sources */,
+				4C7E605B1BFF9ABF00A9D9F3 /* Connection.swift in Sources */,
 				4C7078A11BF2A3260086A6BD /* ImageRotation.swift in Sources */,
 				4C72435C1BF3269E006303F2 /* Discover.swift in Sources */,
 				4C1CD48D1BED2EC900B2CF00 /* ViewController.swift in Sources */,

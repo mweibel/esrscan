@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Discover : NSObject, NSNetServiceBrowserDelegate {
+class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
     let afpType : String
     var afpBrowser : NSNetServiceBrowser
-    var serviceList : [NSNetService]
+    var connection : Connection?
+    var netService: NSNetService?
 
     override init() {
-        self.afpType = "_esr._tcp."
+        self.afpType = "_esrhttp._tcp."
         self.afpBrowser = NSNetServiceBrowser()
         self.afpBrowser.includesPeerToPeer = true
-        self.serviceList = [NSNetService]()
 
         super.init()
         
@@ -25,10 +25,14 @@ class Discover : NSObject, NSNetServiceBrowserDelegate {
     }
 
     func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser, didFindService aNetService: NSNetService, moreComing: Bool) {
-        serviceList.append(aNetService)
-        print("Found: \(aNetService)")
+        print("Found: \(aNetService.name) \(aNetService.hostName) \(aNetService.port) \(aNetService.addresses) \(aNetService.domain)")
         if !moreComing {
             print("no more coming")
+            self.connection = Connection.init(netService: aNetService)
+            self.netService = aNetService
+            aNetService.delegate = self.connection
+            aNetService.startMonitoring()
+            aNetService.resolveWithTimeout(NSTimeInterval.init(100))
         }
     }
 

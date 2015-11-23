@@ -1,8 +1,10 @@
 PODS:
+  - Alamofire (3.1.2)
   - GPUImage (0.1.7)
   - TesseractOCRiOS (4.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.0)
   - GPUImage (= 0.1.7)
   - TesseractOCRiOS (from `~/code/receipt-parser/einzahlungsschein/Tesseract-OCR-iOS`)
 
@@ -11,6 +13,7 @@ EXTERNAL SOURCES:
     :path: ~/code/receipt-parser/einzahlungsschein/Tesseract-OCR-iOS
 
 SPEC CHECKSUMS:
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   TesseractOCRiOS: 729989db3984bb60ba3addb053569b172d48c409
 
