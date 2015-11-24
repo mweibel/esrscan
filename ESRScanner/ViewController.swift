@@ -15,18 +15,21 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     @IBOutlet weak var imageView2: UIImageView!
 
     var activityIndicator: UIActivityIndicatorView!
+    var scans = Scans()
+    var appDelegate : AppDelegate?
 
-    func performImageRecognition(image: UIImage) {
-        let rImage = rotate(image)
-        let coords = getWhiteRectangle(rImage)
-        var croppedImage = rImage
-        if coords.origin.x >= 0 || coords.origin.y >= 0 {
-           croppedImage = crop(rImage, cropRect: coords)
-        }
-        imageView2.image = preprocessImage(croppedImage)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+
+    func performImageRecognition(rawImage: UIImage) {
+        let image = preprocessImage(rawImage)
+        imageView2.image = adaptiveThreshold(image)
         
         let ocr = OCR.init()
-        ocr.recognise(croppedImage)
+        ocr.recognise(image)
         imageView.image = invert(ocr.processedImage())
 
         let text = ocr.recognisedText()
@@ -36,8 +39,9 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         }
         if textArr.count > 0 {
             let esrCode = ESR.init(str: textArr[textArr.count-1])
-            textView.text.appendContentsOf(esrCode.string())
-            textView.text.appendContentsOf("\n\n----\n\n")
+            self.scans.addScan(esrCode)
+
+            self.appDelegate?.disco.connection?.sendRequest(esrCode.dictionary())
         }
 
         removeActivityIndicator()

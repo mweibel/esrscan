@@ -12,7 +12,7 @@ public class ESR {
     var fullStr: String
     var amountCheckDigit: Int
     var amount: Double?
-    var refNum: String
+    var refNum: ReferenceNumber
     var refNumCheckDigit: Int
     var accNum: AccountNumber
 
@@ -48,14 +48,14 @@ public class ESR {
             refNumLength = plusIndex
         }
 
-        self.refNum = newStr.substringWithRange(
+        self.refNum = ReferenceNumber.init(num: newStr.substringWithRange(
             Range<String.Index>(
                 start: refNumStart,
                 end: refNumStart.advancedBy(refNumLength)
-            ))
+            )))
 
-        let idx = self.refNum.endIndex.advancedBy(-1)
-        self.refNumCheckDigit = Int(self.refNum.substringFromIndex(idx))!
+        let idx = self.refNum.num.endIndex.advancedBy(-1)
+        self.refNumCheckDigit = Int(self.refNum.num.substringFromIndex(idx))!
 
         let accNum = newStr.substringWithRange(
             Range<String.Index>(
@@ -79,20 +79,29 @@ public class ESR {
     }
 
     func refNumCheckDigitValid() -> Bool {
-        let idx = self.refNum.endIndex.advancedBy(-1)
-        let refNum = self.refNum.substringToIndex(idx)
+        let idx = self.refNum.num.endIndex.advancedBy(-1)
+        let refNum = self.refNum.num.substringToIndex(idx)
 
         return self.refNumCheckDigit == calcControlDigit(refNum)
     }
 
     func string() -> String {
-        var str = "RefNum: \(self.refNum)\nAccNum: \(self.accNum.string())"
+        var str = "RefNum: \(self.refNum.string())\nAccNum: \(self.accNum.string())"
         if self.amount != nil {
             str.appendContentsOf("\nAmount: \(self.amount)")
         }
         str.appendContentsOf("\nAmount Valid? \(self.amountCheckDigitValid())")
         str.appendContentsOf("\nRefNum Valid? \(self.refNumCheckDigitValid())")
         return str
+    }
+
+    func dictionary() -> [String : AnyObject] {
+        var dict = [String : AnyObject]()
+        dict["refNum"] = self.refNum.num
+        dict["amount"] = self.amount
+        dict["accNum"] = self.accNum.num
+
+        return dict
     }
 
     private func calcControlDigit(str: String) -> Int {

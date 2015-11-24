@@ -8,7 +8,6 @@
 
 import UIKit
 import GPUImage
-import Foundation
 
 func getWhiteRectangle(image: UIImage) -> CGRect {
     let img = image.CGImage
@@ -39,9 +38,7 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     for var y = startY; y > 0; y = y - 5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)
         let hsv = colors.ToHSV()
-        print("\(x2, y): \(hsv)")
         if hsv.isOrange() {
-            print("IN")
             y1 = y - 10
             break
         }
@@ -50,9 +47,7 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     for var x = startX; x > 0; x = x - 5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x, y: y2)
         let hsv = colors.ToHSV()
-        print("\(x, y2): \(hsv)")
         if hsv.isOrange() {
-            print("IN")
             x1 = x - 10
             break
         }
@@ -130,10 +125,19 @@ func invert(image: UIImage) -> UIImage {
     return filter.imageByFilteringImage(image)
 }
 
-func preprocessImage(image: UIImage) -> UIImage {
+func adaptiveThreshold(image: UIImage) -> UIImage {
     let threshold = GPUImageAdaptiveThresholdFilter.init()
     threshold.blurRadiusInPixels = 4.0
     return threshold.imageByFilteringImage(image)
+}
+
+func preprocessImage(image: UIImage) -> UIImage {
+    let rImage = rotate(image)
+    let coords = getWhiteRectangle(rImage)
+    if coords.origin.x >= 0 || coords.origin.y >= 0 {
+        return crop(rImage, cropRect: coords)
+    }
+    return rImage
 }
 
 func rotate(src : UIImage) -> UIImage {

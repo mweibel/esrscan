@@ -11,15 +11,25 @@ import Alamofire
 
 class Connection : NSObject, NSNetServiceDelegate {
     var netService : NSNetService
+    var baseUri : String?
 
     init(netService : NSNetService) {
         self.netService = netService
         super.init()
     }
-    
+
+    func sendRequest(parameters: [String : AnyObject]) {
+        print(parameters)
+        let uri = self.baseUri! + "/scan"
+        Alamofire.request(.POST, uri, parameters: parameters, encoding: .JSON).responseData { response in
+            print(response.request)
+            print(response.response)
+            print(response.result)
+        }
+    }
+
     func netServiceDidResolveAddress(sender: NSNetService) {
         self.netService = sender
-        print("foo: \(sender.name) \(sender.addresses)")
         var fqdn = sender.hostName!.substringToIndex(sender.hostName!.endIndex.advancedBy(-1))
 
         // most likely the server is running on the local machine in this case. 
@@ -29,12 +39,7 @@ class Connection : NSObject, NSNetServiceDelegate {
             fqdn = "localhost"
         }
 
-        print("URL: http://\(fqdn):\(sender.port)")
-        Alamofire.request(.GET, "http://\(fqdn):\(sender.port)").responseData { response in
-            print(response.request)
-            print(response.response)
-            print(response.result)
-        }
+        self.baseUri = "http://\(fqdn):\(sender.port)"
     }
 
     func netService(sender: NSNetService, didNotResolve errorDict: [String : NSNumber]) {

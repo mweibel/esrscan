@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 extension UIImage {
     public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {

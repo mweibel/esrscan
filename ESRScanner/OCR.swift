@@ -61,6 +61,6 @@ class OCR : NSObject, G8TesseractDelegate {
     }
 
     func preprocessedImageForTesseract(tesseract: G8Tesseract!, sourceImage: UIImage!) -> UIImage! {
-        return preprocessImage(sourceImage)
+        return adaptiveThreshold(sourceImage)
     }
 }
