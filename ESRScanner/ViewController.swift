@@ -33,16 +33,21 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         imageView.image = invert(ocr.processedImage())
 
         let text = ocr.recognisedText()
-        print(text)
         let textArr = text.componentsSeparatedByString("\n").filter{
             // make sure only valid strings in the array go in.
             $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
         }
         if textArr.count > 0 {
-            let esrCode = ESR.init(str: textArr[textArr.count-1])
-            self.scans.addScan(esrCode)
+            do {
+                let esrCode = try ESR.parseText(textArr[textArr.count-1])
+                self.scans.addScan(esrCode)
 
-            self.appDelegate?.disco.connection?.sendRequest(esrCode.dictionary())
+                self.appDelegate?.disco.connection?.sendRequest(esrCode.dictionary())
+            } catch ESRError.AngleNotFound {
+                print("AngleNotFound")
+            } catch {
+                print("some error thrown")
+            }
         }
 
         removeActivityIndicator()

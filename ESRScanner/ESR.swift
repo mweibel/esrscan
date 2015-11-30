@@ -8,36 +8,54 @@
 
 import Foundation
 
+enum ESRError : ErrorType {
+    case AngleNotFound
+}
+
 public class ESR {
     var fullStr: String
-    var amountCheckDigit: Int
+    var amountCheckDigit: Int?
     var amount: Double?
     var refNum: ReferenceNumber
     var refNumCheckDigit: Int
     var accNum: AccountNumber
 
-    init(str: String) {
-        let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
-        self.fullStr = newStr
+    init(fullStr : String, amountCheckDigit : Int?, amount : Double?, refNum : ReferenceNumber, refNumCheckDigit : Int, accNum : AccountNumber) {
+        self.fullStr = fullStr
+        self.amountCheckDigit = amountCheckDigit
+        self.amount = amount
+        self.refNum = refNum
+        self.refNumCheckDigit = refNumCheckDigit
+        self.accNum = accNum
+    }
 
-        let angleRange = newStr.rangeOfString(">")!
-        let angleIndex = newStr.startIndex.distanceTo(angleRange.startIndex)
-        self.amountCheckDigit = Int(newStr.substringWithRange(
+    static func parseText(str : String) throws -> ESR {
+        let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
+
+        let angleRange = newStr.rangeOfString(">")
+        if angleRange == nil {
+            throw ESRError.AngleNotFound
+        }
+        let angleIndex = newStr.startIndex.distanceTo(angleRange!.startIndex)
+        let afterAngle = Int(angleIndex.value) + 1
+
+        let amountCheckDigit = Int(newStr.substringWithRange(
             Range<String.Index>(
                 start: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1),
                 end: newStr.startIndex.advancedBy(angleIndex)
             )
-        ))!
+        ))
+
+        var amount : Double?
         if Int(angleIndex.value) > 3 {
-            let amount = Double(newStr.substringWithRange(
+            amount = Double(newStr.substringWithRange(
                 Range<String.Index>(
                     start: newStr.startIndex.advancedBy(2),
                     end: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
                 )
-                ))!
-            self.amount = amount / 100.0
+            ))
+            amount = amount! / 100.0
         }
-        let afterAngle = Int(angleIndex.value) + 1
 
         let refNumStart = newStr.startIndex.advancedBy(afterAngle)
         var refNumLength = 27
@@ -48,14 +66,14 @@ public class ESR {
             refNumLength = plusIndex
         }
 
-        self.refNum = ReferenceNumber.init(num: newStr.substringWithRange(
+        let refNum = ReferenceNumber.init(num: newStr.substringWithRange(
             Range<String.Index>(
                 start: refNumStart,
                 end: refNumStart.advancedBy(refNumLength)
-            )))
+        )))
 
-        let idx = self.refNum.num.endIndex.advancedBy(-1)
-        self.refNumCheckDigit = Int(self.refNum.num.substringFromIndex(idx))!
+        let idx = refNum.num.endIndex.advancedBy(-1)
+        let refNumCheckDigit = Int(refNum.num.substringFromIndex(idx))!
 
         let accNum = newStr.substringWithRange(
             Range<String.Index>(
@@ -63,7 +81,16 @@ public class ESR {
                 end: newStr.endIndex.advancedBy(-1)
             )
         )
-        self.accNum = AccountNumber.init(num: accNum)
+        let accountNumber = AccountNumber.init(num: accNum)
+
+        return ESR.init(
+            fullStr: newStr,
+            amountCheckDigit: amountCheckDigit,
+            amount: amount,
+            refNum: refNum,
+            refNumCheckDigit: refNumCheckDigit,
+            accNum: accountNumber
+        )
     }
 
     func amountCheckDigitValid() -> Bool {
