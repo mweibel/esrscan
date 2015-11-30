@@ -97,9 +97,12 @@ public class ESR {
 
     func dictionary() -> [String : AnyObject] {
         var dict = [String : AnyObject]()
-        dict["refNum"] = self.refNum.num
+        dict["referenceNumber"] = self.refNum.num
         dict["amount"] = self.amount
-        dict["accNum"] = self.accNum.num
+        dict["accountNumber"] = self.accNum.num
+
+        dict["amountCorrect"] = self.amountCheckDigitValid()
+        dict["referenceNumberCorrect"] = self.refNumCheckDigitValid()
 
         return dict
     }

@@ -25,9 +25,7 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
     }
 
     func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser, didFindService aNetService: NSNetService, moreComing: Bool) {
-        print("Found: \(aNetService.name) \(aNetService.hostName) \(aNetService.port) \(aNetService.addresses) \(aNetService.domain)")
         if !moreComing {
-            print("no more coming")
             self.connection = Connection.init(netService: aNetService)
             self.netService = aNetService
             aNetService.delegate = self.connection
@@ -36,36 +34,11 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
         }
     }
 
-    func netServiceBrowser(browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
-        print("Found domain")
-    }
-
-    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool) {
-        print("removed service")
-    }
-
-    func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
-        print("did not search")
-    }
-
-    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool) {
-        print("did remove domain")
-    }
-
-    func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser) {
-        print("stop search")
-    }
-
-    func netServiceBrowserWillSearch(browser: NSNetServiceBrowser) {
-        print("will search")
-    }
-
     func startSearch() {
         afpBrowser.searchForServicesOfType(afpType, inDomain: "local.")
     }
 
     func stop() {
-        print("STOPPING SCAN")
         afpBrowser.stop()
     }
 }

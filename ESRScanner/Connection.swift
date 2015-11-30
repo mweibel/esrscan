@@ -41,36 +41,4 @@ class Connection : NSObject, NSNetServiceDelegate {
 
         self.baseUri = "http://\(fqdn):\(sender.port)"
     }
-
-    func netService(sender: NSNetService, didNotResolve errorDict: [String : NSNumber]) {
-        print("DID NOT RESOLVE \(sender) \(errorDict)")
-    }
-
-    func netService(sender: NSNetService, didAcceptConnectionWithInputStream inputStream: NSInputStream, outputStream: NSOutputStream) {
-        print("YAY CONNECTED")
-    }
-
-    func netServiceWillResolve(sender: NSNetService) {
-        print("will resolve")
-    }
-
-    func netService(sender: NSNetService, didNotPublish errorDict: [String : NSNumber]) {
-        print("did not publish")
-    }
-
-    func netService(sender: NSNetService, didUpdateTXTRecordData data: NSData) {
-        print("did update txt record data")
-    }
-
-    func netServiceDidPublish(sender: NSNetService) {
-        print("did publish")
-    }
-
-    func netServiceDidStop(sender: NSNetService) {
-        print("did stop")
-    }
-
-    func netServiceWillPublish(sender: NSNetService) {
-        print("will publish")
-    }
 }

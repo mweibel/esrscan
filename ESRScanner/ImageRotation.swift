@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIImage {
+    // copied from some SO post
     public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
         let degreesToRadians: (CGFloat) -> CGFloat = {
             return $0 / 180.0 * CGFloat(M_PI)
@@ -27,7 +28,7 @@ extension UIImage {
         // Move the origin to the middle of the image so we will rotate and scale around the center.
         CGContextTranslateCTM(bitmap, rotatedSize.width / 2.0, rotatedSize.height / 2.0);
 
-        //   // Rotate the image context
+        // Rotate the image context
         CGContextRotateCTM(bitmap, degreesToRadians(degrees));
 
         // Now, draw the rotated/scaled image into the context

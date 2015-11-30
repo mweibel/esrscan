@@ -34,7 +34,6 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     let startY = y2 - (width / 2)
     let startX = x2 - (height / 6)
 
-    print("startY \(startY)")
     for var y = startY; y > 0; y = y - 5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)
         let hsv = colors.ToHSV()
@@ -149,7 +148,6 @@ func rotate(src : UIImage) -> UIImage {
 }
 
 func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
-
     var scaledSize = CGSize(width: maxDimension, height: maxDimension)
     var scaleFactor: CGFloat
 

@@ -52,10 +52,6 @@ class OCR : NSObject, G8TesseractDelegate {
         return self.tesseract.thresholdedImage
     }
 
-    func progressImageRecognitionForTesseract(tesseract : G8Tesseract) {
-        print(tesseract.progress)
-    }
-
     func shouldCancelImageRecognitionForTesseract(tesseract : G8Tesseract) -> Bool {
         return false
     }

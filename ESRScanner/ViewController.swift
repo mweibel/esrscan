@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
     }
 
     func performImageRecognition(rawImage: UIImage) {
@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         imageView.image = invert(ocr.processedImage())
 
         let text = ocr.recognisedText()
+        print(text)
         let textArr = text.componentsSeparatedByString("\n").filter{
             // make sure only valid strings in the array go in.
             $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
