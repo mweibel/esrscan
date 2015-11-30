@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView2: UIImageView!
+class ViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet var tableView: UITableView!
+    
+    let textCellIdentifier = "TextCell"
 
     var activityIndicator: UIActivityIndicatorView!
     var scans = Scans()
@@ -22,15 +22,17 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         super.viewDidLoad()
 
         self.appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        self.topToolbar.clipsToBounds = true
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 
     func performImageRecognition(rawImage: UIImage) {
         let image = preprocessImage(rawImage)
-        imageView2.image = adaptiveThreshold(image)
         
         let ocr = OCR.init()
         ocr.recognise(image)
-        imageView.image = invert(ocr.processedImage())
 
         let text = ocr.recognisedText()
         let textArr = text.componentsSeparatedByString("\n").filter{
@@ -41,6 +43,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
             do {
                 let esrCode = try ESR.parseText(textArr[textArr.count-1])
                 self.scans.addScan(esrCode)
+                self.tableView.reloadData()
 
                 self.appDelegate?.disco.connection?.sendRequest(esrCode.dictionary())
             } catch ESRError.AngleNotFound {
@@ -51,6 +54,28 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         }
 
         removeActivityIndicator()
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let c = scans.count()
+        print(c)
+        return c
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! TableCell
+
+        let row = indexPath.row
+        cell.textView?.text = scans[row].string()
+
+        return cell
+    }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        print("foobAR")
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
@@ -101,7 +126,8 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
             style: .Default,
             handler: {
                 (action: UIAlertAction!) in
-                    self.textView.text = ""
+                    self.scans.clear()
+                    self.tableView.reloadData()
             }
         ))
 
@@ -115,7 +141,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     }
 
     @IBAction func shareTextView(sender: AnyObject) {
-        let activtyCtrl = UIActivityViewController.init(activityItems: [self.textView.text], applicationActivities: nil)
+        let activtyCtrl = UIActivityViewController.init(activityItems: [self.scans.string()], applicationActivities: nil)
         self.presentViewController(activtyCtrl, animated: true, completion: nil)
     }
 

@@ -9,9 +9,32 @@
 import Foundation
 
 class Scans {
-    var scans = [ESR]()
+    var scans : [ESR] = []
 
     func addScan(esr : ESR) {
-        self.scans.append(esr)
+        self.scans += [esr]
+    }
+
+    func count() -> Int {
+        return self.scans.count
+    }
+
+    func clear() {
+        self.scans = []
+    }
+
+    func string() -> String {
+        var str = ""
+        for scan in scans {
+            str += scan.string()
+            str += "\n----\n"
+        }
+        return str
+    }
+
+    subscript(index: Int) -> ESR {
+        get {
+            return scans[index]
+        }
     }
 }

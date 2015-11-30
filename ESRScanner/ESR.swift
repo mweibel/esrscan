@@ -94,8 +94,11 @@ public class ESR {
     }
 
     func amountCheckDigitValid() -> Bool {
-        let angleRange = self.fullStr.rangeOfString(">")!
-        let angleIndex = self.fullStr.startIndex.distanceTo(angleRange.startIndex)
+        let angleRange = self.fullStr.rangeOfString(">")
+        if angleRange == nil {
+            return false
+        }
+        let angleIndex = self.fullStr.startIndex.distanceTo(angleRange!.startIndex)
         let str = self.fullStr.substringWithRange(
             Range<String.Index>(
                 start: self.fullStr.startIndex,
