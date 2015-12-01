@@ -67,15 +67,17 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! TableCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! ScanTableViewCell
 
-        let row = indexPath.row
-        cell.textView?.text = scans[row].string()
+        let scan = scans[indexPath.row]
+        cell.referenceNumber.text = scan.refNum.string()
+        cell.accountNumber.text = scan.accNum.string()
+        if scan.amount != nil {
+            cell.amount.text = String(format:"%.2f", scan.amount!)
+        }
+
 
         return cell
-    }
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        print("foobAR")
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
