@@ -24,10 +24,10 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="60" id="Wi7-D0-QRG" customClass="ScanTableViewCell" customModule="ESRScanner" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="60" id="Wi7-D0-QRG" customClass="ScanTableViewCell" customModule="ESRScanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wi7-D0-QRG" id="b3w-vB-7gB">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="Wi7-D0-QRG" id="b3w-vB-7gB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -37,6 +37,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="584" height="20.5"/>
+                                                    </variation>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJQ-DO-tTL" userLabel="Amount Container">
                                                     <rect key="frame" x="470" y="12" width="142" height="61"/>
@@ -77,7 +80,8 @@
                                                             <exclude reference="Mnm-3h-I8X"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular">
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="514" y="35" width="79" height="17"/>
                                                         <mask key="subviews">
                                                             <include reference="kMl-6Q-s0q"/>
                                                             <include reference="pFi-4C-Tac"/>
@@ -97,18 +101,19 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="8" y="34" width="53.5" height="17"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="RJQ-DO-tTL" firstAttribute="bottom" secondItem="b3w-vB-7gB" secondAttribute="bottomMargin" id="49E-eG-6dS"/>
-                                                <constraint firstItem="eri-gg-hgM" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="10" id="6jM-mg-K47"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eri-gg-hgM" secondAttribute="trailing" constant="9" id="Xlp-bk-cM7"/>
+                                                <constraint firstItem="eri-gg-hgM" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" id="6jM-mg-K47"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eri-gg-hgM" secondAttribute="trailing" id="Xlp-bk-cM7"/>
                                                 <constraint firstItem="C1P-Xp-a7p" firstAttribute="bottom" secondItem="b3w-vB-7gB" secondAttribute="bottomMargin" id="ZBA-vV-AzB"/>
-                                                <constraint firstItem="C1P-Xp-a7p" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="10" id="av2-WC-hbQ"/>
-                                                <constraint firstItem="RJQ-DO-tTL" firstAttribute="right" secondItem="b3w-vB-7gB" secondAttribute="rightMargin" constant="10" id="azf-xQ-TK7">
-                                                    <variation key="heightClass=regular" constant="-10"/>
-                                                </constraint>
+                                                <constraint firstItem="C1P-Xp-a7p" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" id="av2-WC-hbQ"/>
+                                                <constraint firstItem="RJQ-DO-tTL" firstAttribute="right" secondItem="b3w-vB-7gB" secondAttribute="rightMargin" id="azf-xQ-TK7"/>
                                                 <constraint firstItem="eri-gg-hgM" firstAttribute="top" secondItem="b3w-vB-7gB" secondAttribute="topMargin" id="d7A-QO-pYW"/>
                                             </constraints>
                                             <variation key="default">
@@ -155,7 +160,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="YgN-iC-z0l"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-fn-fJw" userLabel="TopToolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-fn-fJw" userLabel="TopToolbar">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
                                 <constraints>
@@ -188,7 +193,7 @@
                                     <rect key="frame" x="0.0" y="34" width="600" height="44"/>
                                 </variation>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cib-qL-whh" userLabel="Bottom Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cib-qL-whh" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <animations/>
                                 <items>

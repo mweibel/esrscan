@@ -15,7 +15,9 @@ class AccountNumber {
     }
 
     func string() -> String {
-        // TODO: split into different parts.
-        return "\(self.num)"
+        let prefix = String(num[num.startIndex.advancedBy(2)])
+        let center = num.substringWithRange(Range(start: num.startIndex.advancedBy(2), end: num.endIndex.advancedBy(-1)))
+        let postfix = String(num[num.endIndex.advancedBy(-1)])
+        return prefix + "-" + center + "-" + postfix
     }
 }

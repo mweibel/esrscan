@@ -15,7 +15,15 @@ class ReferenceNumber {
     }
 
     func string() -> String {
-        // TODO: split into different parts.
-        return "\(self.num)"
+        var str = ""
+        let l = num.characters.count
+        for var i = l - 1; i >= 0; i-- {
+            let char = num[num.startIndex.advancedBy(i)]
+            str = String(char) + str
+            if (i - l) % 5 == 0 {
+                str = " " + str
+            }
+        }
+        return str
     }
 }
