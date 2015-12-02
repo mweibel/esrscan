@@ -61,9 +61,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let c = scans.count()
-        print(c)
-        return c
+        return scans.count()
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -72,12 +70,12 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         let scan = scans[indexPath.row]
         cell.referenceNumber.text = scan.refNum.string()
         cell.accountNumber.text = scan.accNum.string()
+
         if scan.amount != nil {
-            cell.amount.text = String(format:"%.2f", scan.amount!)
+            cell.amount.text = scan.amount!.string()
         } else {
             cell.amountContainer.hidden = true
         }
-
 
         return cell
     }

@@ -15,12 +15,12 @@ enum ESRError : ErrorType {
 public class ESR {
     var fullStr: String
     var amountCheckDigit: Int?
-    var amount: Double?
+    var amount: Amount?
     var refNum: ReferenceNumber
     var refNumCheckDigit: Int
     var accNum: AccountNumber
 
-    init(fullStr : String, amountCheckDigit : Int?, amount : Double?, refNum : ReferenceNumber, refNumCheckDigit : Int, accNum : AccountNumber) {
+    init(fullStr : String, amountCheckDigit : Int?, amount : Amount?, refNum : ReferenceNumber, refNumCheckDigit : Int, accNum : AccountNumber) {
         self.fullStr = fullStr
         self.amountCheckDigit = amountCheckDigit
         self.amount = amount
@@ -46,16 +46,17 @@ public class ESR {
             )
         ))
 
-        var amount : Double?
+        var amount : Amount?
         if Int(angleIndex.value) > 3 {
-            amount = Double(newStr.substringWithRange(
+            let amountValue = Double(newStr.substringWithRange(
                 Range<String.Index>(
                     start: newStr.startIndex.advancedBy(2),
                     end: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
                 )
             ))
-            amount = amount! / 100.0
+            amount = Amount.init(value: amountValue! / 100.0)
         }
+        print(amount)
 
         let refNumStart = newStr.startIndex.advancedBy(afterAngle)
         var refNumLength = 27
@@ -118,7 +119,7 @@ public class ESR {
     func string() -> String {
         var str = "RefNum: \(self.refNum.string())\nAccNum: \(self.accNum.string())"
         if self.amount != nil {
-            str.appendContentsOf("\nAmount: \(self.amount)")
+            str.appendContentsOf("\nAmount: \(self.amount!.string())")
         }
         str.appendContentsOf("\nAmount Valid? \(self.amountCheckDigitValid())")
         str.appendContentsOf("\nRefNum Valid? \(self.refNumCheckDigitValid())")
@@ -127,9 +128,9 @@ public class ESR {
 
     func dictionary() -> [String : AnyObject] {
         var dict = [String : AnyObject]()
-        dict["referenceNumber"] = self.refNum.num
-        dict["amount"] = self.amount
-        dict["accountNumber"] = self.accNum.num
+        dict["referenceNumber"] = self.refNum.string()
+        dict["amount"] = self.amount?.string()
+        dict["accountNumber"] = self.accNum.string()
 
         dict["amountCorrect"] = self.amountCheckDigitValid()
         dict["referenceNumberCorrect"] = self.refNumCheckDigitValid()
