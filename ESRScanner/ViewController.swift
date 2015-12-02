@@ -74,6 +74,8 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         cell.accountNumber.text = scan.accNum.string()
         if scan.amount != nil {
             cell.amount.text = String(format:"%.2f", scan.amount!)
+        } else {
+            cell.amountContainer.hidden = true
         }
 
 

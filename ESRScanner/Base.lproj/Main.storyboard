@@ -151,6 +151,7 @@
                                         <connections>
                                             <outlet property="accountNumber" destination="C1P-Xp-a7p" id="6dz-ca-rno"/>
                                             <outlet property="amount" destination="pFi-4C-Tac" id="Wae-iZ-EPa"/>
+                                            <outlet property="amountContainer" destination="RJQ-DO-tTL" id="XZZ-PA-6vp"/>
                                             <outlet property="referenceNumber" destination="eri-gg-hgM" id="E7M-Fb-36P"/>
                                         </connections>
                                     </tableViewCell>
