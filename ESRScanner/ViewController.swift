@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         super.viewDidLoad()
 
         self.appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-        self.topToolbar.clipsToBounds = true
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -74,7 +73,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
         if scan.amount != nil {
             cell.amount.text = scan.amount!.string()
         } else {
-            cell.amountContainer.hidden = true
+            cell.amount.hidden = true
         }
 
         return cell

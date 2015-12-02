@@ -12,5 +12,4 @@ class ScanTableViewCell : UITableViewCell {
     @IBOutlet var referenceNumber: UILabel!
     @IBOutlet var accountNumber: UILabel!
     @IBOutlet var amount: UILabel!
-    @IBOutlet var amountContainer: UIStackView!
 }

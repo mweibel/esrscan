@@ -10,11 +10,12 @@ import Foundation
 
 class Amount {
     var value: Double
+    let currency = "CHF"
     init(value: Double) {
         self.value = value
     }
 
     func string() -> String {
-        return String(format: "%.2f", self.value)
+        return String(format: "%@ %.2f", self.currency, self.value)
     }
 }
