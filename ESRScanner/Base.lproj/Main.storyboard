@@ -222,7 +222,6 @@
                             <constraint firstItem="Gpo-SJ-SA6" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="9rQ-Yt-ALd"/>
                             <constraint firstItem="Gpo-SJ-SA6" firstAttribute="trailing" secondItem="fWI-fn-fJw" secondAttribute="trailing" id="CFx-J1-eOC"/>
                             <constraint firstItem="Gpo-SJ-SA6" firstAttribute="leading" secondItem="fWI-fn-fJw" secondAttribute="leading" id="Hqk-Et-Wpy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fWI-fn-fJw" secondAttribute="trailing" constant="-20" id="I8q-41-wx7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cib-qL-whh" secondAttribute="bottom" id="aDe-Ol-lN1"/>
                             <constraint firstItem="Cib-qL-whh" firstAttribute="width" secondItem="fWI-fn-fJw" secondAttribute="width" id="mVA-ed-O74"/>
                             <constraint firstItem="Cib-qL-whh" firstAttribute="height" secondItem="fWI-fn-fJw" secondAttribute="height" id="t9h-dZ-pR4"/>
@@ -234,7 +233,6 @@
                             <mask key="constraints">
                                 <exclude reference="15V-oy-Jw0"/>
                                 <exclude reference="259-jM-WIx"/>
-                                <exclude reference="I8q-41-wx7"/>
                                 <exclude reference="9rQ-Yt-ALd"/>
                                 <exclude reference="CFx-J1-eOC"/>
                                 <exclude reference="Hqk-Et-Wpy"/>
@@ -251,7 +249,6 @@
                             <mask key="constraints">
                                 <include reference="15V-oy-Jw0"/>
                                 <include reference="259-jM-WIx"/>
-                                <include reference="I8q-41-wx7"/>
                                 <include reference="9rQ-Yt-ALd"/>
                                 <include reference="CFx-J1-eOC"/>
                                 <include reference="Hqk-Et-Wpy"/>
