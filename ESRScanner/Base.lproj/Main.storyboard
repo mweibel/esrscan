@@ -186,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691" y="217.5"/>
+            <point key="canvasLocation" x="1691" y="264"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="75c-3B-zGJ">
@@ -218,8 +218,39 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zuL-Jy-Azd">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gs-Oc-6r6" userLabel="Bottom Toolbar">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iyh-TK-Elk"/>
+                                    <barButtonItem style="plain" systemItem="camera" id="6oY-og-fEm">
+                                        <connections>
+                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="Isu-tg-zwr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uqp-Kt-KeY"/>
+                                </items>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="756" width="600" height="44"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="756" width="600" height="44"/>
+                                </variation>
+                            </toolbar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2gs-Oc-6r6"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="2gs-Oc-6r6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="G5c-LV-AG2">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="4h4-Ad-zVj">
@@ -228,10 +259,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bottomToolbar" destination="2gs-Oc-6r6" id="jb7-ya-kzM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwv-Je-d24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905" y="264"/>
+            <point key="canvasLocation" x="911" y="264"/>
         </scene>
     </scenes>
 </document>

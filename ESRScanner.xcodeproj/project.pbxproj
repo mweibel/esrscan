@@ -146,23 +146,17 @@
 		4C1CD4891BED2EC900B2CF00 /* ESRScanner */ = {
 			isa = PBXGroup;
 			children = (
-				4C39509B1BF90F43001B8FA2 /* IMG_1009.JPG */,
-				4C72435A1BF3268F006303F2 /* discovery */,
-				4C63E6FC1BEF4FC400F66D9F /* tessdata */,
 				4C11FDCA1BED2FD600501D16 /* model */,
+				4C237D1A1C1018FB0025044F /* view */,
+				4C237D191C1018F60025044F /* controller */,
+				4C72435A1BF3268F006303F2 /* discovery */,
 				4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */,
-				4C1CD48C1BED2EC900B2CF00 /* ViewController.swift */,
-				4C1CD48E1BED2EC900B2CF00 /* Main.storyboard */,
-				4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */,
-				4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */,
 				4C1CD4961BED2EC900B2CF00 /* Info.plist */,
-				4C63E6FE1BEF537C00F66D9F /* OCR.swift */,
+				4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */,
+				4C63E6FC1BEF4FC400F66D9F /* tessdata */,
+				4C39509B1BF90F43001B8FA2 /* IMG_1009.JPG */,
 				4C11FDCD1BED2FE300501D16 /* IMG_0938.JPG */,
-				4C7FDD8A1BEFB47800FFAD62 /* Image.swift */,
-				4C7078A01BF2A3260086A6BD /* ImageRotation.swift */,
-				4C718F1E1C0CEF5B0075AD42 /* ScanTableViewCell.swift */,
-				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
-				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
+				4C237D1B1C10193A0025044F /* util */,
 			);
 			path = ESRScanner;
 			sourceTree = "<group>";
@@ -175,6 +169,36 @@
 				4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */,
 			);
 			path = ESRScannerTests;
+			sourceTree = "<group>";
+		};
+		4C237D191C1018F60025044F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
+				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
+				4C1CD48C1BED2EC900B2CF00 /* ViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		4C237D1A1C1018FB0025044F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CD48E1BED2EC900B2CF00 /* Main.storyboard */,
+				4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */,
+				4C718F1E1C0CEF5B0075AD42 /* ScanTableViewCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		4C237D1B1C10193A0025044F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4C63E6FE1BEF537C00F66D9F /* OCR.swift */,
+				4C7FDD8A1BEFB47800FFAD62 /* Image.swift */,
+				4C7078A01BF2A3260086A6BD /* ImageRotation.swift */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 		4C72435A1BF3268F006303F2 /* discovery */ = {
