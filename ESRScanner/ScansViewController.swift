@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ScansViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ScansViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var topToolbar: UIToolbar!
+    // handling of tableView within extension TableView.swift
     @IBOutlet var tableView: UITableView!
     
     let textCellIdentifier = "TextCell"
 
-    var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator: ActivityIndicator?
     var scans = Scans()
     var disco : Discover?
 
@@ -52,31 +53,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             }
         }
 
-        removeActivityIndicator()
-    }
-
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scans.count()
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! ScanTableViewCell
-
-        let scan = scans[indexPath.row]
-        cell.referenceNumber.text = scan.refNum.string()
-        cell.accountNumber.text = scan.accNum.string()
-
-        if scan.amount != nil {
-            cell.amount.text = scan.amount!.string()
-        } else {
-            cell.amount.hidden = true
-        }
-
-        return cell
+        activityIndicator?.hide()
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
@@ -145,36 +122,4 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         let activtyCtrl = UIActivityViewController.init(activityItems: [self.scans.string()], applicationActivities: nil)
         self.presentViewController(activtyCtrl, animated: true, completion: nil)
     }
-
-    // Activity Indicator methods
-    func addActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-    }
-
-    func removeActivityIndicator() {
-        activityIndicator.removeFromSuperview()
-        activityIndicator = nil
-    }
-
 }
-
-extension ScansViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-            let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-            // TODO: This was probably added for testing, not sure if it's still needed.
-            let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
-            addActivityIndicator()
-
-            dismissViewControllerAnimated(true, completion: {
-                self.performImageRecognition(scaledImage)
-            })
-    }
-    func imagePickerControllerDidCancel(picker: UIImagePickerController){
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-}
-

@@ -56,7 +56,6 @@ public class ESR {
             ))
             amount = Amount.init(value: amountValue! / 100.0)
         }
-        print(amount)
 
         let refNumStart = newStr.startIndex.advancedBy(afterAngle)
         var refNumLength = 27

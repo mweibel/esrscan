@@ -23,6 +23,9 @@
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
 		4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E6FE1BEF537C00F66D9F /* OCR.swift */; };
 		4C64D1FF1BEE14DE0087F774 /* ESRTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */; };
+		4C6833BD1C116DB3008ED3FC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6833BC1C116DB3008ED3FC /* ActivityIndicator.swift */; };
+		4C6833C01C116F53008ED3FC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6833BF1C116F53008ED3FC /* ImagePicker.swift */; };
+		4C6833C21C116F88008ED3FC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6833C11C116F88008ED3FC /* TableView.swift */; };
 		4C7078A11BF2A3260086A6BD /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7078A01BF2A3260086A6BD /* ImageRotation.swift */; };
 		4C718F1F1C0CEF5B0075AD42 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C718F1E1C0CEF5B0075AD42 /* ScanTableViewCell.swift */; };
 		4C72435C1BF3269E006303F2 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72435B1BF3269E006303F2 /* Discover.swift */; };
@@ -67,6 +70,9 @@
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		4C63E6FE1BEF537C00F66D9F /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESRTest.swift; sourceTree = "<group>"; };
+		4C6833BC1C116DB3008ED3FC /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		4C6833BF1C116F53008ED3FC /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4C6833C11C116F88008ED3FC /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		4C7078A01BF2A3260086A6BD /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
 		4C718F1E1C0CEF5B0075AD42 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
 		4C72435B1BF3269E006303F2 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 		4C237D191C1018F60025044F /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C6833BE1C116F41008ED3FC /* scansView */,
 				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
 				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
 				4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */,
@@ -187,6 +194,7 @@
 				4C1CD48E1BED2EC900B2CF00 /* Main.storyboard */,
 				4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */,
 				4C718F1E1C0CEF5B0075AD42 /* ScanTableViewCell.swift */,
+				4C6833BC1C116DB3008ED3FC /* ActivityIndicator.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -199,6 +207,15 @@
 				4C7078A01BF2A3260086A6BD /* ImageRotation.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		4C6833BE1C116F41008ED3FC /* scansView */ = {
+			isa = PBXGroup;
+			children = (
+				4C6833BF1C116F53008ED3FC /* ImagePicker.swift */,
+				4C6833C11C116F88008ED3FC /* TableView.swift */,
+			);
+			name = scansView;
 			sourceTree = "<group>";
 		};
 		4C72435A1BF3268F006303F2 /* discovery */ = {
@@ -440,6 +457,9 @@
 				4C718F1F1C0CEF5B0075AD42 /* ScanTableViewCell.swift in Sources */,
 				4C7292711C038BC8006A4EBA /* Scans.swift in Sources */,
 				4C1CD48B1BED2EC900B2CF00 /* AppDelegate.swift in Sources */,
+				4C6833BD1C116DB3008ED3FC /* ActivityIndicator.swift in Sources */,
+				4C6833C21C116F88008ED3FC /* TableView.swift in Sources */,
+				4C6833C01C116F53008ED3FC /* ImagePicker.swift in Sources */,
 				4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */,
 				4C11FDCE1BED2FE300501D16 /* AccountNumber.swift in Sources */,
 				4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */,
