@@ -220,8 +220,54 @@
                     <view key="view" contentMode="scaleToFill" id="zuL-Jy-Azd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for Desktop App." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACo-Bx-U7z">
+                                <rect key="frame" x="20" y="48" width="194.5" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6le-p4-052">
+                                <rect key="frame" x="107" y="20" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6le-p4-052" firstAttribute="centerX" secondItem="ACo-Bx-U7z" secondAttribute="centerX" id="89C-M5-osq"/>
+                            <constraint firstItem="6le-p4-052" firstAttribute="centerX" secondItem="zuL-Jy-Azd" secondAttribute="centerX" id="Elr-Ff-3bH"/>
+                            <constraint firstItem="6le-p4-052" firstAttribute="centerY" secondItem="zuL-Jy-Azd" secondAttribute="centerY" id="gH6-mf-hPH"/>
+                            <constraint firstItem="ACo-Bx-U7z" firstAttribute="centerX" secondItem="zuL-Jy-Azd" secondAttribute="centerX" id="ioo-qX-lNX"/>
+                            <constraint firstItem="ACo-Bx-U7z" firstAttribute="top" secondItem="6le-p4-052" secondAttribute="bottom" constant="8" symbolic="YES" id="uLV-bE-crB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ACo-Bx-U7z"/>
+                                <exclude reference="6le-p4-052"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ioo-qX-lNX"/>
+                                <exclude reference="uLV-bE-crB"/>
+                                <exclude reference="89C-M5-osq"/>
+                                <exclude reference="Elr-Ff-3bH"/>
+                                <exclude reference="gH6-mf-hPH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="ACo-Bx-U7z"/>
+                                <include reference="6le-p4-052"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ioo-qX-lNX"/>
+                                <include reference="uLV-bE-crB"/>
+                                <include reference="89C-M5-osq"/>
+                                <include reference="Elr-Ff-3bH"/>
+                                <include reference="gH6-mf-hPH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="G5c-LV-AG2">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="4h4-Ad-zVj">
@@ -230,6 +276,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="skipButton" destination="4h4-Ad-zVj" id="4i0-cl-AxA"/>
+                        <outlet property="statusIndicator" destination="ACo-Bx-U7z" id="vA2-7B-rtj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwv-Je-d24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

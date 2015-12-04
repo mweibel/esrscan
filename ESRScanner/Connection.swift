@@ -44,7 +44,8 @@ class Connection : NSObject, NSNetServiceDelegate {
             "AppConnectionEstablished",
             object: self,
             userInfo: [
-                "hostName": sender.hostName!   
+                "hostName": sender.hostName!,
+                "name": sender.name
             ]
         )
     }

@@ -9,13 +9,12 @@
 import UIKit
 
 class DiscoverDesktopViewController : UIViewController {
-    var activityIndicator: ActivityIndicator?
+    @IBOutlet var statusIndicator: UILabel!
+    @IBOutlet var skipButton: UIBarButtonItem!
 
     override func viewWillAppear(animated: Bool) {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
         Discover.sharedInstance.startSearch()
-
-        activityIndicator = ActivityIndicator.init(view: self.view)
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -23,6 +22,13 @@ class DiscoverDesktopViewController : UIViewController {
     }
 
     func connectionEstablished(notification : NSNotification) {
-        activityIndicator?.hide()
+        skipButton.enabled = false
+        let name = String(notification.userInfo!["name"])
+        statusIndicator.text = "Found \(name)"
+        NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showScansView:", userInfo: nil, repeats: false)
+    }
+
+    func showScansView(sender: DiscoverDesktopViewController) {
+        performSegueWithIdentifier("showScansView", sender: self)
     }
 }

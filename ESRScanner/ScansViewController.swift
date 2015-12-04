@@ -19,10 +19,16 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
     var scans = Scans()
     var disco : Discover?
 
+    override func viewWillAppear(animated: Bool) {
+        self.disco = Discover.sharedInstance
+
+        if self.disco?.connection != nil {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.disco = Discover.sharedInstance
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
