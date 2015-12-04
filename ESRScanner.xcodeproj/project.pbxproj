@@ -11,7 +11,7 @@
 		4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11FDCC1BED2FE300501D16 /* ESR.swift */; };
 		4C11FDD01BED2FE300501D16 /* IMG_0938.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4C11FDCD1BED2FE300501D16 /* IMG_0938.JPG */; };
 		4C1CD48B1BED2EC900B2CF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */; };
-		4C1CD48D1BED2EC900B2CF00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48C1BED2EC900B2CF00 /* ViewController.swift */; };
+		4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */; };
 		4C1CD4901BED2EC900B2CF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD48E1BED2EC900B2CF00 /* Main.storyboard */; };
 		4C1CD4921BED2EC900B2CF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */; };
 		4C1CD4951BED2EC900B2CF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */; };
@@ -53,7 +53,7 @@
 		4C11FDCD1BED2FE300501D16 /* IMG_0938.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0938.JPG; sourceTree = "<group>"; };
 		4C1CD4871BED2EC800B2CF00 /* ESRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C1CD48C1BED2EC900B2CF00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScansViewController.swift; sourceTree = "<group>"; };
 		4C1CD48F1BED2EC900B2CF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1CD4941BED2EC900B2CF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
 				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
-				4C1CD48C1BED2EC900B2CF00 /* ViewController.swift */,
+				4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -435,7 +435,7 @@
 				4C7078A11BF2A3260086A6BD /* ImageRotation.swift in Sources */,
 				4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */,
 				4C72435C1BF3269E006303F2 /* Discover.swift in Sources */,
-				4C1CD48D1BED2EC900B2CF00 /* ViewController.swift in Sources */,
+				4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */,
 				4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */,
 				4C718F1F1C0CEF5B0075AD42 /* ScanTableViewCell.swift in Sources */,
 				4C7292711C038BC8006A4EBA /* Scans.swift in Sources */,

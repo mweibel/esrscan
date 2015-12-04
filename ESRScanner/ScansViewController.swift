@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ScansViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet var tableView: UITableView!
     
@@ -16,12 +16,12 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 
     var activityIndicator: UIActivityIndicatorView!
     var scans = Scans()
-    var appDelegate : AppDelegate?
+    var disco : Discover?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        self.disco = Discover.sharedInstance
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
                 self.scans.addScan(esrCode)
                 self.tableView.reloadData()
 
-                self.appDelegate?.disco.connection?.sendRequest(esrCode.dictionary())
+                self.disco?.connection?.sendRequest(esrCode.dictionary())
             } catch ESRError.AngleNotFound {
                 print("AngleNotFound")
             } catch {
@@ -162,7 +162,7 @@ class ViewController: UIViewController, UITextViewDelegate, UINavigationControll
 
 }
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension ScansViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
             // TODO: This was probably added for testing, not sure if it's still needed.

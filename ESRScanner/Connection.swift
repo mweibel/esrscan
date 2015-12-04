@@ -19,7 +19,6 @@ class Connection : NSObject, NSNetServiceDelegate {
     }
 
     func sendRequest(parameters: [String : AnyObject]) {
-        print(parameters)
         let uri = self.baseUri! + "/scan"
         Alamofire.request(.POST, uri, parameters: parameters, encoding: .JSON).responseData { response in
             print(response.request)
@@ -40,5 +39,13 @@ class Connection : NSObject, NSNetServiceDelegate {
         }
 
         self.baseUri = "http://\(fqdn):\(sender.port)"
+
+        NSNotificationCenter.defaultCenter().postNotificationName(
+            "AppConnectionEstablished",
+            object: self,
+            userInfo: [
+                "hostName": sender.hostName!   
+            ]
+        )
     }
 }

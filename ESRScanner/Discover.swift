@@ -9,13 +9,13 @@
 import Foundation
 
 class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
-    let afpType : String
     var afpBrowser : NSNetServiceBrowser
     var connection : Connection?
     var netService: NSNetService?
 
+    static let sharedInstance = Discover.init()
+
     override init() {
-        self.afpType = "_esrhttp._tcp."
         self.afpBrowser = NSNetServiceBrowser()
         self.afpBrowser.includesPeerToPeer = true
 
@@ -35,7 +35,7 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
     }
 
     func startSearch() {
-        afpBrowser.searchForServicesOfType(afpType, inDomain: "local.")
+        afpBrowser.searchForServicesOfType("_esrhttp._tcp.", inDomain: "local.")
     }
 
     func stop() {
