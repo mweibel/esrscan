@@ -30,6 +30,18 @@ extension ScansViewController : UITableViewDataSource, UITableViewDelegate {
             cell.amount.hidden = true
         }
 
+        if !scan.amountCheckDigitValid() || !scan.refNumCheckDigitValid() {
+            cell.statusIcon.text = "⚠︎"
+            cell.statusIcon.textColor = UIColor.yellowColor()
+            cell.statusIcon.hidden = false
+        } else if(scan.transmitted) {
+            cell.statusIcon.text = "✓"
+            cell.statusIcon.textColor = UIColor.greenColor()
+            cell.statusIcon.hidden = false
+        } else {
+            cell.statusIcon.hidden = true
+        }
+
         return cell
     }
     

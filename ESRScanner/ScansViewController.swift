@@ -55,15 +55,30 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                 self.navigationItem.leftBarButtonItem?.enabled = true
                 self.tableView!.reloadData()
 
-                self.disco?.connection?.sendRequest(esrCode.dictionary())
+                self.disco?.connection?.sendRequest(esrCode.dictionary(), callback: { status in
+                    if status == true {
+                        esrCode.transmitted = true
+                        self.tableView.reloadData()
+                    }
+                })
             } catch ESRError.AngleNotFound {
-                print("AngleNotFound")
+                showAlert("Scan failed", message: "Error scanning ESR code, please try again")
             } catch {
-                print("some error thrown")
+                showAlert("Scan failed", message: "Error scanning ESR code, please try again")
             }
+        } else {
+            showAlert("Scan failed", message: "Error finding ESR code on picture, please try again")
         }
 
         activityIndicator?.hide()
+    }
+
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let actionOk = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(actionOk)
+
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func takePhoto(sender: AnyObject) {

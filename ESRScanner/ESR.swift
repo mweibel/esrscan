@@ -20,6 +20,8 @@ public class ESR {
     var refNumCheckDigit: Int
     var accNum: AccountNumber
 
+    var transmitted = false
+
     init(fullStr : String, amountCheckDigit : Int?, amount : Amount?, refNum : ReferenceNumber, refNumCheckDigit : Int, accNum : AccountNumber) {
         self.fullStr = fullStr
         self.amountCheckDigit = amountCheckDigit

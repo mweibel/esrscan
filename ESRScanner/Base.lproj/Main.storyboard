@@ -31,8 +31,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFi-4C-Tac">
-                                                    <rect key="frame" x="34" y="0.0" width="60" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1P-Xp-a7p">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,58 +41,92 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Reference Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eri-gg-hgM">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="531" id="Whe-pZ-zKD"/>
+                                                        <constraint firstAttribute="height" constant="21" id="poN-81-Laf"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Whe-pZ-zKD"/>
+                                                            <exclude reference="poN-81-Laf"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular">
+                                                        <mask key="constraints">
+                                                            <include reference="Whe-pZ-zKD"/>
+                                                            <include reference="poN-81-Laf"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1P-Xp-a7p">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFi-4C-Tac">
+                                                    <rect key="frame" x="34" y="0.0" width="60" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="508" y="36" width="50.5" height="17"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-ei-KJ6">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="564" y="12" width="27.5" height="35"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="C1P-Xp-a7p" secondAttribute="bottom" id="58b-5X-F1C"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eri-gg-hgM" secondAttribute="trailing" id="FSM-F3-UA7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="pFi-4C-Tac" secondAttribute="bottom" id="GR7-w9-6PI"/>
-                                                <constraint firstItem="eri-gg-hgM" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="7" id="MKJ-X6-qMp"/>
-                                                <constraint firstAttribute="topMargin" secondItem="eri-gg-hgM" secondAttribute="top" id="PW8-t4-DOj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pFi-4C-Tac" secondAttribute="trailing" id="cM1-NL-c0O"/>
-                                                <constraint firstItem="C1P-Xp-a7p" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="7" id="hbN-Ya-Q6h"/>
+                                                <constraint firstItem="nDH-ei-KJ6" firstAttribute="leading" secondItem="pFi-4C-Tac" secondAttribute="trailing" constant="5.5" id="3qL-Jf-eo2"/>
+                                                <constraint firstItem="C1P-Xp-a7p" firstAttribute="top" secondItem="eri-gg-hgM" secondAttribute="bottom" constant="5" id="5jW-Q2-gyl"/>
+                                                <constraint firstAttribute="topMargin" secondItem="eri-gg-hgM" secondAttribute="top" id="8vl-oa-Xva"/>
+                                                <constraint firstItem="eri-gg-hgM" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="13" id="KFJ-Xh-x14"/>
+                                                <constraint firstItem="pFi-4C-Tac" firstAttribute="top" secondItem="eri-gg-hgM" secondAttribute="bottom" constant="5" id="N2u-UU-f4L"/>
+                                                <constraint firstItem="nDH-ei-KJ6" firstAttribute="centerY" secondItem="b3w-vB-7gB" secondAttribute="centerY" id="V7P-dO-wrj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nDH-ei-KJ6" secondAttribute="trailing" constant="0.5" id="bdF-wu-2vd"/>
+                                                <constraint firstItem="C1P-Xp-a7p" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" constant="13" id="h1p-qB-vT6"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="pFi-4C-Tac"/>
-                                                    <exclude reference="eri-gg-hgM"/>
                                                     <exclude reference="C1P-Xp-a7p"/>
+                                                    <exclude reference="eri-gg-hgM"/>
+                                                    <exclude reference="pFi-4C-Tac"/>
+                                                    <exclude reference="nDH-ei-KJ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="GR7-w9-6PI"/>
-                                                    <exclude reference="cM1-NL-c0O"/>
-                                                    <exclude reference="58b-5X-F1C"/>
-                                                    <exclude reference="hbN-Ya-Q6h"/>
-                                                    <exclude reference="FSM-F3-UA7"/>
-                                                    <exclude reference="MKJ-X6-qMp"/>
-                                                    <exclude reference="PW8-t4-DOj"/>
+                                                    <exclude reference="8vl-oa-Xva"/>
+                                                    <exclude reference="KFJ-Xh-x14"/>
+                                                    <exclude reference="5jW-Q2-gyl"/>
+                                                    <exclude reference="h1p-qB-vT6"/>
+                                                    <exclude reference="N2u-UU-f4L"/>
+                                                    <exclude reference="3qL-Jf-eo2"/>
+                                                    <exclude reference="V7P-dO-wrj"/>
+                                                    <exclude reference="bdF-wu-2vd"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
                                                 <mask key="subviews">
-                                                    <include reference="pFi-4C-Tac"/>
-                                                    <include reference="eri-gg-hgM"/>
                                                     <include reference="C1P-Xp-a7p"/>
+                                                    <include reference="eri-gg-hgM"/>
+                                                    <include reference="pFi-4C-Tac"/>
+                                                    <include reference="nDH-ei-KJ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="GR7-w9-6PI"/>
-                                                    <include reference="cM1-NL-c0O"/>
-                                                    <include reference="58b-5X-F1C"/>
-                                                    <include reference="hbN-Ya-Q6h"/>
-                                                    <include reference="FSM-F3-UA7"/>
-                                                    <include reference="MKJ-X6-qMp"/>
-                                                    <include reference="PW8-t4-DOj"/>
+                                                    <include reference="8vl-oa-Xva"/>
+                                                    <include reference="KFJ-Xh-x14"/>
+                                                    <include reference="5jW-Q2-gyl"/>
+                                                    <include reference="h1p-qB-vT6"/>
+                                                    <include reference="N2u-UU-f4L"/>
+                                                    <include reference="3qL-Jf-eo2"/>
+                                                    <include reference="V7P-dO-wrj"/>
+                                                    <include reference="bdF-wu-2vd"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -101,6 +135,7 @@
                                             <outlet property="accountNumber" destination="C1P-Xp-a7p" id="6dz-ca-rno"/>
                                             <outlet property="amount" destination="pFi-4C-Tac" id="Wae-iZ-EPa"/>
                                             <outlet property="referenceNumber" destination="eri-gg-hgM" id="E7M-Fb-36P"/>
+                                            <outlet property="statusIcon" destination="nDH-ei-KJ6" id="xZr-qI-weg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
