@@ -25,6 +25,7 @@ extension ScansViewController : UITableViewDataSource, UITableViewDelegate {
         cell.accountNumber.text = scan.accNum.string()
 
         if scan.amount != nil {
+            cell.amount.hidden = false
             cell.amount.text = scan.amount!.string()
         } else {
             cell.amount.hidden = true
@@ -36,7 +37,7 @@ extension ScansViewController : UITableViewDataSource, UITableViewDelegate {
             cell.statusIcon.hidden = false
         } else if(scan.transmitted) {
             cell.statusIcon.text = "✓"
-            cell.statusIcon.textColor = UIColor.greenColor()
+            cell.statusIcon.textColor = UIColor.blueColor()
             cell.statusIcon.hidden = false
         } else {
             cell.statusIcon.hidden = true
