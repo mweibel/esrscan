@@ -11,8 +11,8 @@ import Foundation
 class Scans {
     var scans : [ESR] = []
 
-    func addScan(esr : ESR) {
-        self.scans += [esr]
+    func addScan(scan : ESR) {
+        self.scans.insert(scan, atIndex: 0)
     }
 
     func count() -> Int {

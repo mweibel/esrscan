@@ -25,13 +25,16 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         if self.disco?.connection != nil {
             self.navigationItem.rightBarButtonItem = nil
         }
+        if scans.count() == 0 {
+            self.navigationItem.leftBarButtonItem?.enabled = false
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
     }
 
     func performImageRecognition(rawImage: UIImage) {
@@ -49,7 +52,8 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             do {
                 let esrCode = try ESR.parseText(textArr[textArr.count-1])
                 self.scans.addScan(esrCode)
-                self.tableView.reloadData()
+                self.navigationItem.leftBarButtonItem?.enabled = true
+                self.tableView!.reloadData()
 
                 self.disco?.connection?.sendRequest(esrCode.dictionary())
             } catch ESRError.AngleNotFound {
@@ -111,7 +115,8 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             handler: {
                 (action: UIAlertAction!) in
                     self.scans.clear()
-                    self.tableView.reloadData()
+                    self.tableView!.reloadData()
+                    self.navigationItem.leftBarButtonItem?.enabled = false
             }
         ))
 
