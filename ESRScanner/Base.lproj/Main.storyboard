@@ -34,7 +34,7 @@
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="DwY-ch-fia"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="DwY-ch-fia"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qiZ-HZ-2uk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
