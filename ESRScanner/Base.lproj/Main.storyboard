@@ -30,11 +30,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="Reference Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eri-gg-hgM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="Reference Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eri-gg-hgM">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="526" id="DwY-ch-fia"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="DwY-ch-fia"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qiZ-HZ-2uk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -87,8 +87,7 @@
                                                             <exclude reference="Wz4-Ce-bt7"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="495" y="33" width="51" height="17"/>
+                                                    <variation key="heightClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Wz4-Ce-bt7"/>
                                                         </mask>
@@ -109,7 +108,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="nDH-ei-KJ6" secondAttribute="trailing" id="6BL-eW-2Za">
                                                     <variation key="heightClass=regular" constant="5"/>
                                                 </constraint>
-                                                <constraint firstItem="nDH-ei-KJ6" firstAttribute="leading" secondItem="pFi-4C-Tac" secondAttribute="trailing" id="FQl-1q-57B">
+                                                <constraint firstItem="nDH-ei-KJ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pFi-4C-Tac" secondAttribute="trailing" id="FQl-1q-57B">
                                                     <variation key="heightClass=compact" constant="5"/>
                                                     <variation key="heightClass=regular" constant="5"/>
                                                 </constraint>
@@ -121,14 +120,16 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="pFi-4C-Tac" secondAttribute="bottom" id="f2c-Ee-65I"/>
                                                 <constraint firstItem="nDH-ei-KJ6" firstAttribute="centerY" secondItem="b3w-vB-7gB" secondAttribute="centerY" id="j5I-aG-elg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="C1P-Xp-a7p" secondAttribute="bottom" id="orh-TO-F1Q"/>
+                                                <constraint firstItem="pFi-4C-Tac" firstAttribute="trailing" secondItem="eri-gg-hgM" secondAttribute="trailing" id="t8k-cn-Lca"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="f2c-Ee-65I"/>
-                                                    <exclude reference="Feh-Bz-USS"/>
-                                                    <exclude reference="orh-TO-F1Q"/>
                                                     <exclude reference="03X-VU-lQQ"/>
                                                     <exclude reference="LE4-WS-3id"/>
+                                                    <exclude reference="Feh-Bz-USS"/>
+                                                    <exclude reference="orh-TO-F1Q"/>
+                                                    <exclude reference="f2c-Ee-65I"/>
+                                                    <exclude reference="t8k-cn-Lca"/>
                                                     <exclude reference="6BL-eW-2Za"/>
                                                     <exclude reference="FQl-1q-57B"/>
                                                     <exclude reference="j5I-aG-elg"/>
@@ -136,11 +137,12 @@
                                             </variation>
                                             <variation key="heightClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="f2c-Ee-65I"/>
-                                                    <include reference="Feh-Bz-USS"/>
-                                                    <include reference="orh-TO-F1Q"/>
                                                     <include reference="03X-VU-lQQ"/>
                                                     <include reference="LE4-WS-3id"/>
+                                                    <include reference="Feh-Bz-USS"/>
+                                                    <include reference="orh-TO-F1Q"/>
+                                                    <include reference="f2c-Ee-65I"/>
+                                                    <include reference="t8k-cn-Lca"/>
                                                     <include reference="6BL-eW-2Za"/>
                                                     <include reference="FQl-1q-57B"/>
                                                     <include reference="j5I-aG-elg"/>
@@ -148,11 +150,12 @@
                                             </variation>
                                             <variation key="heightClass=regular">
                                                 <mask key="constraints">
-                                                    <include reference="f2c-Ee-65I"/>
-                                                    <include reference="Feh-Bz-USS"/>
-                                                    <include reference="orh-TO-F1Q"/>
                                                     <include reference="03X-VU-lQQ"/>
                                                     <include reference="LE4-WS-3id"/>
+                                                    <include reference="Feh-Bz-USS"/>
+                                                    <include reference="orh-TO-F1Q"/>
+                                                    <include reference="f2c-Ee-65I"/>
+                                                    <include reference="t8k-cn-Lca"/>
                                                     <include reference="6BL-eW-2Za"/>
                                                     <include reference="FQl-1q-57B"/>
                                                     <include reference="j5I-aG-elg"/>
