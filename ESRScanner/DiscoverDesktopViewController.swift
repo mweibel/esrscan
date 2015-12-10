@@ -23,7 +23,7 @@ class DiscoverDesktopViewController : UIViewController {
 
     func connectionEstablished(notification : NSNotification) {
         skipButton.enabled = false
-        let name = String(notification.userInfo!["name"])
+        let name = notification.userInfo!["name"]!
         statusIndicator.text = "Found \(name)"
         NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showScansView:", userInfo: nil, repeats: false)
     }
