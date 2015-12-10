@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G4v-ah-S5l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G4v-ah-S5l">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gpo-SJ-SA6">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="60" id="Wi7-D0-QRG" customClass="ScanTableViewCell" customModule="ESRScanner" customModuleProvider="target">
@@ -32,7 +31,6 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="Reference Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eri-gg-hgM">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="DwY-ch-fia"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qiZ-HZ-2uk"/>
@@ -61,21 +59,18 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1P-Xp-a7p">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="↩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-ei-KJ6">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFi-4C-Tac">
                                                     <rect key="frame" x="34" y="0.0" width="60" height="21"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="Wz4-Ce-bt7"/>
                                                     </constraints>
@@ -99,7 +94,6 @@
                                                     </variation>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="eri-gg-hgM" firstAttribute="leading" secondItem="b3w-vB-7gB" secondAttribute="leadingMargin" id="03X-VU-lQQ">
                                                     <variation key="heightClass=compact" constant="5"/>
@@ -124,12 +118,12 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="03X-VU-lQQ"/>
-                                                    <exclude reference="LE4-WS-3id"/>
-                                                    <exclude reference="Feh-Bz-USS"/>
-                                                    <exclude reference="orh-TO-F1Q"/>
                                                     <exclude reference="f2c-Ee-65I"/>
                                                     <exclude reference="t8k-cn-Lca"/>
+                                                    <exclude reference="Feh-Bz-USS"/>
+                                                    <exclude reference="orh-TO-F1Q"/>
+                                                    <exclude reference="03X-VU-lQQ"/>
+                                                    <exclude reference="LE4-WS-3id"/>
                                                     <exclude reference="6BL-eW-2Za"/>
                                                     <exclude reference="FQl-1q-57B"/>
                                                     <exclude reference="j5I-aG-elg"/>
@@ -137,12 +131,12 @@
                                             </variation>
                                             <variation key="heightClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="03X-VU-lQQ"/>
-                                                    <include reference="LE4-WS-3id"/>
-                                                    <include reference="Feh-Bz-USS"/>
-                                                    <include reference="orh-TO-F1Q"/>
                                                     <include reference="f2c-Ee-65I"/>
                                                     <include reference="t8k-cn-Lca"/>
+                                                    <include reference="Feh-Bz-USS"/>
+                                                    <include reference="orh-TO-F1Q"/>
+                                                    <include reference="03X-VU-lQQ"/>
+                                                    <include reference="LE4-WS-3id"/>
                                                     <include reference="6BL-eW-2Za"/>
                                                     <include reference="FQl-1q-57B"/>
                                                     <include reference="j5I-aG-elg"/>
@@ -150,19 +144,18 @@
                                             </variation>
                                             <variation key="heightClass=regular">
                                                 <mask key="constraints">
-                                                    <include reference="03X-VU-lQQ"/>
-                                                    <include reference="LE4-WS-3id"/>
-                                                    <include reference="Feh-Bz-USS"/>
-                                                    <include reference="orh-TO-F1Q"/>
                                                     <include reference="f2c-Ee-65I"/>
                                                     <include reference="t8k-cn-Lca"/>
+                                                    <include reference="Feh-Bz-USS"/>
+                                                    <include reference="orh-TO-F1Q"/>
+                                                    <include reference="03X-VU-lQQ"/>
+                                                    <include reference="LE4-WS-3id"/>
                                                     <include reference="6BL-eW-2Za"/>
                                                     <include reference="FQl-1q-57B"/>
                                                     <include reference="j5I-aG-elg"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="accountNumber" destination="C1P-Xp-a7p" id="6dz-ca-rno"/>
                                             <outlet property="amount" destination="pFi-4C-Tac" id="Wae-iZ-EPa"/>
@@ -178,7 +171,6 @@
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cib-qL-whh" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <animations/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="h3B-o3-nna"/>
                                     <barButtonItem style="plain" systemItem="camera" id="e26-3q-UGk">
@@ -193,7 +185,6 @@
                                 </variation>
                             </toolbar>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cib-qL-whh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Dim-sG-NmG">
@@ -277,7 +268,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jqf-Se-SLK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -300,19 +290,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6le-p4-052">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6le-p4-052">
                                 <rect key="frame" x="107" y="20" width="20" height="20"/>
-                                <animations/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for Desktop App." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACo-Bx-U7z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Looking for Desktop App." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACo-Bx-U7z">
                                 <rect key="frame" x="20" y="48" width="194.5" height="20.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6le-p4-052" firstAttribute="centerX" secondItem="ACo-Bx-U7z" secondAttribute="centerX" id="89C-M5-osq"/>

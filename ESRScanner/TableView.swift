@@ -35,9 +35,9 @@ extension ScansViewController : UITableViewDataSource, UITableViewDelegate {
             cell.statusIcon.text = "⚠︎"
             cell.statusIcon.textColor = UIColor.yellowColor()
             cell.statusIcon.hidden = false
-        } else if(scan.transmitted) {
+        } else if scan.transmitted {
             cell.statusIcon.text = "✓"
-            cell.statusIcon.textColor = UIColor.blueColor()
+            cell.statusIcon.textColor = UIColor.greenColor()
             cell.statusIcon.hidden = false
         } else {
             cell.statusIcon.hidden = true
