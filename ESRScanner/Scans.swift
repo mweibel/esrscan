@@ -24,12 +24,7 @@ class Scans {
     }
 
     func string() -> String {
-        var str = ""
-        for scan in scans {
-            str += scan.string()
-            str += "\n----\n"
-        }
-        return str
+        return scans.map{ $0.string() }.joinWithSeparator("\n----\n")
     }
 
     subscript(index: Int) -> ESR {

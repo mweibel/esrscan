@@ -118,12 +118,18 @@ public class ESR {
     }
 
     func string() -> String {
-        var str = "RefNum: \(self.refNum.string())\nAccNum: \(self.accNum.string())"
-        if self.amount != nil {
-            str.appendContentsOf("\nAmount: \(self.amount!.string())")
+        var str = "Reference number: \(self.refNum.string())"
+        if !self.refNumCheckDigitValid() {
+            str.appendContentsOf(" ⚠︎")
         }
-        str.appendContentsOf("\nAmount Valid? \(self.amountCheckDigitValid())")
-        str.appendContentsOf("\nRefNum Valid? \(self.refNumCheckDigitValid())")
+
+        str.appendContentsOf("\nAccount number: \(self.accNum.string())")
+        if self.amount != nil {
+            str.appendContentsOf("\nAmount: CHF \(self.amount!.string())")
+            if !self.amountCheckDigitValid() {
+                str.appendContentsOf(" ⚠︎")
+            }
+        }
         return str
     }
 
