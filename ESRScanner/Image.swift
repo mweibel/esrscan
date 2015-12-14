@@ -130,10 +130,13 @@ func adaptiveThreshold(image: UIImage) -> UIImage {
     return threshold.imageByFilteringImage(image)
 }
 
-func preprocessImage(image: UIImage) -> UIImage {
+func preprocessImage(image: UIImage, autoCrop: Bool = true) -> UIImage {
     let rImage = rotate(image)
+    if !autoCrop {
+        return rImage
+    }
     let coords = getWhiteRectangle(rImage)
-    if coords.origin.x >= 0 || coords.origin.y >= 0 {
+    if coords.origin.x > 0 || coords.origin.y > 0 {
         return crop(rImage, cropRect: coords)
     }
     return rImage

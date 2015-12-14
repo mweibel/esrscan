@@ -37,8 +37,8 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         self.tableView?.dataSource = self
     }
 
-    func performImageRecognition(rawImage: UIImage) {
-        let image = preprocessImage(rawImage)
+    func performImageRecognition(rawImage: UIImage, autoCrop: Bool = true) {
+        let image = preprocessImage(rawImage, autoCrop: false)
         
         let ocr = OCR.init()
         ocr.recognise(image)
@@ -62,15 +62,25 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                     }
                 })
             } catch ESRError.AngleNotFound {
-                showAlert("Scan failed", message: "Error scanning ESR code, please try again")
+                retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
+                    message: "Error scanning ESR code, please try again")
             } catch {
-                showAlert("Scan failed", message: "Error scanning ESR code, please try again")
+                retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
+                    message: "Error scanning ESR code, please try again")
             }
         } else {
-            showAlert("Scan failed", message: "Error finding ESR code on picture, please try again")
+            retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
+                message: "Error finding ESR code on picture, please try again")
         }
 
         activityIndicator?.hide()
+    }
+
+    func retryOrShowAlert(rawImage: UIImage, autoCrop: Bool, title: String, message: String) {
+        if autoCrop {
+            return performImageRecognition(rawImage, autoCrop: false)
+        }
+        return showAlert(title, message: message)
     }
 
     func showAlert(title: String, message: String) {

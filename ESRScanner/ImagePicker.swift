@@ -11,12 +11,13 @@ import UIKit
 extension ScansViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-        // TODO: This was probably added for testing, not sure if it's still needed.
-        let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
+        // TODO: This was added for testing but tesseract seems to work better & faster on a smaller
+        // image.. might need to double-check.
+        let scaledImage = scaleImage(selectedPhoto, maxDimension: 1000)
         activityIndicator = ActivityIndicator.init(view: self.view)
 
         dismissViewControllerAnimated(true, completion: {
-            self.performImageRecognition(scaledImage)
+            self.performImageRecognition(scaledImage, autoCrop: true)
         })
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
