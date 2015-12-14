@@ -20,12 +20,16 @@ class ImageTest: XCTestCase {
     }
 
     func testExample() {
-        let img = UIImage.init(named: "IMG_1009.JPG")!
-        let rect = getWhiteRectangle(img)
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let path = bundle.pathForResource("esr", ofType: "png")
 
-        XCTAssertEqual(29.0, rect.origin.x)
-        XCTAssertEqual(149.0, rect.origin.y)
-        XCTAssertEqual(610.0, rect.width)
-        XCTAssertEqual(330.0, rect.height)
+        let img = UIImage.init(named: path!)
+        XCTAssertNotNil(img)
+        let rect = getWhiteRectangle(img!)
+
+        XCTAssertEqual(458.0, rect.origin.x)
+        XCTAssertEqual(531.0, rect.origin.y)
+        XCTAssertEqual(1187.0, rect.width)
+        XCTAssertEqual(280.0, rect.height)
     }
 }

@@ -32,7 +32,7 @@ class Connection : NSObject, NSNetServiceDelegate {
         // most likely the server is running on the local machine in this case. 
         // connecting via internal ip or local domain name doesn't work due to
         // unknown reasons. Force it to localhost in this case.
-        if TARGET_OS_SIMULATOR == 1 {
+        if TARGET_IPHONE_SIMULATOR == 1 {
             fqdn = "localhost"
         }
 

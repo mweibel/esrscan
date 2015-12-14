@@ -31,8 +31,8 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     // it anyway needs some space, skip testing unneeded colors
     // TODO: probably starts too late, but the results are somehow better with a bigger image still.
     // might need to improve on deskewing the image before/after cropping.
-    let startY = y2 - (width / 2)
-    let startX = x2 - (height / 6)
+    let startY = y2 - (height / 3)
+    let startX = width / 3
 
     for var y = startY; y > 0; y = y - 5 {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)

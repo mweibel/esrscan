@@ -17,6 +17,7 @@
 		4C1D457D1C0EC9770046B576 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D457C1C0EC9770046B576 /* Amount.swift */; };
 		4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D151C0F5E6B0025044F /* MainNavigationController.swift */; };
 		4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */; };
+		4C3348531C1B40D500A4709A /* esr.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3348511C1B40D500A4709A /* esr.png */; };
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
 		4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E6FE1BEF537C00F66D9F /* OCR.swift */; };
 		4C64D1FF1BEE14DE0087F774 /* ESRTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */; };
@@ -61,6 +62,7 @@
 		4C1D457C1C0EC9770046B576 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		4C237D151C0F5E6B0025044F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverDesktopViewController.swift; sourceTree = "<group>"; };
+		4C3348511C1B40D500A4709A /* esr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = esr.png; sourceTree = "<group>"; };
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		4C63E6FE1BEF537C00F66D9F /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESRTest.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		4C1CD49E1BED2EC900B2CF00 /* ESRScannerTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C3348511C1B40D500A4709A /* esr.png */,
 				4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */,
 				4C1CD4A11BED2EC900B2CF00 /* Info.plist */,
 				4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */,
@@ -330,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3348531C1B40D500A4709A /* esr.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
