@@ -1,9 +1,8 @@
 //
-//  OCR.swift
-//  ESRScanner
+//  OCR
 //
-//  Created by Michael on 08.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation

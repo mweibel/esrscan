@@ -1,9 +1,8 @@
 //
-//  AppDelegate.swift
-//  einzahlungsschein
+//  App delegate
 //
-//  Created by Michael on 03.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import UIKit

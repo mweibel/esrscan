@@ -1,9 +1,8 @@
 //
-//  Connection.swift
-//  ESRScanner
+//  Connection represents a connection to a desktop running ESRReceiver
 //
-//  Created by Michael on 20.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation

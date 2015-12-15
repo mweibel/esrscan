@@ -1,9 +1,8 @@
 //
-//  ImageTest.swift
-//  ESRScanner
+//  Image utilities tests
 //
-//  Created by Michael on 14.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import XCTest

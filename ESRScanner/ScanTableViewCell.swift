@@ -1,9 +1,8 @@
 //
-//  TableCell.swift
-//  ESRScanner
+//  TableViewCell implementation for scans
 //
-//  Created by Michael on 30.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import UIKit

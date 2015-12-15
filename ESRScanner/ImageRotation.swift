@@ -1,9 +1,8 @@
 //
-//  ImageRotation.swift
-//  ESRScanner
+//  UIImage extension which adds a rotate function
 //
-//  Created by Michael on 10.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import UIKit

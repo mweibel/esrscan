@@ -1,9 +1,8 @@
 //
-//  AccountNumber.swift
-//  einzahlungsschein
+//  Account Number model
 //
-//  Created by Michael on 06.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation

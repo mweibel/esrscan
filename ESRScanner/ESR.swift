@@ -1,9 +1,8 @@
 //
-//  ESR.swift
-//  einzahlungsschein
+//  ESR parser & model
 //
-//  Created by Michael on 05.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation

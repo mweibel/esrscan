@@ -1,9 +1,8 @@
 //
-//  Discover.swift
-//  ESRScanner
+//  Discover utility for bonjour/zeroconf
 //
-//  Created by Michael on 11.11.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation

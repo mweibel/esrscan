@@ -1,9 +1,8 @@
 //
-//  Amount.swift
-//  ESRScanner
+//  Amount model
 //
-//  Created by Michael on 02.12.15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.
+//  License: MIT
 //
 
 import Foundation
