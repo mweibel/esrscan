@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/dewarp.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/dewarp.h

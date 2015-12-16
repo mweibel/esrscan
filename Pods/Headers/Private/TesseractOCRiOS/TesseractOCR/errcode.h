@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/errcode.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/errcode.h

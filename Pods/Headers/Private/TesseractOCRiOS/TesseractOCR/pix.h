@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/pix.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/pix.h

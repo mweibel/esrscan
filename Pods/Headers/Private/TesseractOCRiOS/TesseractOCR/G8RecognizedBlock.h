@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/G8RecognizedBlock.h
+../../../../TesseractOCRiOS/TesseractOCR/G8RecognizedBlock.h

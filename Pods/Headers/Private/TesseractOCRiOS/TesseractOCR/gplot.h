@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/gplot.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/gplot.h

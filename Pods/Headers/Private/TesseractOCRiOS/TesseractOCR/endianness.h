@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/endianness.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/endianness.h

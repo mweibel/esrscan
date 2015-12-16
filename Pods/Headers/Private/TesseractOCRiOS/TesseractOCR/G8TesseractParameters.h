@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/G8TesseractParameters.h
+../../../../TesseractOCRiOS/TesseractOCR/G8TesseractParameters.h

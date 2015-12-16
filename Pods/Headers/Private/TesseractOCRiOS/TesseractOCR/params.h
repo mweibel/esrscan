@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/params.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/params.h

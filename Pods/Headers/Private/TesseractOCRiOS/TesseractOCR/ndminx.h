@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/ndminx.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/ndminx.h

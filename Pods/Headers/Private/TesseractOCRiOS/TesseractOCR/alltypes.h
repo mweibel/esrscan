@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/alltypes.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/alltypes.h

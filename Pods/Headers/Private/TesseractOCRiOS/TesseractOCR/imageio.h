@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/leptonica/imageio.h
+../../../../TesseractOCRiOS/TesseractOCR/include/leptonica/imageio.h

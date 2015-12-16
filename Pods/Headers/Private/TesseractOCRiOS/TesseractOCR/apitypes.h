@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/apitypes.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/apitypes.h

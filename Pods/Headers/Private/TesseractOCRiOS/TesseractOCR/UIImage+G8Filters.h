@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/UIImage+G8Filters.h
+../../../../TesseractOCRiOS/TesseractOCR/UIImage+G8Filters.h

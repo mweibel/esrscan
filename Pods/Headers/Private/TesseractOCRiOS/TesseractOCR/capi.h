@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/capi.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/capi.h

@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/G8TesseractDelegate.h
+../../../../TesseractOCRiOS/TesseractOCR/G8TesseractDelegate.h

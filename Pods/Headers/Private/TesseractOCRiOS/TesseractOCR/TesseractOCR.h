@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/TesseractOCR.h
+../../../../TesseractOCRiOS/TesseractOCR/TesseractOCR.h

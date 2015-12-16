@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/publictypes.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/publictypes.h

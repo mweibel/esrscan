@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/memry.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/memry.h

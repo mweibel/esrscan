@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/G8RecognitionOperation.h
+../../../../TesseractOCRiOS/TesseractOCR/G8RecognitionOperation.h

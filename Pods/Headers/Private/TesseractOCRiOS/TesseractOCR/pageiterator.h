@@ -1,1 +1,1 @@
-../../../../../../Tesseract-OCR-iOS/TesseractOCR/include/tesseract/pageiterator.h
+../../../../TesseractOCRiOS/TesseractOCR/include/tesseract/pageiterator.h
