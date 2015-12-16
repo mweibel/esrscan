@@ -4,8 +4,7 @@
 use_frameworks!
 
 def shared_pods
-	#pod 'TesseractOCRiOS', '4.0.0'
-	pod 'TesseractOCRiOS', :path => '~/code/receipt-parser/einzahlungsschein/Tesseract-OCR-iOS'
+	pod 'TesseractOCRiOS', '4.0.0'
 	pod 'GPUImage', '0.1.7'
 	pod 'Alamofire', '~> 3.0'
 end
