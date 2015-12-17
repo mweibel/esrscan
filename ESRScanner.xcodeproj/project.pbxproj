@@ -18,6 +18,7 @@
 		4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D151C0F5E6B0025044F /* MainNavigationController.swift */; };
 		4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */; };
 		4C3348531C1B40D500A4709A /* esr.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3348511C1B40D500A4709A /* esr.png */; };
+		4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38F9161C20931100673954 /* IntroductionPageViewController.swift */; };
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
 		4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E6FE1BEF537C00F66D9F /* OCR.swift */; };
 		4C64D1FF1BEE14DE0087F774 /* ESRTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */; };
@@ -63,6 +64,7 @@
 		4C237D151C0F5E6B0025044F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverDesktopViewController.swift; sourceTree = "<group>"; };
 		4C3348511C1B40D500A4709A /* esr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = esr.png; sourceTree = "<group>"; };
+		4C38F9161C20931100673954 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		4C63E6FE1BEF537C00F66D9F /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		4C64D1FE1BEE14DE0087F774 /* ESRTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESRTest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
 				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
 				4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */,
+				4C38F9161C20931100673954 /* IntroductionPageViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				4C7E605B1BFF9ABF00A9D9F3 /* Connection.swift in Sources */,
 				4C7078A11BF2A3260086A6BD /* ImageRotation.swift in Sources */,
 				4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */,
+				4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */,
 				4C72435C1BF3269E006303F2 /* Discover.swift in Sources */,
 				4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */,
 				4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */,
