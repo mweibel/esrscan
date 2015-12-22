@@ -25,7 +25,7 @@ extension ScansViewController : UITableViewDataSource, UITableViewDelegate {
 
         if scan.amount != nil {
             cell.amount.hidden = false
-            cell.amount.text = scan.amount!.string()
+            cell.amount.text = scan.amount!.currency + " " + scan.amount!.string()
         } else {
             cell.amount.hidden = true
         }

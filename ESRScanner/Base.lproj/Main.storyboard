@@ -465,20 +465,11 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan your ESR invoices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-j0-s9K">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="91" y="262" width="266" height="24"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to get started &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccr-pR-cAS">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="282" y="670" width="177" height="22"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to ESRScanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmZ-pj-1PM">
@@ -487,35 +478,41 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-N8-SXT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Swipe to get started &gt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ccr-pR-cAS" firstAttribute="bottom" secondItem="uc4-UE-mu4" secondAttribute="top" constant="-40" id="5Mh-T0-EHs"/>
-                            <constraint firstItem="ccr-pR-cAS" firstAttribute="centerX" secondItem="13T-27-A67" secondAttribute="centerX" id="7Ca-gu-Kqh"/>
+                            <constraint firstItem="aBh-N8-SXT" firstAttribute="centerX" secondItem="13T-27-A67" secondAttribute="centerX" id="CVx-pU-vsC"/>
                             <constraint firstItem="Yuk-j0-s9K" firstAttribute="leading" secondItem="13T-27-A67" secondAttribute="leadingMargin" constant="20" id="Ryn-mA-WyF"/>
                             <constraint firstItem="gmZ-pj-1PM" firstAttribute="top" secondItem="FWR-iT-08k" secondAttribute="bottom" constant="80" id="qId-Kc-4qe"/>
                             <constraint firstItem="gmZ-pj-1PM" firstAttribute="centerX" secondItem="13T-27-A67" secondAttribute="centerX" id="rth-Wz-8za"/>
                             <constraint firstItem="Yuk-j0-s9K" firstAttribute="top" secondItem="gmZ-pj-1PM" secondAttribute="bottom" constant="100" id="uvV-R7-2wT"/>
+                            <constraint firstItem="aBh-N8-SXT" firstAttribute="bottom" secondItem="uc4-UE-mu4" secondAttribute="top" constant="40" id="yPt-nU-BGU">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-40"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Yuk-j0-s9K"/>
-                                <exclude reference="ccr-pR-cAS"/>
                                 <exclude reference="gmZ-pj-1PM"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Ryn-mA-WyF"/>
                                 <exclude reference="uvV-R7-2wT"/>
-                                <exclude reference="5Mh-T0-EHs"/>
-                                <exclude reference="7Ca-gu-Kqh"/>
                                 <exclude reference="qId-Kc-4qe"/>
                                 <exclude reference="rth-Wz-8za"/>
+                                <exclude reference="CVx-pU-vsC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="Yuk-j0-s9K"/>
-                                <include reference="ccr-pR-cAS"/>
                                 <include reference="gmZ-pj-1PM"/>
                             </mask>
                             <mask key="constraints">
@@ -527,8 +524,7 @@
                             <mask key="constraints">
                                 <include reference="Ryn-mA-WyF"/>
                                 <include reference="uvV-R7-2wT"/>
-                                <include reference="5Mh-T0-EHs"/>
-                                <include reference="7Ca-gu-Kqh"/>
+                                <include reference="CVx-pU-vsC"/>
                             </mask>
                         </variation>
                     </view>
@@ -557,7 +553,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send them to your computer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-YR-H2y">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
@@ -626,7 +622,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop wasting time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy1-TO-PY6">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">

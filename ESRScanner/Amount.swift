@@ -15,6 +15,6 @@ class Amount {
     }
 
     func string() -> String {
-        return String(format: "%@ %.2f", self.currency, self.value)
+        return String(format: "%.2f", self.value)
     }
 }
