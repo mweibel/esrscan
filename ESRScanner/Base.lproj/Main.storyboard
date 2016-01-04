@@ -316,6 +316,9 @@
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Welcome to ESRScanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmZ-pj-1PM">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -323,6 +326,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                </variation>
+                                <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 </variation>
                             </label>
@@ -336,7 +342,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Intro1" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-lh-46H">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="205" id="S4C-jR-9TE"/>
+                                    <constraint firstAttribute="height" constant="205" id="S4C-jR-9TE">
+                                        <variation key="widthClass=compact" constant="150"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -344,6 +352,11 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="S4C-jR-9TE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="S4C-jR-9TE"/>
                                     </mask>
@@ -388,6 +401,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                </variation>
+                                <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 </variation>
                             </label>
@@ -397,16 +413,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 </variation>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="91" y="368" width="318" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Intro2" translatesAutoresizingMaskIntoConstraints="NO" id="om1-J8-8R5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="F90-55-4sH"/>
+                                    <constraint firstAttribute="height" constant="70" id="F90-55-4sH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -458,6 +477,9 @@
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copy &amp; Paste to your E-Banking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy1-TO-PY6">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -470,6 +492,9 @@
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="91" y="487" width="200" height="30"/>
                                 </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Intro3" translatesAutoresizingMaskIntoConstraints="NO" id="x2C-xW-Rvv">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -478,7 +503,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x2C-xW-Rvv" firstAttribute="leading" secondItem="w1R-se-Yvz" secondAttribute="leadingMargin" constant="20" id="ECg-Vz-5uq"/>
-                            <constraint firstItem="hy1-TO-PY6" firstAttribute="leading" secondItem="w1R-se-Yvz" secondAttribute="leadingMargin" constant="20" id="FJn-0V-HAw"/>
+                            <constraint firstItem="hy1-TO-PY6" firstAttribute="leading" secondItem="w1R-se-Yvz" secondAttribute="leadingMargin" constant="20" id="FJn-0V-HAw">
+                                <variation key="heightClass=compact" constant="90"/>
+                            </constraint>
                             <constraint firstItem="hy1-TO-PY6" firstAttribute="top" secondItem="jbO-FP-Xkm" secondAttribute="bottom" constant="20" id="QjN-Ac-cWI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x2C-xW-Rvv" secondAttribute="trailing" constant="20" id="hbi-X6-7YT"/>
                             <constraint firstItem="jbO-FP-Xkm" firstAttribute="top" secondItem="5ZX-0s-wbg" secondAttribute="bottom" constant="20" id="kpH-DL-sfc"/>
@@ -494,7 +521,7 @@
     </scenes>
     <resources>
         <image name="Intro1" width="370" height="205"/>
-        <image name="Intro2" width="370" height="172"/>
+        <image name="Intro2" width="370" height="117"/>
         <image name="Intro3" width="350" height="228"/>
     </resources>
 </document>
