@@ -15,6 +15,7 @@ end
 
 target 'ESRScanner' do
 	shared_pods
+	pod 'Google/Analytics'
 end
 
 target 'ESRScannerTests' do

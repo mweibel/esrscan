@@ -19,6 +19,9 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
     var disco : Discover?
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        trackView("ScansViewController")
         self.disco = Discover.sharedInstance
 
         if self.disco?.connection != nil {

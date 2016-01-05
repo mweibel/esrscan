@@ -12,6 +12,9 @@ class DiscoverDesktopViewController : UIViewController {
     @IBOutlet var skipButton: UIBarButtonItem!
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        trackView("DiscoverDesktopViewController")
         setHideIntroView()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
@@ -19,6 +22,8 @@ class DiscoverDesktopViewController : UIViewController {
     }
 
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 

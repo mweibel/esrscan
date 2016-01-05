@@ -18,8 +18,11 @@ class IntroductionPageViewController : UIPageViewController, UIPageViewControlle
         self.dataSource = self
 
         let intro1 = storyboard?.instantiateViewControllerWithIdentifier("IntroScreen1")
+        intro1?.restorationIdentifier = "IntroScreen1"
         let intro2 = storyboard?.instantiateViewControllerWithIdentifier("IntroScreen2")
+        intro2?.restorationIdentifier = "IntroScreen2"
         let intro3 = storyboard?.instantiateViewControllerWithIdentifier("IntroScreen3")
+        intro3?.restorationIdentifier = "IntroScreen3"
 
         myViewControllers = [intro1!, intro2!, intro3!]
 
@@ -28,6 +31,8 @@ class IntroductionPageViewController : UIPageViewController, UIPageViewControlle
         let pageControlAppearance = UIPageControl.appearance()
         pageControlAppearance.pageIndicatorTintColor = UIColor.lightGrayColor()
         pageControlAppearance.currentPageIndicatorTintColor = UIColor.darkGrayColor()
+
+        trackView(intro1!.restorationIdentifier!)
     }
 
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -36,6 +41,10 @@ class IntroductionPageViewController : UIPageViewController, UIPageViewControlle
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
+    }
+
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        trackView(pendingViewControllers[0].restorationIdentifier!)
     }
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {

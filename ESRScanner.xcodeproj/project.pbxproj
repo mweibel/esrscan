@@ -16,8 +16,10 @@
 		4C1CD4951BED2EC900B2CF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD4931BED2EC900B2CF00 /* LaunchScreen.storyboard */; };
 		4C1D457D1C0EC9770046B576 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D457C1C0EC9770046B576 /* Amount.swift */; };
 		4C1DA6691C3B99F500BCED98 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DA6681C3B99F500BCED98 /* Defaults.swift */; };
+		4C1DA66B1C3BA16C00BCED98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DA66A1C3BA16C00BCED98 /* GoogleService-Info.plist */; };
 		4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D151C0F5E6B0025044F /* MainNavigationController.swift */; };
 		4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */; };
+		4C2C30241C3C34CC009421BC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C30231C3C34CC009421BC /* Analytics.swift */; };
 		4C3348531C1B40D500A4709A /* esr.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3348511C1B40D500A4709A /* esr.png */; };
 		4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38F9161C20931100673954 /* IntroductionPageViewController.swift */; };
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
@@ -63,8 +65,10 @@
 		4C1CD4A11BED2EC900B2CF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1D457C1C0EC9770046B576 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		4C1DA6681C3B99F500BCED98 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		4C1DA66A1C3BA16C00BCED98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C237D151C0F5E6B0025044F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverDesktopViewController.swift; sourceTree = "<group>"; };
+		4C2C30231C3C34CC009421BC /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		4C3348511C1B40D500A4709A /* esr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = esr.png; sourceTree = "<group>"; };
 		4C38F9161C20931100673954 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				4C72435A1BF3268F006303F2 /* discovery */,
 				4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */,
 				4C1CD4961BED2EC900B2CF00 /* Info.plist */,
+				4C1DA66A1C3BA16C00BCED98 /* GoogleService-Info.plist */,
 				4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */,
 				4C63E6FC1BEF4FC400F66D9F /* tessdata */,
 				4C237D1B1C10193A0025044F /* util */,
@@ -206,6 +211,7 @@
 				4C7FDD8A1BEFB47800FFAD62 /* Image.swift */,
 				4C7078A01BF2A3260086A6BD /* ImageRotation.swift */,
 				4C1DA6681C3B99F500BCED98 /* Defaults.swift */,
+				4C2C30231C3C34CC009421BC /* Analytics.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 			files = (
 				4C1CD4951BED2EC900B2CF00 /* LaunchScreen.storyboard in Resources */,
 				4C1CD4921BED2EC900B2CF00 /* Assets.xcassets in Resources */,
+				4C1DA66B1C3BA16C00BCED98 /* GoogleService-Info.plist in Resources */,
 				4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */,
 				4C1CD4901BED2EC900B2CF00 /* Main.storyboard in Resources */,
 			);
@@ -451,6 +458,7 @@
 				4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */,
 				4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */,
 				4C72435C1BF3269E006303F2 /* Discover.swift in Sources */,
+				4C2C30241C3C34CC009421BC /* Analytics.swift in Sources */,
 				4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */,
 				4C237D181C0F5F7A0025044F /* DiscoverDesktopViewController.swift in Sources */,
 				4C718F1F1C0CEF5B0075AD42 /* ScanTableViewCell.swift in Sources */,
@@ -591,9 +599,10 @@
 			baseConfigurationReference = 7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ESRScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.ESRScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -603,9 +612,10 @@
 			baseConfigurationReference = FC7C7600A31EDF1486AFDFBD /* Pods-ESRScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ESRScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.ESRScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
