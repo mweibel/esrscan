@@ -28,6 +28,8 @@ class DiscoverDesktopViewController : UIViewController {
     }
 
     func connectionEstablished(notification : NSNotification) {
+        trackEvent("Connection", action: "Established", label: nil, value: nil)
+
         skipButton.enabled = false
         let name = notification.userInfo!["name"]!
         statusIndicator.text = "Found \(name)"

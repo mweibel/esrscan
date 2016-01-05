@@ -40,6 +40,8 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
     }
 
     func performImageRecognition(rawImage: UIImage, autoCrop: Bool = true) {
+        trackEvent("Scan", action: "Image captured", label: nil, value: nil)
+
         let image = preprocessImage(rawImage, autoCrop: false)
         
         let ocr = OCR.init()
@@ -50,6 +52,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             // make sure only valid strings in the array go in.
             $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
         }
+        trackEvent("Scan", action: "Possible ESR Codes", label: nil, value: textArr.count)
         if textArr.count > 0 {
             let esrCode = textArr[textArr.count-1]
             do {
@@ -58,8 +61,19 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                 self.navigationItem.leftBarButtonItem?.enabled = true
                 self.tableView!.reloadData()
 
+                if !esrCode.amountCheckDigitValid() {
+                    trackEvent("Scan", action: "Parse success", label: "Parse error: amount", value: nil)
+                }
+                if !esrCode.refNumCheckDigitValid() {
+                    trackEvent("Scan", action: "Parse success", label: "Parse error: refNum", value: nil)
+                }
+                if esrCode.amountCheckDigitValid() && esrCode.refNumCheckDigitValid() {
+                    trackEvent("Scan", action: "Parse success", label: "No error", value: nil)
+                }
+
                 self.disco?.connection?.sendRequest(esrCode.dictionary(), callback: { status in
                     if status == true {
+                        trackEvent("Scan", action: "ESR transmitted", label: nil, value: nil)
                         esrCode.transmitted = true
                         self.tableView.reloadData()
                     }
@@ -161,6 +175,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
     }
 
     @IBAction func shareTextView(sender: AnyObject) {
+        trackEvent("Share Button", action: "Click", label: nil, value: nil)
         let activtyCtrl = UIActivityViewController.init(activityItems: [self.scans.string()], applicationActivities: nil)
         self.presentViewController(activtyCtrl, animated: true, completion: nil)
     }

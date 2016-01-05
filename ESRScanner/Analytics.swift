@@ -22,3 +22,9 @@ func trackCaughtException(description: String) {
     let dict = GAIDictionaryBuilder.createExceptionWithDescription(description, withFatal: false).build() as [NSObject : AnyObject]
     tracker.send(dict)
 }
+
+func trackEvent(category: String, action: String, label: String?, value: Int?) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    let dict = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: value).build() as [NSObject : AnyObject]
+    tracker.send(dict)
+}
