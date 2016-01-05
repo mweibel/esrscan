@@ -12,6 +12,8 @@ class DiscoverDesktopViewController : UIViewController {
     @IBOutlet var skipButton: UIBarButtonItem!
 
     override func viewWillAppear(animated: Bool) {
+        setHideIntroView()
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
         Discover.sharedInstance.startSearch()
     }

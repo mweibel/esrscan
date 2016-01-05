@@ -13,6 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        if shouldHideIntroView() {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("DiscoverDesktopViewController") as UIViewController
+            let navigationController = MainNavigationController(rootViewController: viewController)
+            self.window?.rootViewController = navigationController
+        }
+
         return true
     }
 

@@ -171,7 +171,7 @@
         <!--Main Navigation Controller-->
         <scene sceneID="75c-3B-zGJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G4v-ah-S5l" customClass="MainNavigationController" customModule="ESRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="G4v-ah-S5l" customClass="MainNavigationController" customModule="ESRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jqf-Se-SLK">
@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="201" y="1009.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Introduction View Controller-->
         <scene sceneID="w0j-YY-5Ye">
             <objects>
-                <viewController id="gJQ-xh-nZO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroductionViewController" title="Introduction View Controller" id="gJQ-xh-nZO" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U7w-Gi-Q5G"/>
                         <viewControllerLayoutGuide type="bottom" id="tDj-OH-XdE"/>
@@ -211,9 +211,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXb-cp-9Gu">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="600" height="736"/>
-                                </variation>
                                 <connections>
                                     <segue destination="3HN-nj-jpj" kind="embed" id="f90-95-uLV"/>
                                 </connections>
@@ -252,7 +249,7 @@
         <!--Discover Desktop View Controller-->
         <scene sceneID="iAm-sm-Xwf">
             <objects>
-                <viewController id="8qV-86-wI1" userLabel="Discover Desktop View Controller" customClass="DiscoverDesktopViewController" customModule="ESRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverDesktopViewController" id="8qV-86-wI1" userLabel="Discover Desktop View Controller" customClass="DiscoverDesktopViewController" customModule="ESRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CEG-D1-ntw"/>
                         <viewControllerLayoutGuide type="bottom" id="sL2-FO-0fy"/>
@@ -287,6 +284,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="skipButton" destination="4h4-Ad-zVj" id="4i0-cl-AxA"/>
                         <outlet property="statusIndicator" destination="ACo-Bx-U7z" id="vA2-7B-rtj"/>
@@ -415,9 +413,6 @@
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 </variation>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="91" y="368" width="318" height="30"/>
-                                </variation>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 </variation>
@@ -488,9 +483,6 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                </variation>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="91" y="487" width="200" height="30"/>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
