@@ -51,8 +51,9 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
         }
         if textArr.count > 0 {
+            let esrCode = textArr[textArr.count-1]
             do {
-                let esrCode = try ESR.parseText(textArr[textArr.count-1])
+                let esrCode = try ESR.parseText(esrCode)
                 self.scans.addScan(esrCode)
                 self.navigationItem.leftBarButtonItem?.enabled = true
                 self.tableView!.reloadData()
@@ -64,13 +65,16 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                     }
                 })
             } catch ESRError.AngleNotFound {
+                trackCaughtException("AngleNotFound in string '\(esrCode)'")
                 retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
                     message: "Error scanning ESR code, please try again")
-            } catch {
+            } catch let error {
+                trackCaughtException("Error scanning ESR Code in string '\(esrCode)': \(error)")
                 retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
                     message: "Error scanning ESR code, please try again")
             }
         } else {
+            trackCaughtException("Error finding ESR Code on picture with width '\(rawImage.size.width)' and height '\(rawImage.size.height)'")
             retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
                 message: "Error finding ESR code on picture, please try again")
         }

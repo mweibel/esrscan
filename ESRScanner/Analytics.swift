@@ -16,3 +16,9 @@ func trackView(name: String) {
     let builder = GAIDictionaryBuilder.createScreenView()
     tracker.send(builder.build() as [NSObject : AnyObject])
 }
+
+func trackCaughtException(description: String) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    let dict = GAIDictionaryBuilder.createExceptionWithDescription(description, withFatal: false).build() as [NSObject : AnyObject]
+    tracker.send(dict)
+}
