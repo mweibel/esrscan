@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "03C50E957C1D35132BEB9F9486BE04E06D6590E9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "03C50E957C1D35132BEB9F9486BE04E06D6590E9" : 0,
+    "F9FE36C44026D11AFEE73771EE8126B7F8D2DCDD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "48872CE1-9F71-4D6D-A0D4-089716B50C01",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "03C50E957C1D35132BEB9F9486BE04E06D6590E9" : "ESRScanner\/",
+    "F9FE36C44026D11AFEE73771EE8126B7F8D2DCDD" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ESRScan",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ESRScan.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mweibel\/ESRScanner.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03C50E957C1D35132BEB9F9486BE04E06D6590E9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mweibel\/receipt-parser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F9FE36C44026D11AFEE73771EE8126B7F8D2DCDD"
+    }
+  ]
+}

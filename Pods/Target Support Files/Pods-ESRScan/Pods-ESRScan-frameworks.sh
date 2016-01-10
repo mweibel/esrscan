@@ -84,12 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-ESRScanner/Alamofire.framework"
-  install_framework "Pods-ESRScanner/GPUImage.framework"
-  install_framework "Pods-ESRScanner/TesseractOCR.framework"
+  install_framework "Pods-ESRScan/Alamofire.framework"
+  install_framework "Pods-ESRScan/GPUImage.framework"
+  install_framework "Pods-ESRScan/TesseractOCR.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-ESRScanner/Alamofire.framework"
-  install_framework "Pods-ESRScanner/GPUImage.framework"
-  install_framework "Pods-ESRScanner/TesseractOCR.framework"
+  install_framework "Pods-ESRScan/Alamofire.framework"
+  install_framework "Pods-ESRScan/GPUImage.framework"
+  install_framework "Pods-ESRScan/TesseractOCR.framework"
 fi

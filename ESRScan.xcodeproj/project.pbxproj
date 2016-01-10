@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3910AA30D1175103FF0DE674 /* Pods_ESRScanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DB01C7B172D3BF39FEA62F /* Pods_ESRScanTests.framework */; };
+		40D747B0424B23023F6D882F /* Pods_ESRScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5A7E7A7E050C400E293C6B /* Pods_ESRScan.framework */; };
 		4C11FDCE1BED2FE300501D16 /* AccountNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11FDCB1BED2FE300501D16 /* AccountNumber.swift */; };
 		4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11FDCC1BED2FE300501D16 /* ESR.swift */; };
 		4C1CD48B1BED2EC900B2CF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */; };
@@ -36,8 +38,6 @@
 		4C7C48601BF7ACB700FD6BC5 /* ImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */; };
 		4C7E605B1BFF9ABF00A9D9F3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E605A1BFF9ABF00A9D9F3 /* Connection.swift */; };
 		4C7FDD8B1BEFB47800FFAD62 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FDD8A1BEFB47800FFAD62 /* Image.swift */; };
-		6C8B528B6C643922F0B59533 /* Pods_ESRScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41129A272A4AE57862BCED86 /* Pods_ESRScannerTests.framework */; };
-		AF078F77A71E72987460BA9E /* Pods_ESRScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,17 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		41129A272A4AE57862BCED86 /* Pods_ESRScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C11FDCB1BED2FE300501D16 /* AccountNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNumber.swift; sourceTree = "<group>"; };
 		4C11FDCC1BED2FE300501D16 /* ESR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESR.swift; sourceTree = "<group>"; };
-		4C1CD4871BED2EC800B2CF00 /* ESRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1CD4871BED2EC800B2CF00 /* ESRScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESRScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScansViewController.swift; sourceTree = "<group>"; };
 		4C1CD48F1BED2EC900B2CF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1CD4941BED2EC900B2CF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1CD4961BED2EC900B2CF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C1CD49B1BED2EC900B2CF00 /* ESRScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESRScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1CD49B1BED2EC900B2CF00 /* ESRScan.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESRScan.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CD4A11BED2EC900B2CF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1D457C1C0EC9770046B576 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		4C1DA6681C3B99F500BCED98 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -85,11 +84,12 @@
 		4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		4C7E605A1BFF9ABF00A9D9F3 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		4C7FDD8A1BEFB47800FFAD62 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner.debug.xcconfig"; sourceTree = "<group>"; };
-		AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2DE8CFD3C75238DB3AB48BA /* Pods-ESRScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScannerTests/Pods-ESRScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EE122F94C3CF2D9C04477F98 /* Pods-ESRScannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScannerTests/Pods-ESRScannerTests.release.xcconfig"; sourceTree = "<group>"; };
-		FC7C7600A31EDF1486AFDFBD /* Pods-ESRScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner.release.xcconfig"; sourceTree = "<group>"; };
+		54740DE93D2F2F47BD9FD621 /* Pods-ESRScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScan.release.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScan/Pods-ESRScan.release.xcconfig"; sourceTree = "<group>"; };
+		6A5A7E7A7E050C400E293C6B /* Pods_ESRScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12F3434686EB9783B09101D /* Pods-ESRScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScan/Pods-ESRScan.debug.xcconfig"; sourceTree = "<group>"; };
+		BDC2EB6B1E43FE4C05D834B9 /* Pods-ESRScanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanTests/Pods-ESRScanTests.release.xcconfig"; sourceTree = "<group>"; };
+		BFE1314444BE0172C85AD416 /* Pods-ESRScanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESRScanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESRScanTests/Pods-ESRScanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E8DB01C7B172D3BF39FEA62F /* Pods_ESRScanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESRScanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF078F77A71E72987460BA9E /* Pods_ESRScanner.framework in Frameworks */,
+				40D747B0424B23023F6D882F /* Pods_ESRScan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,18 +105,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C8B528B6C643922F0B59533 /* Pods_ESRScannerTests.framework in Frameworks */,
+				3910AA30D1175103FF0DE674 /* Pods_ESRScanTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		200A16DC5B74B7F2DB0670F8 /* Frameworks */ = {
+		0DAB00DD134AE2F2B9552B5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC15BE13DB8E6472733FDBDE /* Pods_ESRScanner.framework */,
-				41129A272A4AE57862BCED86 /* Pods_ESRScannerTests.framework */,
+				6A5A7E7A7E050C400E293C6B /* Pods_ESRScan.framework */,
+				E8DB01C7B172D3BF39FEA62F /* Pods_ESRScanTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,24 +136,24 @@
 		4C1CD47E1BED2EC800B2CF00 = {
 			isa = PBXGroup;
 			children = (
-				4C1CD4891BED2EC900B2CF00 /* ESRScanner */,
-				4C1CD49E1BED2EC900B2CF00 /* ESRScannerTests */,
+				4C1CD4891BED2EC900B2CF00 /* ESRScan */,
+				4C1CD49E1BED2EC900B2CF00 /* ESRScanTests */,
 				4C1CD4881BED2EC800B2CF00 /* Products */,
-				5F8B793B4DC517ABB421E179 /* Pods */,
-				200A16DC5B74B7F2DB0670F8 /* Frameworks */,
+				ABC2B4B2826330342123B4EB /* Pods */,
+				0DAB00DD134AE2F2B9552B5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		4C1CD4881BED2EC800B2CF00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4C1CD4871BED2EC800B2CF00 /* ESRScanner.app */,
-				4C1CD49B1BED2EC900B2CF00 /* ESRScannerTests.xctest */,
+				4C1CD4871BED2EC800B2CF00 /* ESRScan.app */,
+				4C1CD49B1BED2EC900B2CF00 /* ESRScan.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4C1CD4891BED2EC900B2CF00 /* ESRScanner */ = {
+		4C1CD4891BED2EC900B2CF00 /* ESRScan */ = {
 			isa = PBXGroup;
 			children = (
 				4C11FDCA1BED2FD600501D16 /* model */,
@@ -167,10 +167,10 @@
 				4C63E6FC1BEF4FC400F66D9F /* tessdata */,
 				4C237D1B1C10193A0025044F /* util */,
 			);
-			path = ESRScanner;
+			path = ESRScan;
 			sourceTree = "<group>";
 		};
-		4C1CD49E1BED2EC900B2CF00 /* ESRScannerTests */ = {
+		4C1CD49E1BED2EC900B2CF00 /* ESRScanTests */ = {
 			isa = PBXGroup;
 			children = (
 				4C3348511C1B40D500A4709A /* esr.png */,
@@ -178,7 +178,7 @@
 				4C1CD4A11BED2EC900B2CF00 /* Info.plist */,
 				4C7C485F1BF7ACB700FD6BC5 /* ImageTest.swift */,
 			);
-			path = ESRScannerTests;
+			path = ESRScanTests;
 			sourceTree = "<group>";
 		};
 		4C237D191C1018F60025044F /* controller */ = {
@@ -234,13 +234,13 @@
 			name = discovery;
 			sourceTree = "<group>";
 		};
-		5F8B793B4DC517ABB421E179 /* Pods */ = {
+		ABC2B4B2826330342123B4EB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */,
-				FC7C7600A31EDF1486AFDFBD /* Pods-ESRScanner.release.xcconfig */,
-				D2DE8CFD3C75238DB3AB48BA /* Pods-ESRScannerTests.debug.xcconfig */,
-				EE122F94C3CF2D9C04477F98 /* Pods-ESRScannerTests.release.xcconfig */,
+				B12F3434686EB9783B09101D /* Pods-ESRScan.debug.xcconfig */,
+				54740DE93D2F2F47BD9FD621 /* Pods-ESRScan.release.xcconfig */,
+				BFE1314444BE0172C85AD416 /* Pods-ESRScanTests.debug.xcconfig */,
+				BDC2EB6B1E43FE4C05D834B9 /* Pods-ESRScanTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -248,45 +248,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C1CD4861BED2EC800B2CF00 /* ESRScanner */ = {
+		4C1CD4861BED2EC800B2CF00 /* ESRScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C1CD4A41BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScanner" */;
+			buildConfigurationList = 4C1CD4A41BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScan" */;
 			buildPhases = (
-				F2FB6969D1533A65EF9EB099 /* Check Pods Manifest.lock */,
+				38A92C91549412855DB701EC /* Check Pods Manifest.lock */,
 				4C1CD4831BED2EC800B2CF00 /* Sources */,
 				4C1CD4841BED2EC800B2CF00 /* Frameworks */,
 				4C1CD4851BED2EC800B2CF00 /* Resources */,
-				B3A8088D7AB419F0A1523551 /* Embed Pods Frameworks */,
-				13C1416324A32017EDEE7B0E /* Copy Pods Resources */,
+				255F3CE35A090902FCF81809 /* Embed Pods Frameworks */,
+				0D2C99CA5C2756463D04F450 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ESRScanner;
+			name = ESRScan;
 			productName = ESRScanner;
-			productReference = 4C1CD4871BED2EC800B2CF00 /* ESRScanner.app */;
+			productReference = 4C1CD4871BED2EC800B2CF00 /* ESRScan.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4C1CD49A1BED2EC900B2CF00 /* ESRScannerTests */ = {
+		4C1CD49A1BED2EC900B2CF00 /* ESRScanTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C1CD4A71BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScannerTests" */;
+			buildConfigurationList = 4C1CD4A71BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScanTests" */;
 			buildPhases = (
-				255BB2A2616D76B1428D5BF0 /* Check Pods Manifest.lock */,
+				4061D88BFE745331DE165040 /* Check Pods Manifest.lock */,
 				4C1CD4971BED2EC900B2CF00 /* Sources */,
 				4C1CD4981BED2EC900B2CF00 /* Frameworks */,
 				4C1CD4991BED2EC900B2CF00 /* Resources */,
-				82F15357F5793E25EDEB780A /* Embed Pods Frameworks */,
-				633E1088698B57ECFA74C299 /* Copy Pods Resources */,
+				37A4F10D57C6EDF1325ED1EA /* Embed Pods Frameworks */,
+				4C644734A9AD73C4FDBF3B6F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4C1CD49D1BED2EC900B2CF00 /* PBXTargetDependency */,
 			);
-			name = ESRScannerTests;
+			name = ESRScanTests;
 			productName = ESRScannerTests;
-			productReference = 4C1CD49B1BED2EC900B2CF00 /* ESRScannerTests.xctest */;
+			productReference = 4C1CD49B1BED2EC900B2CF00 /* ESRScan.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -310,7 +310,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4C1CD4821BED2EC800B2CF00 /* Build configuration list for PBXProject "ESRScanner" */;
+			buildConfigurationList = 4C1CD4821BED2EC800B2CF00 /* Build configuration list for PBXProject "ESRScan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -323,8 +323,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C1CD4861BED2EC800B2CF00 /* ESRScanner */,
-				4C1CD49A1BED2EC900B2CF00 /* ESRScannerTests */,
+				4C1CD4861BED2EC800B2CF00 /* ESRScan */,
+				4C1CD49A1BED2EC900B2CF00 /* ESRScanTests */,
 			);
 		};
 /* End PBXProject section */
@@ -353,7 +353,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13C1416324A32017EDEE7B0E /* Copy Pods Resources */ = {
+		0D2C99CA5C2756463D04F450 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,10 +365,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScan/Pods-ESRScan-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		255BB2A2616D76B1428D5BF0 /* Check Pods Manifest.lock */ = {
+		255F3CE35A090902FCF81809 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScan/Pods-ESRScan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37A4F10D57C6EDF1325ED1EA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScanTests/Pods-ESRScanTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38A92C91549412855DB701EC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -383,52 +413,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		633E1088698B57ECFA74C299 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScannerTests/Pods-ESRScannerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		82F15357F5793E25EDEB780A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScannerTests/Pods-ESRScannerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3A8088D7AB419F0A1523551 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScanner/Pods-ESRScanner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2FB6969D1533A65EF9EB099 /* Check Pods Manifest.lock */ = {
+		4061D88BFE745331DE165040 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,6 +426,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C644734A9AD73C4FDBF3B6F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESRScanTests/Pods-ESRScanTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -488,7 +488,7 @@
 /* Begin PBXTargetDependency section */
 		4C1CD49D1BED2EC900B2CF00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4C1CD4861BED2EC800B2CF00 /* ESRScanner */;
+			target = 4C1CD4861BED2EC800B2CF00 /* ESRScan */;
 			targetProxy = 4C1CD49C1BED2EC900B2CF00 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -596,60 +596,60 @@
 		};
 		4C1CD4A51BED2EC900B2CF00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F65BA52B7E88A96320D8B4D /* Pods-ESRScanner.debug.xcconfig */;
+			baseConfigurationReference = B12F3434686EB9783B09101D /* Pods-ESRScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ESRScanner/Info.plist;
+				INFOPLIST_FILE = ESRScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ESRScan;
 			};
 			name = Debug;
 		};
 		4C1CD4A61BED2EC900B2CF00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC7C7600A31EDF1486AFDFBD /* Pods-ESRScanner.release.xcconfig */;
+			baseConfigurationReference = 54740DE93D2F2F47BD9FD621 /* Pods-ESRScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ESRScanner/Info.plist;
+				INFOPLIST_FILE = ESRScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ESRScan;
 			};
 			name = Release;
 		};
 		4C1CD4A81BED2EC900B2CF00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2DE8CFD3C75238DB3AB48BA /* Pods-ESRScannerTests.debug.xcconfig */;
+			baseConfigurationReference = BFE1314444BE0172C85AD416 /* Pods-ESRScanTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ESRScannerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.ESRScannerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESRScanner.app/ESRScanner";
+				PRODUCT_NAME = ESRScan;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESRScan.app/ESRScan";
 			};
 			name = Debug;
 		};
 		4C1CD4A91BED2EC900B2CF00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE122F94C3CF2D9C04477F98 /* Pods-ESRScannerTests.release.xcconfig */;
+			baseConfigurationReference = BDC2EB6B1E43FE4C05D834B9 /* Pods-ESRScanTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ESRScannerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.ESRScannerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESRScanner.app/ESRScanner";
+				PRODUCT_NAME = ESRScan;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESRScan.app/ESRScan";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C1CD4821BED2EC800B2CF00 /* Build configuration list for PBXProject "ESRScanner" */ = {
+		4C1CD4821BED2EC800B2CF00 /* Build configuration list for PBXProject "ESRScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C1CD4A21BED2EC900B2CF00 /* Debug */,
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C1CD4A41BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScanner" */ = {
+		4C1CD4A41BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C1CD4A51BED2EC900B2CF00 /* Debug */,
@@ -667,7 +667,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C1CD4A71BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScannerTests" */ = {
+		4C1CD4A71BED2EC900B2CF00 /* Build configuration list for PBXNativeTarget "ESRScanTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C1CD4A81BED2EC900B2CF00 /* Debug */,

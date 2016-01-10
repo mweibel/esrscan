@@ -13,12 +13,12 @@ def shared_pods
 	pod 'TesseractOCRiOS', :git => 'https://github.com/gali8/Tesseract-OCR-iOS.git', :commit => 'b4edaf737b9495b6d609375c1ff2875be9acdb47'
 end
 
-target 'ESRScanner' do
+target 'ESRScan' do
 	shared_pods
 	pod 'Google/Analytics'
 end
 
-target 'ESRScannerTests' do
+target 'ESRScanTests' do
 	shared_pods
 end
 

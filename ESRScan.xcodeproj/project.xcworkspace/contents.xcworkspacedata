@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ESRScanner.xcodeproj">
+      location = "self:/Users/michael/code/receipt-parser/einzahlungsschein/ESRScanner/ESRScan.xcodeproj">
    </FileRef>
 </Workspace>

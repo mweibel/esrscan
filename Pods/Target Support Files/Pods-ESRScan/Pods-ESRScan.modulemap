@@ -1,0 +1,6 @@
+framework module Pods_ESRScan {
+  umbrella header "Pods-ESRScan-umbrella.h"
+
+  export *
+  module * { export * }
+}
