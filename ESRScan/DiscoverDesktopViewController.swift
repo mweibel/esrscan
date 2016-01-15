@@ -32,7 +32,9 @@ class DiscoverDesktopViewController : UIViewController {
 
         skipButton.enabled = false
         let name = notification.userInfo!["name"]!
-        statusIndicator.text = "Found \(name)"
+        statusIndicator.text = String.localizedStringWithFormat(
+            NSLocalizedString("Found %@", comment: "When a desktop computer has been found, this text is displayed on screen."),
+            [name])
         NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showScansView:", userInfo: nil, repeats: false)
     }
 

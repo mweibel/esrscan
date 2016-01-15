@@ -80,17 +80,23 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                 })
             } catch ESRError.AngleNotFound {
                 trackCaughtException("AngleNotFound in string '\(esrCode)'")
-                retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
-                    message: "Error scanning ESR code, please try again")
+                retryOrShowAlert(rawImage, autoCrop: autoCrop,
+                    title: NSLocalizedString("Scan failed", comment: "Scan failed title in alert view"),
+                    message: NSLocalizedString("Error scanning ESR code, please try again", comment: "Error message")
+                )
             } catch let error {
                 trackCaughtException("Error scanning ESR Code in string '\(esrCode)': \(error)")
-                retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
-                    message: "Error scanning ESR code, please try again")
+                retryOrShowAlert(rawImage, autoCrop: autoCrop,
+                    title: NSLocalizedString("Scan failed", comment: "Scan failed title in alert view"),
+                    message: NSLocalizedString("Error scanning ESR code, please try again", comment: "Error message")
+                )
             }
         } else {
             trackCaughtException("Error finding ESR Code on picture with width '\(rawImage.size.width)' and height '\(rawImage.size.height)'")
-            retryOrShowAlert(rawImage, autoCrop: autoCrop, title: "Scan failed",
-                message: "Error finding ESR code on picture, please try again")
+            retryOrShowAlert(rawImage, autoCrop: autoCrop,
+                title: NSLocalizedString("Scan failed", comment: "Scan failed title in alert view"),
+                message: NSLocalizedString("Error finding ESR code on picture, please try again", comment: "Error message")
+            )
         }
 
         activityIndicator?.hide()
@@ -105,18 +111,22 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
 
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let actionOk = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let actionOk = UIAlertAction(
+            title: NSLocalizedString("OK", comment: "OK Button on alert view"),
+            style: .Default,
+            handler: nil
+        )
         alertController.addAction(actionOk)
 
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func takePhoto(sender: AnyObject) {
-        let imagePickerActionSheet = UIAlertController(title: "Snap/Upload Photo",
+        let imagePickerActionSheet = UIAlertController(title: NSLocalizedString("Snap/Use Photo", comment: "Title for menu which appears when clicking the camera button."),
             message: nil, preferredStyle: .ActionSheet)
 
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            let cameraButton = UIAlertAction(title: "Take Photo",
+            let cameraButton = UIAlertAction(title: NSLocalizedString("Take Photo", comment: "Menu-item title for taking a photo using the camera."),
                 style: .Default) { (alert) -> Void in
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
@@ -128,7 +138,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
             imagePickerActionSheet.addAction(cameraButton)
         }
 
-        let libraryButton = UIAlertAction(title: "Choose Existing",
+        let libraryButton = UIAlertAction(title: NSLocalizedString("Choose existing", comment: "Menu-item title for choosing an existing photo from the library."),
             style: .Default) { (alert) -> Void in
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
@@ -139,7 +149,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         }
         imagePickerActionSheet.addAction(libraryButton)
 
-        let cancelButton = UIAlertAction(title: "Cancel",
+        let cancelButton = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button"),
             style: .Cancel) { (alert) -> Void in
         }
         imagePickerActionSheet.addAction(cancelButton)
@@ -150,12 +160,12 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
 
     @IBAction func clearTextView(sender: AnyObject) {
         let alertCtrl = UIAlertController.init(
-            title: "Clear text",
-            message: "Are you sure you want to remove the scanned text",
+            title: NSLocalizedString("Clear scans", comment: "Button for clearing the scanned items"),
+            message: NSLocalizedString("Are you sure you want to remove the scans?", comment:"Message if its ok to clear the scans"),
             preferredStyle: UIAlertControllerStyle.Alert
         )
         alertCtrl.addAction(UIAlertAction(
-            title: "Ok",
+            title: NSLocalizedString("Yes", comment: "Button for confirming that clearing the scans is ok."),
             style: .Default,
             handler: {
                 (action: UIAlertAction!) in
@@ -166,7 +176,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         ))
 
         alertCtrl.addAction(UIAlertAction(
-            title: "Cancel",
+            title: NSLocalizedString("No", comment: "No button"),
             style: .Default,
             handler: nil
         ))
