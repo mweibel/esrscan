@@ -56,3 +56,6 @@
 
 /* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "pPa-wW-jIE"; */
 "pPa-wW-jIE.text" = "Willkommen zu ESRScan";
+
+/* Class = "UILabel"; text = "To download the desktop App, visit:"; ObjectID = "fOE-6W-rHZ"; */
+"fOE-6W-rHZ.text" = "Um die desktop App herunterzuladen, öffne:";

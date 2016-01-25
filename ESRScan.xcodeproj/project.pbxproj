@@ -11,6 +11,7 @@
 		40D747B0424B23023F6D882F /* Pods_ESRScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5A7E7A7E050C400E293C6B /* Pods_ESRScan.framework */; };
 		4C11FDCE1BED2FE300501D16 /* AccountNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11FDCB1BED2FE300501D16 /* AccountNumber.swift */; };
 		4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11FDCC1BED2FE300501D16 /* ESR.swift */; };
+		4C1C9C5C1C56D6B700EF9420 /* IntroScreen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C9C5B1C56D6B700EF9420 /* IntroScreen1.swift */; };
 		4C1CD48B1BED2EC900B2CF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */; };
 		4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */; };
 		4C1CD4901BED2EC900B2CF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CD48E1BED2EC900B2CF00 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		4C11FDCB1BED2FE300501D16 /* AccountNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNumber.swift; sourceTree = "<group>"; };
 		4C11FDCC1BED2FE300501D16 /* ESR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESR.swift; sourceTree = "<group>"; };
+		4C1C9C5B1C56D6B700EF9420 /* IntroScreen1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScreen1.swift; sourceTree = "<group>"; };
 		4C1CD4871BED2EC800B2CF00 /* ESRScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESRScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CD48A1BED2EC900B2CF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScansViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				4C237D171C0F5F7A0025044F /* DiscoverDesktopViewController.swift */,
 				4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */,
 				4C38F9161C20931100673954 /* IntroductionPageViewController.swift */,
+				4C1C9C5B1C56D6B700EF9420 /* IntroScreen1.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -307,7 +310,7 @@
 				TargetAttributes = {
 					4C1CD4861BED2EC800B2CF00 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 2H3QH4L399;
+						DevelopmentTeam = A3Q6Z5FR3P;
 					};
 					4C1CD49A1BED2EC900B2CF00 = {
 						CreatedOnToolsVersion = 7.1;
@@ -477,6 +480,7 @@
 				4C6833C21C116F88008ED3FC /* TableView.swift in Sources */,
 				4C6833C01C116F53008ED3FC /* ImagePicker.swift in Sources */,
 				4C11FDCF1BED2FE300501D16 /* ESR.swift in Sources */,
+				4C1C9C5C1C56D6B700EF9420 /* IntroScreen1.swift in Sources */,
 				4C1DA6691C3B99F500BCED98 /* Defaults.swift in Sources */,
 				4C11FDCE1BED2FE300501D16 /* AccountNumber.swift in Sources */,
 				4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */,
@@ -552,7 +556,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -620,10 +624,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ESRScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
+				PRODUCT_BUNDLE_IDENTIFIER = net.openflex.ios.ESRScan;
 				PRODUCT_NAME = ESRScan;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -633,10 +640,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ESRScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.mweibel.EZScan;
+				PRODUCT_BUNDLE_IDENTIFIER = net.openflex.ios.ESRScan;
 				PRODUCT_NAME = ESRScan;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

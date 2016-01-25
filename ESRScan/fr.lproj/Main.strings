@@ -57,3 +57,6 @@ sur votre ordinateur";
 
 /* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "pPa-wW-jIE"; */
 "pPa-wW-jIE.text" = "Bienvenue à ESRScan";
+
+/* Class = "UILabel"; text = "To download the desktop App, visit:"; ObjectID = "fOE-6W-rHZ"; */
+"fOE-6W-rHZ.text" = "Pour télécharger l'app ordinateur, ouvert:";
