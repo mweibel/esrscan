@@ -1,0 +1,59 @@
+
+/* Class = "UIBarButtonItem"; title = "Skip"; ObjectID = "4h4-Ad-zVj"; */
+"4h4-Ad-zVj.title" = "Passer";
+
+/* Class = "UILabel"; text = "Looking for Desktop App."; ObjectID = "ACo-Bx-U7z"; */
+"ACo-Bx-U7z.text" = "Rechercher desktop app.";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "C1P-Xp-a7p"; */
+"C1P-Xp-a7p.text" = "Compte";
+
+/* Class = "UIBarButtonItem"; title = "Skip"; ObjectID = "CFW-an-b3F"; */
+"CFW-an-b3F.title" = "Passer";
+
+/* Class = "UIViewController"; title = "Introduction Screen 2"; ObjectID = "DaH-Aa-dkg"; */
+"DaH-Aa-dkg.title" = "Introduction Screen 2";
+
+/* Class = "UIViewController"; title = "Introduction Screen 3"; ObjectID = "Dl3-4O-UK7"; */
+"Dl3-4O-UK7.title" = "Introduction Screen 3";
+
+/* Class = "UIViewController"; title = "Introduction Screen 1"; ObjectID = "YlV-oW-prU"; */
+"YlV-oW-prU.title" = "Introduction Screen 1";
+
+/* Class = "UILabel"; text = "Scan your ESR invoices"; ObjectID = "Yuk-j0-s9K"; */
+"Yuk-j0-s9K.text" = "Scan votre factures";
+
+/* Class = "UIButton"; normalTitle = "Swipe to get started >"; ObjectID = "aBh-N8-SXT"; */
+"aBh-N8-SXT.normalTitle" = "Swipe pour commencer >";
+
+/* Class = "UILabel"; text = "Reference Number"; ObjectID = "eri-gg-hgM"; */
+"eri-gg-hgM.text" = "Numéro de référence";
+
+/* Class = "UIViewController"; title = "Introduction View Controller"; ObjectID = "gJQ-xh-nZO"; */
+"gJQ-xh-nZO.title" = "Introduction View Controller";
+
+/* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "gmZ-pj-1PM"; */
+"gmZ-pj-1PM.text" = "Bienvenue à ESRScan";
+
+/* Class = "UILabel"; text = "Connect & transmit scans
+ to your computer automatically"; ObjectID = "hmR-YR-H2y"; */
+"hmR-YR-H2y.text" = "Envoy automatiquement scans \
+sur votre ordinateur";
+
+/* Class = "UILabel"; text = "Copy & Paste to your E-Banking"; ObjectID = "hy1-TO-PY6"; */
+"hy1-TO-PY6.text" = "Copier-coller à votre e-banking";
+
+/* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "jbO-FP-Xkm"; */
+"jbO-FP-Xkm.text" = "Bienvenue à ESRScan";
+
+/* Class = "UIBarButtonItem"; title = "Clear"; ObjectID = "kmA-Ri-JO5"; */
+"kmA-Ri-JO5.title" = "Effacer";
+
+/* Class = "UILabel"; text = "↩"; ObjectID = "nDH-ei-KJ6"; */
+"nDH-ei-KJ6.text" = "↩";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "pFi-4C-Tac"; */
+"pFi-4C-Tac.text" = "Montant";
+
+/* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "pPa-wW-jIE"; */
+"pPa-wW-jIE.text" = "Bienvenue à ESRScan";
