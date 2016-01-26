@@ -31,10 +31,13 @@ class DiscoverDesktopViewController : UIViewController {
         trackEvent("Connection", action: "Established", label: nil, value: nil)
 
         skipButton.enabled = false
-        let name = notification.userInfo!["name"]!
-        statusIndicator.text = String.localizedStringWithFormat(
-            NSLocalizedString("Found %@", comment: "When a desktop computer has been found, this text is displayed on screen."),
-            [name])
+        let name = String(notification.userInfo!["name"]!)
+        statusIndicator.text = String(
+            format: NSLocalizedString("Found %@",
+                comment: "When a desktop computer has been found, this text is displayed on screen."),
+            locale: NSLocale.currentLocale(),
+            arguments: [name as CVarArgType]
+        )
         NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showScansView:", userInfo: nil, repeats: false)
     }
 
