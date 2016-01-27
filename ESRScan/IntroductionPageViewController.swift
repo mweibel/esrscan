@@ -1,6 +1,6 @@
 //
 //  IntroductionPageViewController.swift
-//  ESRScanner
+//  ESRScan
 //
 //  Created by Michael on 15/12/15.
 //  Copyright © 2015 Michael Weibel. All rights reserved.

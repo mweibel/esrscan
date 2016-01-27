@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import ESRScanner
 
 class ESRTest: XCTestCase {
 
