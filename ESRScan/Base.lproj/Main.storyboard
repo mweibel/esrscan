@@ -399,10 +399,10 @@
                                 <exclude reference="zmG-Ia-rpC"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="WT7-rg-jzB"/>
-                                <exclude reference="iDD-zA-9E6"/>
                                 <exclude reference="8rK-Be-BpO"/>
                                 <exclude reference="oWc-H5-3C2"/>
+                                <exclude reference="WT7-rg-jzB"/>
+                                <exclude reference="iDD-zA-9E6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -411,10 +411,10 @@
                                 <include reference="zmG-Ia-rpC"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="WT7-rg-jzB"/>
-                                <include reference="iDD-zA-9E6"/>
                                 <include reference="8rK-Be-BpO"/>
                                 <include reference="oWc-H5-3C2"/>
+                                <include reference="WT7-rg-jzB"/>
+                                <include reference="iDD-zA-9E6"/>
                             </mask>
                         </variation>
                     </view>
