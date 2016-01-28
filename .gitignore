@@ -181,36 +181,6 @@ xcuserdata/
 
 *.moved-aside
 
-####
-# OPTIONAL: Some well-known tools that people use side-by-side with Xcode / iOS development
-#
-# NB: I'd rather not include these here, but gitignore's design is weak and doesn't allow
-#     modular gitignore: you have to put EVERYTHING in one file.
-#
-# COCOAPODS:
-#
-# c.f. http://guides.cocoapods.org/using/using-cocoapods.html#what-is-a-podfilelock
-# c.f. http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-#!Podfile.lock
-#
-# RUBY:
-#
-# c.f. http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
-#
-#!Gemfile.lock
-#
-# IDEA:
-#
-# c.f. https://www.jetbrains.com/objc/help/managing-projects-under-version-control.html?search=workspace.xml
-# 
-#.idea/workspace.xml
-#
-# TEXTMATE:
-#
-# -- UNVERIFIED: c.f. http://stackoverflow.com/a/50283/153422
-#
-#tm_build_errors
+# npm
+node_modules/
 
-####
-# UNKNOWN: recommended by others, but I can't discover what these files are

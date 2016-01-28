@@ -1,0 +1,22 @@
+{
+  "name": "esrscan-ios",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mweibel/esrscan.git"
+  },
+  "author": "Michael Weibel <michael.weibel@gmail.com>",
+  "private": "true",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mweibel/esrscan/issues"
+  },
+  "homepage": "https://github.com/mweibel/esrscan#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
