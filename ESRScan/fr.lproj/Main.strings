@@ -20,8 +20,11 @@
 /* Class = "UIViewController"; title = "Introduction Screen 1"; ObjectID = "YlV-oW-prU"; */
 "YlV-oW-prU.title" = "Introduction Screen 1";
 
-/* Class = "UILabel"; text = "Scan your ESR invoices"; ObjectID = "Yuk-j0-s9K"; */
-"Yuk-j0-s9K.text" = "Scan votre factures";
+/* Class = "UILabel"; text = "Take a picture of the lower right corner of your invoice.
+ The white rectangle needs to be on the picture."; ObjectID = "Yuk-j0-s9K"; */
+"Yuk-j0-s9K.text" = "Prenez une photo de l'angle inférieur
+ droit de votre facture. 
+Le rectangle blanc doit être sur la photo.";
 
 /* Class = "UIButton"; normalTitle = "Swipe to get started >"; ObjectID = "aBh-N8-SXT"; */
 "aBh-N8-SXT.normalTitle" = "Swipe pour commencer >";
