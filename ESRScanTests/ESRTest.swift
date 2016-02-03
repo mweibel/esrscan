@@ -82,4 +82,16 @@ class ESRTest: XCTestCase {
         } catch {
         }
     }
+
+    func testESRParsingWithInvalidInput() {
+        let code = "6000607890070975023877322173>41215306"
+        do {
+            try ESR.parseText(code)
+            XCTFail("Should throw")
+        } catch ESRError.RefNumNotFound {
+            // this should be thrown :)
+        } catch {
+            XCTFail("Wrong error code thrown")
+        }
+    }
 }

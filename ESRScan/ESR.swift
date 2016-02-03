@@ -9,6 +9,7 @@ import Foundation
 
 enum ESRError : ErrorType {
     case AngleNotFound
+    case RefNumNotFound
 }
 
 public class ESR {
@@ -32,6 +33,7 @@ public class ESR {
 
     static func parseText(str : String) throws -> ESR {
         let newStr = str.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let newStrLength = newStr.characters.count
 
         let angleRange = newStr.rangeOfString(">")
         if angleRange == nil {
@@ -64,6 +66,10 @@ public class ESR {
         let plusRange = newStr.rangeOfString("+")
         if plusRange != nil {
             refNumLength = refNumStart.distanceTo(plusRange!.startIndex)
+        }
+
+        if newStr.startIndex.distanceTo(refNumStart)+refNumLength > newStrLength {
+            throw ESRError.RefNumNotFound
         }
 
         let refNum = ReferenceNumber.init(num: newStr.substringWithRange(
