@@ -11,6 +11,7 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
     var afpBrowser : NSNetServiceBrowser
     var connection : Connection?
     var netService: NSNetService?
+    var searching : Bool = false
 
     static let sharedInstance = Discover.init()
 
@@ -34,10 +35,14 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
     }
 
     func startSearch() {
-        afpBrowser.searchForServicesOfType("_esrhttp._tcp.", inDomain: "local.")
+        if !searching {
+            afpBrowser.searchForServicesOfType("_esrhttp._tcp.", inDomain: "local.")
+            searching = true
+        }
     }
 
     func stop() {
         afpBrowser.stop()
+        searching = false
     }
 }
