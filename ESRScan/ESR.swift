@@ -153,8 +153,11 @@ public class ESR {
         let table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5]
         var carry = 0
         for char in str.characters {
-            let num = Int.init(String(char), radix: 10)!
-            carry = table[(carry + num) % 10]
+            let num = Int.init(String(char), radix: 10)
+            if num == nil {
+                return -1
+            }
+            carry = table[(carry + num!) % 10]
         }
         return (10 - carry) % 10
     }

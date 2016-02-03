@@ -17,7 +17,7 @@ class ESRTest: XCTestCase {
         super.tearDown()
     }
 
-    func testESRParsing() {
+    func testHappyPath() {
         let code = "042>000006506727328000000001102+ 010322486>"
         do {
             let esr = try ESR.parseText(code)
@@ -46,7 +46,7 @@ class ESRTest: XCTestCase {
         }
     }
 
-    func testESRParsingWithoutPlusSign() {
+    func testWithoutPlusSign() {
         let code = "042>000006506727328000000001102 010322486>"
         do {
             let esr = try ESR.parseText(code)
@@ -74,7 +74,7 @@ class ESRTest: XCTestCase {
         }
     }
 
-    func testESRParsingWithoutAngleBracketThrows() {
+    func testThrowsWithoutAngleBracket() {
         let code = "042000006506727328000000001102 010322486"
         do {
             try ESR.parseText(code)
@@ -83,7 +83,7 @@ class ESRTest: XCTestCase {
         }
     }
 
-    func testESRParsingWithInvalidInput() {
+    func testCompletelyWrongESRCode() {
         let code = "6000607890070975023877322173>41215306"
         do {
             try ESR.parseText(code)
@@ -92,6 +92,21 @@ class ESRTest: XCTestCase {
             // this should be thrown :)
         } catch {
             XCTFail("Wrong error code thrown")
+        }
+    }
+
+    func testBadCharacterInReferenceNumber() {
+        let code2 = "0100000583903>000000000d00030000605614712 010089006>"
+        do {
+            let esr2 = try ESR.parseText(code2)
+            XCTAssertEqual(3, esr2.amountCheckDigit)
+            XCTAssertEqual(583.90, esr2.amount?.value)
+            XCTAssertEqual("000000000d00030000605614712", esr2.refNum.num)
+            XCTAssertEqual("010089006", esr2.accNum.num)
+            XCTAssertEqual(true, esr2.amountCheckDigitValid())
+            XCTAssertEqual(false, esr2.refNumCheckDigitValid())
+        } catch {
+            XCTFail("should not throw")
         }
     }
 }
