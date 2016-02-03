@@ -63,8 +63,7 @@ public class ESR {
 
         let plusRange = newStr.rangeOfString("+")
         if plusRange != nil {
-            let plusIndex = refNumStart.distanceTo(plusRange!.startIndex)
-            refNumLength = plusIndex
+            refNumLength = refNumStart.distanceTo(plusRange!.startIndex)
         }
 
         let refNum = ReferenceNumber.init(num: newStr.substringWithRange(
