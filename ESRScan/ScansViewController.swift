@@ -71,7 +71,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                     trackEvent("Scan", action: "Parse success", label: "No error", value: nil)
                 }
 
-                self.disco?.connection?.sendRequest(esrCode.dictionary(), callback: { status in
+                self.disco?.connection?.sendScan(esrCode.dictionary(), callback: { status in
                     if status == true {
                         trackEvent("Scan", action: "ESR transmitted", label: nil, value: nil)
                         esrCode.transmitted = true

@@ -17,9 +17,21 @@ class Connection : NSObject, NSNetServiceDelegate {
         super.init()
     }
 
-    func sendRequest(parameters: [String : AnyObject], callback: Bool -> Void) {
-        let uri = self.baseUri! + "/scan"
-        Alamofire.request(.POST, uri, parameters: parameters, encoding: .JSON).responseData { response in
+    func sendConnectionInfo(parameters: [String: AnyObject]) {
+        sendRequest("/connect", parameters: parameters)
+    }
+
+    func sendScan(parameters: [String: AnyObject], callback: Bool -> Void) {
+        sendRequest("/scan", parameters: parameters, callback: callback)
+    }
+
+    func sendRequest(path: String, parameters: [String : AnyObject]) -> Alamofire.Request {
+        let uri = self.baseUri! + path
+        return Alamofire.request(.POST, uri, parameters: parameters, encoding: .JSON)
+    }
+
+    func sendRequest(path: String, parameters: [String : AnyObject], callback: Bool -> Void) {
+        sendRequest(path, parameters: parameters).responseData { response in
             callback(response.result.isSuccess)
         }
     }

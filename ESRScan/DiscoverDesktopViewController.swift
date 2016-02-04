@@ -10,6 +10,7 @@ import UIKit
 class DiscoverDesktopViewController : UIViewController {
     @IBOutlet var statusIndicator: UILabel!
     @IBOutlet var skipButton: UIBarButtonItem!
+    var disco : Discover?
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -18,7 +19,8 @@ class DiscoverDesktopViewController : UIViewController {
         setHideIntroView()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
-        Discover.sharedInstance.startSearch()
+        disco = Discover.sharedInstance
+        disco?.startSearch()
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -30,6 +32,12 @@ class DiscoverDesktopViewController : UIViewController {
     func connectionEstablished(notification : NSNotification) {
         trackEvent("Connection", action: "Established", label: nil, value: nil)
 
+        // send connection info to the app
+        var dict = [String : AnyObject]()
+        dict["name"] = UIDevice.currentDevice().name
+        disco?.connection?.sendConnectionInfo(dict)
+
+        // display info in app
         skipButton.enabled = false
         let name = String(notification.userInfo!["name"]!)
         statusIndicator.text = String(
