@@ -1,1 +1,5 @@
 language: objective-c
+osx_image: xcode7.2
+xcode_workspace: ESRScan.xcworkspace
+xcode_scheme: ESRScan
+xcode_sdk: iphonesimulator
