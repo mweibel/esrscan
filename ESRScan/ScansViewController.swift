@@ -41,11 +41,15 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
 
     func performImageRecognition(rawImage: UIImage, autoCrop: Bool = true) {
         trackEvent("Scan", action: "Image captured", label: nil, value: nil)
+        let startTime = NSDate.timeIntervalSinceReferenceDate()
 
         let image = preprocessImage(rawImage, autoCrop: false)
         
         let ocr = OCR.init()
         ocr.recognise(image)
+
+        let endTime = NSDate.timeIntervalSinceReferenceDate()
+        trackTiming("Scan", name: "Processing time", interval: endTime - startTime)
 
         let text = ocr.recognisedText()
         let textArr = text.componentsSeparatedByString("\n").filter{

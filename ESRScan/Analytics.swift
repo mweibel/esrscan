@@ -28,3 +28,10 @@ func trackEvent(category: String, action: String, label: String?, value: Int?) {
     let dict = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: value).build() as [NSObject : AnyObject]
     tracker.send(dict)
 }
+
+// interval is in seconds
+func trackTiming(category: String, name: String, interval: NSTimeInterval) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    let dict = GAIDictionaryBuilder.createTimingWithCategory(category, interval: interval * 1000, name: name, label: nil).build() as [NSObject : AnyObject]
+    tracker.send(dict)
+}
