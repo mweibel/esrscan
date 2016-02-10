@@ -8,4 +8,11 @@
 import UIKit
 
 class MainNavigationController : UINavigationController {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        trackView("MainNavigationController")
+        setHideIntroView()
+
+    }
 }

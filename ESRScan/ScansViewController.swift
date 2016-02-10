@@ -24,6 +24,10 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         trackView("ScansViewController")
         self.disco = Discover.sharedInstance
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
+        disco = Discover.sharedInstance
+        disco?.startSearch()
+
         if self.disco?.connection != nil {
             self.navigationItem.rightBarButtonItem = nil
         }
@@ -32,11 +36,54 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         }
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
+    }
+
+    func connectionEstablished(notification : NSNotification) {
+        trackEvent("Connection", action: "Established", label: nil, value: nil)
+        // send connection info to the app
+        var dict = [String : AnyObject]()
+        dict["name"] = UIDevice.currentDevice().name
+        disco?.connection?.sendConnectionInfo(dict)
+
+        self.navigationItem.rightBarButtonItem = nil
+
+        // don't show modal if some other modal (e.g. image picker control) is visible
+        let isModalVisible = self.presentedViewController != nil
+        if !isModalVisible {
+            performSegueWithIdentifier("displayConnectionInfo", sender: self)
+            performSelector(Selector("hideConnectionInfoModal"), withObject: self, afterDelay: 1.5)
+        }
+
+        scans.scans.forEach({ scan in
+            if !scan.transmitted {
+                sendScan(scan, completion: nil)
+            }
+        })
+    }
+
+    func hideConnectionInfoModal() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func sendScan(scan: ESR, completion: (Void -> Void)?) {
+        self.disco?.connection?.sendScan(scan.dictionary(), callback: { status in
+            if status == true {
+                trackEvent("Scan", action: "ESR transmitted", label: nil, value: nil)
+                scan.transmitted = true
+                completion?()
+            }
+        })
     }
 
     func performImageRecognition(rawImage: UIImage, autoCrop: Bool = true) {
@@ -60,27 +107,23 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         if textArr.count > 0 {
             let esrCode = textArr[textArr.count-1]
             do {
-                let esrCode = try ESR.parseText(esrCode)
-                self.scans.addScan(esrCode)
+                let scan = try ESR.parseText(esrCode)
+                self.scans.addScan(scan)
                 self.navigationItem.leftBarButtonItem?.enabled = true
                 self.tableView!.reloadData()
 
-                if !esrCode.amountCheckDigitValid() {
+                if !scan.amountCheckDigitValid() {
                     trackEvent("Scan", action: "Parse success", label: "Parse error: amount", value: nil)
                 }
-                if !esrCode.refNumCheckDigitValid() {
+                if !scan.refNumCheckDigitValid() {
                     trackEvent("Scan", action: "Parse success", label: "Parse error: refNum", value: nil)
                 }
-                if esrCode.amountCheckDigitValid() && esrCode.refNumCheckDigitValid() {
+                if scan.amountCheckDigitValid() && scan.refNumCheckDigitValid() {
                     trackEvent("Scan", action: "Parse success", label: "No error", value: nil)
                 }
 
-                self.disco?.connection?.sendScan(esrCode.dictionary(), callback: { status in
-                    if status == true {
-                        trackEvent("Scan", action: "ESR transmitted", label: nil, value: nil)
-                        esrCode.transmitted = true
-                        self.tableView.reloadData()
-                    }
+                sendScan(scan, completion: {
+                    self.tableView.reloadData()
                 })
             } catch ESRError.AngleNotFound {
                 trackCaughtException("AngleNotFound in string '\(esrCode)'")
