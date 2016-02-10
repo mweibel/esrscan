@@ -34,6 +34,66 @@ class Discover : NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegate {
         }
     }
 
+    func netService(sender: NSNetService, didNotResolve errorDict: [String : NSNumber]) {
+        print("didnotresolve")
+    }
+
+    func netService(sender: NSNetService, didNotPublish errorDict: [String : NSNumber]) {
+        print("didnotpublish")
+    }
+
+    func netServiceWillResolve(sender: NSNetService) {
+        print("will resolve")
+    }
+
+    func netServiceDidResolveAddress(sender: NSNetService) {
+        print("didresolveaddress")
+    }
+
+    func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser) {
+        print("didstopsearch")
+    }
+
+    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool) {
+        print("didremoveservice")
+    }
+
+    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool) {
+        print("didremovedomain")
+    }
+
+    func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
+        print("didnotsearch")
+    }
+
+    func netServiceBrowser(browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
+        print("didfinddomain")
+    }
+
+    func netService(sender: NSNetService, didAcceptConnectionWithInputStream inputStream: NSInputStream, outputStream: NSOutputStream) {
+        print("didacceptconnectionwithinputstream")
+    }
+
+    func netService(sender: NSNetService, didUpdateTXTRecordData data: NSData) {
+        print("didupdatetxtrecorddata")
+    }
+
+    func netServiceBrowserWillSearch(browser: NSNetServiceBrowser) {
+        print("willsearch")
+    }
+
+    func netServiceDidPublish(sender: NSNetService) {
+        print("didpublish")
+    }
+
+    func netServiceDidStop(sender: NSNetService) {
+        print("didstop")
+    }
+
+    func netServiceWillPublish(sender: NSNetService) {
+        print("willpublish")
+    }
+
     func startSearch() {
         if !searching {
             afpBrowser.searchForServicesOfType("_esrhttp._tcp.", inDomain: "local.")
