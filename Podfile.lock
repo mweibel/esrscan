@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (3.1.2)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.4)
   - Google/Analytics (1.2.1):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -21,6 +24,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Crashlytics
+  - Fabric
   - Google/Analytics
   - GPUImage (= 0.1.7)
   - TesseractOCRiOS (from `https://github.com/gali8/Tesseract-OCR-iOS.git`, commit
@@ -38,6 +43,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  Fabric: ed41fd62173c6bdea24ab02c9d7707161eabb750
   Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
