@@ -478,7 +478,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source esrscan.sh\n\n\"${PODS_ROOT}/Fabric/run\" ${FABRIC_API_KEY} ${FABRIC_BUILD_KEY}";
+			shellScript = "source esrscan.sh\n\necho ${#FABRIC_API_KEY}\necho ${#FABRIC_BUILD_KEY}\n\n\"${PODS_ROOT}/Fabric/run\" ${FABRIC_API_KEY} ${FABRIC_BUILD_KEY}";
 			showEnvVarsInLog = 0;
 		};
 		B0F13DD604065E0338410789 /* Copy Pods Resources */ = {
