@@ -479,7 +479,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "ls -l `which sh`\n\ncat esrscan.sh|wc -l\ncat esrscan.sh|grep export|wc -l\n\nsource ./esrscan.sh\necho $?\n\nls -lah\n\necho ${#FABRIC_API_KEY}\necho ${#FABRIC_BUILD_KEY}\n\n\"${PODS_ROOT}/Fabric/run\" ${FABRIC_API_KEY} ${FABRIC_BUILD_KEY}";
-			showEnvVarsInLog = 0;
 		};
 		B0F13DD604065E0338410789 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
