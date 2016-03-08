@@ -8,6 +8,7 @@ before_script:
   - echo "#!/bin/sh" > esrscan.sh
   - echo "export FABRIC_API_KEY=\"${FABRIC_API_KEY}\"" >> esrscan.sh
   - echo "export FABRIC_BUILD_SECRET=\"${FABRIC_BUILD_SECRET}\"" >> esrscan.sh
+  - echo "echo \"fooooo!!!!!!!!!!!\"" >> esrscan.sh
   - chmod u+x esrscan.sh
 
 env:
