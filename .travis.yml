@@ -8,10 +8,12 @@ before_script:
   - echo "#!/bin/sh" > esrscan.sh
   - echo "export FABRIC_API_KEY=\"${FABRIC_API_KEY}\"" >> esrscan.sh
   - echo "export FABRIC_BUILD_SECRET=\"${FABRIC_BUILD_SECRET}\"" >> esrscan.sh
+  - echo "export TEST_TOKEN_EXPORTED=\"${TEST_TOKEN}\""
   - echo "echo \"fooooo!!!!!!!!!!!\"" >> esrscan.sh
   - chmod u+x esrscan.sh
 
 env:
   global:
+    - TEST_TOKEN=dummy
     - secure: IsHo81mL2EJSnFVWKjkllxjzrWcpsJS5VTUMwbdqOxdJiBbsRjuE9tLndxntkufrhq0yIvc2RAwYKu946s89TcfpaFYtCwk+ZK56Rwb/EBexy8WyatzoTYuurbHAycmYL5xii0ngNEsKf5PVk7tneyu+g2s1YN976S037KgYkGUKWlHE8VcbUgRsyN9LRP/6IIsyyL1AvNOtnAgOjfPOtNesKxeG+BeY/ygqkB5GLHDrsG6Qv1Zbnp75r+dJvrg1PuzQxtkQtLGP4IvQ/9LIwSWPhQtLcpQdNp0j+6djT394XVnqb0OFZetkxc6OWfD4Ograsa7MsIhS1nK0Xe4n+7P4Pe8hjx+OLjdS1Uer3AMUmmsch0yvgkDcLRAg2CevboVD4HEI9nLuZ2ojUb9vwF3sqtGVhd/CrEtAXRHk2fFDttqw7esM6wgsJXXl04UcFSL+cCz6Q2CiH/590uwKtKhKv51HGeIdSliVOEM3QnXBHJA+lFBVjIKxG0zoOAH7VeMD9ftMFkR2qgTMQHOoc6LKo0biVlDt7DpftncjknmQdy8g6LmnYYh8M0hogJN5cmfv/iqKfOWreB37K05Mt/fIRb+WkIdLY6lqTSi/azYAbQgDd1VmsUAfkAbkjrsUd38Y34FQv4IUJBd1NCZuFGQxBfnH1xqf3NfEY7nxtm0=
     - secure: iXn2m3jk/AeJ1SNVxxvLsDvyXhT6PrgPqJBdHaZd6BsgIna61O9yph8yZ1ehwCJ+romnolfr9WCpfoGzV8/e7qUqXJ/kNQtxKxE8GRftZ2GH6eErlowzZgSSNU28Dl19YxtXB8/bJa3GmIXv1LS6RC5QTqCZV+jnbEPFHS0AVxrr6yyzNB0tKHRBD2L80TqbiCd+f9SaCF4thxhggE+aav/po9I14R7K4uNceSt+hnh9kwjx30x8G5GbzYstPzKqlKI6pTtTBj+2HXW9UeGf7SOYFjafZx52SwBFAgSHj1ZTLz2S9xUdM1lMzRkQ8gF1yHtoqGhb+4XZ4IT0NE7Lh0yQBMJsOapQQN6YKZL0mItf+eB6EpDQA22KqJJg6YW4llsDRuSN9bC+lEqVkIVFAsCOk2yEk5nra+58xhfvKY6jgtYcmMxCECGmo5N+Efyfav9bVrcvvNxER75TF4WLevmSbMu8FskQpSEahAle7RthK2BGVsmAgEoFJo/6kexd2VBRX+Uni4eAGDn+v0nkSp6YoiFIoR59MuvM5XaZYnHrVKN02ZCv4DdetLD+Iw1lFxkCzzI2wJjIzXHkV/Ub+E5L875YEzdwI1NtBvXPFn8l0p8CyGtxCgHQ3X7irymOV7EpEP+3h5h8PHl2xxya/8siZkEQahV6iO8dKZDzRgE=
