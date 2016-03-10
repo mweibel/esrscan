@@ -16,6 +16,8 @@ end
 target 'ESRScan' do
 	shared_pods
 	pod 'Google/Analytics'
+	pod 'Fabric'
+	pod 'Crashlytics'
 end
 
 target 'ESRScanTests' do

@@ -184,3 +184,6 @@ xcuserdata/
 # npm
 node_modules/
 
+# fabric config file
+ESRScan/Config.xcconfig
+esrscan.sh
