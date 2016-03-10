@@ -5,17 +5,12 @@ xcode_scheme: ESRScan
 xcode_sdk: iphonesimulator
 
 before_script:
-  - echo ${#FABRIC_API_KEY}
-  - echo ${#FABRIC_BUILD_SECRET}
   - echo "#!/bin/sh" > esrscan.sh
   - echo "export FABRIC_API_KEY=\"${FABRIC_API_KEY}\"" >> esrscan.sh
-  - echo "export FABRIC_BUILD_KEY=\"${FABRIC_BUILD_SECRET}\"" >> esrscan.sh
-  - echo "export TEST_TOKEN_EXPORTED=\"${TEST_TOKEN}\""
-  - echo "echo \"fooooo!!!!!!!!!!!\"" >> esrscan.sh
+  - echo "export FABRIC_BUILD_SECRET=\"${FABRIC_BUILD_SECRET}\"" >> esrscan.sh
   - chmod u+x esrscan.sh
 
 env:
   global:
-    - TEST_TOKEN=dummy
     - secure: "cOEZ7hkQQAc59ci6jsfD1oBteJUAqqsxTcaBG6RT8TDxPop1Y4V7vl2qXB48pnvcEa51pD3KKnuHEPzn27SmFYXFld6uv6o4oSzGVvlACqG7pVUvUB/LeQLAj6bndQXHvQR4cakIPZ/MOukVu5iJ6CLb2auCbWOOJdcIBUqgRbz4mJrCM01cSQMlnNUnnVSW/H2PzFWRmuwWsBvu9nUfFYO2p7w9stgWGqR5UOLtQek4wmhqAodegpkTKhHi1zUwfEbdaFWwnHxMbXuBGDPXR+rrW3hGmwCMd602tkWx7VZ5BaomMELe0Dc5r1dedE6RiFGQE57WYTZBQlLZRgQCog71Wm8htZq8fMg+Rbdc7SdIR0/gESEhlmU1lKmJnevfjj/XlxqtfQ0y8hJHvvw4dDqHFi16NzK00+cdjrbJ3YxjKxNyiHQ+xM0XzWoXCoS8X46q7GVpAI6ztHZ88WZiWi+IJlxr5BCSw10S5oIhX37HwgL8/vlU5HMFxnNi7wppFb13OoXFfc9bWAg8HZArj/YIpTfHpLyIENwNOf79L1EvrFsIB1id8MluRG9IIgW0QM0NPu2zi4L3sFfhBsGlWzApCAaS/UUBtIrtRgd2vBzixAyE12NS3mTl6KXxLipyvK9SUngw/ZKNuQK4R2H8sOA+51P6bPDUTQyoGTHHxSo="
     - secure: "lTSGmTYEqf6WEf2tQyLa+DaddcI4l9yqAYD5taIVt/A0N+jXYR3a+/eTjlkifbKVBevmcxFxGsf/MXpipZiAdkMdkYn8P20fQ63W9YWjvS0DverlGZvE39mUNf8lV3SV3JYlgP/OtW7C/ma8CpPuAjToEG9/ksZeJQlL/keSWCvFrp3s7Ycx5m1TuXmcaIlsB8diNDR6uveBiudCu+KXLtni2cYKJn4x6R8bDvf/H7UlAlKLnUbghuXvyT0ivsgoZnA9dCKfx0WyXgdpPnAhQkPpYhoaeoj447EW82ii5VsPQVtABnIhKqixXE+AfQl5SFVjQvl65me7Gwh0mBTgHbAwjAntJzHQ+ZQA7x0OwkZMJxPDEqT6JJzoayTRKq0vyGqEOppIhrNpKu1g0S3i9i+wv54h5swvdl6LFHklS5iLD3IwaBfzI85HdIhAhNzxMw9fbTZhs90jNi7RPfpIqe6GKaKPWFPrPrOQbaZNh/F61yJt3S0szLhRdTJpXDaMBjs5UY6fHAnCt72ghV8NH7UmmAYpgKM4C/w49WAy7BYQqMrp/3nDRYlwWaRmFtImEcVfd0vSTYwrpHLafGXG7QcRVsEqi3ds0ZTzi6mrcSj806hBU7hux4oSyEWBMQBjeTsRAlsoKzkoOQXWCTuU9iKs/ze7MiVpDIOO/y9jJoA="
