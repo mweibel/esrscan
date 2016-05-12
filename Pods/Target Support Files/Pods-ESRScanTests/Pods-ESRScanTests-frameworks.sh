@@ -88,7 +88,17 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ESRScanTests/GPUImage.framework"
   install_framework "Pods-ESRScanTests/TesseractOCR.framework"
 fi
+if [[ "$CONFIGURATION" == "Debug Config" ]]; then
+  install_framework "Pods-ESRScanTests/Alamofire.framework"
+  install_framework "Pods-ESRScanTests/GPUImage.framework"
+  install_framework "Pods-ESRScanTests/TesseractOCR.framework"
+fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-ESRScanTests/Alamofire.framework"
+  install_framework "Pods-ESRScanTests/GPUImage.framework"
+  install_framework "Pods-ESRScanTests/TesseractOCR.framework"
+fi
+if [[ "$CONFIGURATION" == "Release Config" ]]; then
   install_framework "Pods-ESRScanTests/Alamofire.framework"
   install_framework "Pods-ESRScanTests/GPUImage.framework"
   install_framework "Pods-ESRScanTests/TesseractOCR.framework"

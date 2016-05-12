@@ -40,22 +40,18 @@ public class ESR {
             throw ESRError.AngleNotFound
         }
         let angleIndex = newStr.startIndex.distanceTo(angleRange!.startIndex)
-        let afterAngle = Int(angleIndex.value) + 1
+        let afterAngle = angleIndex + 1
 
+        let start = newStr.startIndex.advancedBy(angleIndex - 1)
+        let end = newStr.startIndex.advancedBy(angleIndex)
         let amountCheckDigit = Int(newStr.substringWithRange(
-            Range<String.Index>(
-                start: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1),
-                end: newStr.startIndex.advancedBy(angleIndex)
-            )
+            start..<end
         ))
 
         var amount : Amount?
-        if Int(angleIndex.value) > 3 {
+        if angleIndex > 3 {
             let amountValue = Double(newStr.substringWithRange(
-                Range<String.Index>(
-                    start: newStr.startIndex.advancedBy(2),
-                    end: newStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
-                )
+                newStr.startIndex.advancedBy(2)..<newStr.startIndex.advancedBy(angleIndex - 1)
             ))
             amount = Amount.init(value: amountValue! / 100.0)
         }
@@ -73,19 +69,14 @@ public class ESR {
         }
 
         let refNum = ReferenceNumber.init(num: newStr.substringWithRange(
-            Range<String.Index>(
-                start: refNumStart,
-                end: refNumStart.advancedBy(refNumLength)
-        )))
+            refNumStart..<refNumStart.advancedBy(refNumLength)
+        ))
 
         let idx = refNum.num.endIndex.advancedBy(-1)
         let refNumCheckDigit = Int(refNum.num.substringFromIndex(idx))!
 
         let accNum = newStr.substringWithRange(
-            Range<String.Index>(
-                start: newStr.endIndex.advancedBy(-10),
-                end: newStr.endIndex.advancedBy(-1)
-            )
+            newStr.endIndex.advancedBy(-10)..<newStr.endIndex.advancedBy(-1)
         )
         let accountNumber = AccountNumber.init(num: accNum)
 
@@ -106,10 +97,7 @@ public class ESR {
         }
         let angleIndex = self.fullStr.startIndex.distanceTo(angleRange!.startIndex)
         let str = self.fullStr.substringWithRange(
-            Range<String.Index>(
-                start: self.fullStr.startIndex,
-                end: self.fullStr.startIndex.advancedBy(Int(angleIndex.value) - 1)
-            )
+            self.fullStr.startIndex..<self.fullStr.startIndex.advancedBy(angleIndex - 1)
         )
         return self.amountCheckDigit == calcControlDigit(str)
     }

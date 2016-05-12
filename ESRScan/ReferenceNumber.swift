@@ -16,7 +16,8 @@ class ReferenceNumber {
     func string() -> String {
         var str = ""
         let l = num.characters.count
-        for var i = l - 1; i >= 0; i-- {
+        let start = l - 1
+        for i in start.stride(to: 0, by: -1) {
             let char = num[num.startIndex.advancedBy(i)]
             str = String(char) + str
             if (i - l) % 5 == 0 {

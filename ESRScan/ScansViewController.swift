@@ -24,7 +24,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         trackView("ScansViewController")
         self.disco = Discover.sharedInstance
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "connectionEstablished:", name: "AppConnectionEstablished", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ScansViewController.connectionEstablished(_:)), name: "AppConnectionEstablished", object: nil)
         disco = Discover.sharedInstance
         disco?.startSearch()
 
@@ -62,12 +62,16 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         let isModalVisible = self.presentedViewController != nil
         if !isModalVisible {
             performSegueWithIdentifier("displayConnectionInfo", sender: self)
-            performSelector(Selector("hideConnectionInfoModal"), withObject: self, afterDelay: 1.5)
+            performSelector(#selector(ScansViewController.hideConnectionInfoModal), withObject: self, afterDelay: 1.5)
         }
 
         scans.scans.forEach({ scan in
             if !scan.transmitted {
-                sendScan(scan, completion: nil)
+                sendScan(scan, completion: {
+                    // Suboptimal probably because it will reloadData on every sent scan
+                    // but I assume this doesn't happen too often, so it's ok for now.
+                    self.tableView.reloadData()
+                })
             }
         })
     }

@@ -33,7 +33,7 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     let startY = y2 - (height / 3)
     let startX = width / 3
 
-    for var y = startY; y > 0; y = y - 5 {
+    for y in startY.stride(to: 0, by: -5) {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x2, y: y)
         let hsv = colors.ToHSV()
         if hsv.isOrange() {
@@ -42,7 +42,7 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
         }
     }
 
-    for var x = startX; x > 0; x = x - 5 {
+    for x in startX.stride(to: 0, by: 5) {
         let colors = getColors(rawData, bytesPerRow: bytesPerRow, bytesPerPixel: bytesPerPixel, x: x, y: y2)
         let hsv = colors.ToHSV()
         if hsv.isOrange() {

@@ -25,13 +25,16 @@ class Connection : NSObject, NSNetServiceDelegate {
         sendRequest("/scan", parameters: parameters, callback: callback)
     }
 
-    func sendRequest(path: String, parameters: [String : AnyObject]) -> Alamofire.Request {
+    func sendRequest(path: String, parameters: [String : AnyObject]) -> Alamofire.Request? {
+        guard self.baseUri != nil else {
+            return nil
+        }
         let uri = self.baseUri! + path
         return Alamofire.request(.POST, uri, parameters: parameters, encoding: .JSON)
     }
 
     func sendRequest(path: String, parameters: [String : AnyObject], callback: Bool -> Void) {
-        sendRequest(path, parameters: parameters).responseData { response in
+        sendRequest(path, parameters: parameters)?.responseData { response in
             callback(response.result.isSuccess)
         }
     }
