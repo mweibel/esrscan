@@ -20,6 +20,8 @@
 		4C1DA66B1C3BA16C00BCED98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DA66A1C3BA16C00BCED98 /* GoogleService-Info.plist */; };
 		4C1F24C61C569E8100920E34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F24C81C569E8100920E34 /* Localizable.strings */; };
 		4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C237D151C0F5E6B0025044F /* MainNavigationController.swift */; };
+		4C29B0B91CECFFB40031E4FA /* ScansViewVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B0B81CECFFB40031E4FA /* ScansViewVideoController.swift */; };
+		4C29B0BB1CECFFCD0031E4FA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B0BA1CECFFCD0031E4FA /* Camera.swift */; };
 		4C2C30241C3C34CC009421BC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C30231C3C34CC009421BC /* Analytics.swift */; };
 		4C3306D11C69BC6200658B64 /* ConnectionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3306D01C69BC6200658B64 /* ConnectionInfoViewController.swift */; };
 		4C3348531C1B40D500A4709A /* esr.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3348511C1B40D500A4709A /* esr.png */; };
@@ -80,6 +82,8 @@
 		4C1F24C71C569E8100920E34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1F24C91C569E8500920E34 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C237D151C0F5E6B0025044F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		4C29B0B81CECFFB40031E4FA /* ScansViewVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScansViewVideoController.swift; sourceTree = "<group>"; };
+		4C29B0BA1CECFFCD0031E4FA /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		4C2C30231C3C34CC009421BC /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		4C324F011C4961700080AEE5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		4C324F031C4961790080AEE5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		4C237D191C1018F60025044F /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C29B0B81CECFFB40031E4FA /* ScansViewVideoController.swift */,
 				4C6833BE1C116F41008ED3FC /* scansView */,
 				4C237D151C0F5E6B0025044F /* MainNavigationController.swift */,
 				4C1CD48C1BED2EC900B2CF00 /* ScansViewController.swift */,
@@ -226,6 +231,7 @@
 		4C237D1B1C10193A0025044F /* util */ = {
 			isa = PBXGroup;
 			children = (
+				4C29B0BA1CECFFCD0031E4FA /* Camera.swift */,
 				4C63E6FE1BEF537C00F66D9F /* OCR.swift */,
 				4C7FDD8A1BEFB47800FFAD62 /* Image.swift */,
 				4C7078A01BF2A3260086A6BD /* ImageRotation.swift */,
@@ -526,10 +532,12 @@
 				4C72926F1C03884C006A4EBA /* ReferenceNumber.swift in Sources */,
 				4C1D457D1C0EC9770046B576 /* Amount.swift in Sources */,
 				4C7FDD8B1BEFB47800FFAD62 /* Image.swift in Sources */,
+				4C29B0B91CECFFB40031E4FA /* ScansViewVideoController.swift in Sources */,
 				4C7E605B1BFF9ABF00A9D9F3 /* Connection.swift in Sources */,
 				4C7078A11BF2A3260086A6BD /* ImageRotation.swift in Sources */,
 				4C237D161C0F5E6B0025044F /* MainNavigationController.swift in Sources */,
 				4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */,
+				4C29B0BB1CECFFCD0031E4FA /* Camera.swift in Sources */,
 				4C72435C1BF3269E006303F2 /* Discover.swift in Sources */,
 				4C2C30241C3C34CC009421BC /* Analytics.swift in Sources */,
 				4C1CD48D1BED2EC900B2CF00 /* ScansViewController.swift in Sources */,

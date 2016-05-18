@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
         // Configure tracker from GoogleService-Info.plist.
         var configureError:NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
@@ -29,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if DEBUG
             print("DEBUG")
-            
+
             gai.logger.logLevel = GAILogLevel.Verbose
             gai.dryRun = true
         #else

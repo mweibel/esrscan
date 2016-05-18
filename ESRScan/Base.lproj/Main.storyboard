@@ -279,7 +279,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IT1-vp-QzU"/>
                                     <barButtonItem title="Skip" id="CFW-an-b3F">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="BeO-4G-bHd"/>
+                                            <segue destination="uXm-8c-i27" kind="show" id="gVS-Uw-Ou7"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -303,6 +303,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xat-YJ-Yqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="269" y="372"/>
+        </scene>
+        <!--Scans View Video Controller-->
+        <scene sceneID="FFS-XU-Q2C">
+            <objects>
+                <viewController storyboardIdentifier="ScansViewVideoController" id="uXm-8c-i27" customClass="ScansViewVideoController" customModule="ESRScan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3oO-BB-2TN"/>
+                        <viewControllerLayoutGuide type="bottom" id="WQp-mY-qAj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RqQ-G3-3uF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-nI-QXp">
+                                <rect key="frame" x="84" y="185" width="336" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="560" id="nFL-bc-GeZ"/>
+                                    <constraint firstAttribute="width" constant="360" id="qud-gW-yiI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nFL-bc-GeZ"/>
+                                        <exclude reference="qud-gW-yiI"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="nFL-bc-GeZ"/>
+                                        <include reference="qud-gW-yiI"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="trailing" secondItem="RqQ-G3-3uF" secondAttribute="trailingMargin" id="ACU-4z-zUb"/>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="leading" secondItem="RqQ-G3-3uF" secondAttribute="leadingMargin" id="F4b-1L-Y7q"/>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="top" secondItem="3oO-BB-2TN" secondAttribute="bottom" id="Li6-Dd-qIw"/>
+                            <constraint firstItem="WQp-mY-qAj" firstAttribute="top" secondItem="bGc-nI-QXp" secondAttribute="bottom" constant="20" id="e1v-2i-Npy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ACU-4z-zUb"/>
+                                <exclude reference="F4b-1L-Y7q"/>
+                                <exclude reference="Li6-Dd-qIw"/>
+                                <exclude reference="e1v-2i-Npy"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ACU-4z-zUb"/>
+                                <include reference="F4b-1L-Y7q"/>
+                                <include reference="Li6-Dd-qIw"/>
+                                <include reference="e1v-2i-Npy"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="bGc-nI-QXp" id="UI0-9h-vnN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1S-Lh-VFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="-465"/>
         </scene>
         <!--Introduction Screen 1-->
         <scene sceneID="JIa-Wn-U9S">
