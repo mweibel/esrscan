@@ -3,7 +3,7 @@
 "4h4-Ad-zVj.title" = "Passer";
 
 /* Class = "UILabel"; text = "Looking for Desktop App."; ObjectID = "ACo-Bx-U7z"; */
-"ACo-Bx-U7z.text" = "Rechercher desktop app.";
+"ACo-Bx-U7z.text" = "Recherche de l'application sur l'ordinateur…";
 
 /* Class = "UILabel"; text = "Account"; ObjectID = "C1P-Xp-a7p"; */
 "C1P-Xp-a7p.text" = "Compte";
@@ -12,22 +12,22 @@
 "CFW-an-b3F.title" = "Passer";
 
 /* Class = "UIViewController"; title = "Introduction Screen 2"; ObjectID = "DaH-Aa-dkg"; */
-"DaH-Aa-dkg.title" = "Introduction Screen 2";
+"DaH-Aa-dkg.title" = "Écran d'introduction 2";
 
 /* Class = "UIViewController"; title = "Introduction Screen 3"; ObjectID = "Dl3-4O-UK7"; */
-"Dl3-4O-UK7.title" = "Introduction Screen 3";
+"Dl3-4O-UK7.title" = "Écran d'introduction 3";
 
 /* Class = "UIViewController"; title = "Introduction Screen 1"; ObjectID = "YlV-oW-prU"; */
-"YlV-oW-prU.title" = "Introduction Screen 1";
+"YlV-oW-prU.title" = "Écran d'introduction 1";
 
 /* Class = "UILabel"; text = "Take a picture of the lower right corner of your invoice.
  The white rectangle needs to be on the picture."; ObjectID = "Yuk-j0-s9K"; */
-"Yuk-j0-s9K.text" = "Prenez une photo de l'angle inférieur
- droit de votre facture. 
+"Yuk-j0-s9K.text" = "Prenez une photo de la partie inférieure \
+droite de votre facture. \
 Le rectangle blanc doit être sur la photo.";
 
 /* Class = "UIButton"; normalTitle = "Swipe to get started >"; ObjectID = "aBh-N8-SXT"; */
-"aBh-N8-SXT.normalTitle" = "Swipe pour commencer >";
+"aBh-N8-SXT.normalTitle" = "Glissez pour commencer >";
 
 /* Class = "UILabel"; text = "Reference Number"; ObjectID = "eri-gg-hgM"; */
 "eri-gg-hgM.text" = "Numéro de référence";
@@ -40,11 +40,11 @@ Le rectangle blanc doit être sur la photo.";
 
 /* Class = "UILabel"; text = "Connect & transmit scans
  to your computer automatically"; ObjectID = "hmR-YR-H2y"; */
-"hmR-YR-H2y.text" = "Envoy automatiquement scans \
-sur votre ordinateur";
+"hmR-YR-H2y.text" = "Envoi automatiquement les \ 
+numérisations sur votre ordinateur";
 
 /* Class = "UILabel"; text = "Copy & Paste to your E-Banking"; ObjectID = "hy1-TO-PY6"; */
-"hy1-TO-PY6.text" = "Copier-coller à votre e-banking";
+"hy1-TO-PY6.text" = "Copiez-collez vers votre E-Banking";
 
 /* Class = "UILabel"; text = "Welcome to ESRScan"; ObjectID = "jbO-FP-Xkm"; */
 "jbO-FP-Xkm.text" = "Bienvenue à ESRScan";
@@ -62,4 +62,5 @@ sur votre ordinateur";
 "pPa-wW-jIE.text" = "Bienvenue à ESRScan";
 
 /* Class = "UILabel"; text = "To download the desktop App, visit:"; ObjectID = "fOE-6W-rHZ"; */
-"fOE-6W-rHZ.text" = "Pour télécharger l'app ordinateur, ouvert:";
+"fOE-6W-rHZ.text" = "Pour télécharger l'application \
+pour ordinateur, rendez-vous sur:";
