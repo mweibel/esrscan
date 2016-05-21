@@ -15,10 +15,12 @@ func imageFromSampleBuffer(buf: CMSampleBufferRef) -> UIImage {
     let imageBuffer = CMSampleBufferGetImageBuffer(buf)
     CVPixelBufferLockBaseAddress(imageBuffer!, 0) // FIXME: exclamation mark
 
-    let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer!)
-    let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer!)
+    let baseAddress = CVPixelBufferGetBaseAddressOfPlane(imageBuffer!, 0)
     let width = CVPixelBufferGetWidth(imageBuffer!)
     let height = CVPixelBufferGetHeight(imageBuffer!)
+    // bytesPerRow is better manually calculated, instead of using CVPixelBufferGetBytesPerRow()
+    let bytesPerPixel = 4
+    let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer!)
 
     // Create a device-dependent RGB color space
     let colorSpace = CGColorSpaceCreateDeviceRGB()

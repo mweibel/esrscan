@@ -8,6 +8,8 @@
 import UIKit
 import GPUImage
 
+
+
 func getWhiteRectangle(image: UIImage) -> CGRect {
     let img = image.CGImage
     let width = CGImageGetWidth(img)
