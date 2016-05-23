@@ -36,3 +36,12 @@ func imageFromSampleBuffer(buf: CMSampleBufferRef) -> UIImage {
 
     return UIImage(CGImage: quartzImage!)
 }
+
+func CIImageFromSampleBuffer(buf: CMSampleBufferRef) -> CIImage {
+    let imageBuffer = CMSampleBufferGetImageBuffer(buf)
+    CVPixelBufferLockBaseAddress(imageBuffer!, 0) // FIXME: exclamation mark
+
+    let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, buf, kCMAttachmentMode_ShouldPropagate) as? [String: AnyObject]
+
+    return CIImage(CVImageBuffer: imageBuffer!, options: attachments)
+}

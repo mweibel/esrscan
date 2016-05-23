@@ -16,14 +16,19 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
 
     var sessionQueue: dispatch_queue_t?
     var session: AVCaptureSession?
+    var previewLayer: AVCaptureVideoPreviewLayer?
+    var detector: CIDetector?
 
     override func viewDidLoad() {
         sessionQueue = dispatch_queue_create("SessionQueue", DISPATCH_QUEUE_SERIAL)
         session = AVCaptureSession()
 
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.frame = previewView.bounds
-        previewView.layer.addSublayer(previewLayer)
+        let options = [CIDetectorAccuracy: CIDetectorAccuracyLow]
+        detector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: options)
+
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer!.frame = previewView.bounds
+        previewView.layer.addSublayer(previewLayer!)
 
         super.viewDidLoad()
 
@@ -58,7 +63,7 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
 
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         try? device.lockForConfiguration()
-        device.activeVideoMinFrameDuration = CMTimeMake(1, 15)
+        device.activeVideoMinFrameDuration = CMTimeMake(1, 10)
         device.unlockForConfiguration()
 
         let input = try? AVCaptureDeviceInput(device: device)
@@ -67,6 +72,7 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         let output = AVCaptureVideoDataOutput()
         output.alwaysDiscardsLateVideoFrames = true
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey: Int(kCVPixelFormatType_32BGRA)]
+
         session.addOutput(output)
 
         let queue = dispatch_queue_create("VideoOutput", nil)
@@ -84,9 +90,171 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
     }
 
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
-        dispatch_sync(dispatch_get_main_queue(), {
-            let image = imageFromSampleBuffer(sampleBuffer)
-            self.imageView.image = adaptiveThreshold(image)
+
+        //connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+        let orientation = self.exifOrientation(connection.videoOrientation)
+
+        let image = CIImageFromSampleBuffer(sampleBuffer)
+        let options : [String: AnyObject]? = [CIDetectorImageOrientation: orientation.rawValue]
+        let features = self.detector?.featuresInImage(image, options: options)
+
+        // get the clean aperture
+        // the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
+        // that represents image data valid for display.
+        let fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
+        let cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc!, false /*originIsTopLeft == false*/);
+
+        dispatch_async(dispatch_get_main_queue(), {
+            self.drawStuff(features, cleanAperture: cleanAperture, orientation: orientation)
         })
+    }
+
+    func videoPreviewBoxForGravity(gravity: String, frameSize: CGSize, apertureSize: CGSize) -> CGRect {
+        let apertureRatio = apertureSize.height / apertureSize.width
+        let viewRatio = frameSize.width / frameSize.height
+
+        var size = CGSizeZero
+        if (gravity == AVLayerVideoGravityResizeAspectFill) {
+            if (viewRatio > apertureRatio) {
+                size.width = frameSize.width
+                size.height = apertureSize.width * (frameSize.width / apertureSize.height)
+            } else {
+                size.width = apertureSize.height * (frameSize.height / apertureSize.width)
+                size.height = frameSize.height
+            }
+        } else if (gravity == AVLayerVideoGravityResizeAspect) {
+            if (viewRatio > apertureRatio) {
+                size.width = apertureSize.height * (frameSize.height / apertureSize.width)
+                size.height = frameSize.height
+            } else {
+                size.width = frameSize.width
+                size.height = apertureSize.width * (frameSize.width / apertureSize.height)
+            }
+        } else if (gravity == AVLayerVideoGravityResize) {
+            size.width = frameSize.width
+            size.height = frameSize.height
+        }
+
+        var videoBox = CGRect()
+        videoBox.size = size
+        if size.width < frameSize.width {
+            videoBox.origin.x = (frameSize.width - size.width) / 2
+        } else {
+            videoBox.origin.x = (size.width - frameSize.width) / 2
+        }
+
+        if size.height < frameSize.height {
+            videoBox.origin.y = (frameSize.height - size.height) / 2
+        } else {
+            videoBox.origin.y = (size.height - frameSize.height) / 2
+        }
+        
+        return videoBox
+    }
+
+    func drawStuff(features: [CIFeature]?, cleanAperture: CGRect, orientation: UIDeviceOrientation) {
+        guard let previewLayer = self.previewLayer else {
+            return
+        }
+        let sublayers = previewLayer.sublayers
+
+        CATransaction.begin()
+        CATransaction.setValue(true, forKey: kCATransactionDisableActions)
+
+        for layer in sublayers! {
+            if layer.name != nil && layer.name == "RectLayer" {
+                layer.hidden = true
+            }
+        }
+
+        guard let features = features else {
+            return
+        }
+        guard features.count > 0 else {
+            CATransaction.commit()
+            return
+        }
+
+        let parentFrameSize = previewView.frame.size
+        let gravity = previewLayer.videoGravity
+        let isMirrored = previewLayer.connection.videoMirrored
+
+        let previewBox = self.videoPreviewBoxForGravity(gravity, frameSize: parentFrameSize, apertureSize: cleanAperture.size)
+
+        for feature in features {
+            var rect = feature.bounds
+
+            var temp = rect.size.width
+            rect.size.width = rect.size.height;
+            rect.size.height = temp;
+
+            temp = rect.origin.x;
+            rect.origin.x = rect.origin.y;
+            rect.origin.y = temp;
+
+            // scale coordinates so they fit in the preview box, which may be scaled
+            let widthScaleBy = previewBox.size.width / cleanAperture.size.height;
+            let heightScaleBy = previewBox.size.height / cleanAperture.size.width;
+
+            rect.size.width *= widthScaleBy;
+            rect.size.height *= heightScaleBy;
+            rect.origin.x *= widthScaleBy;
+            rect.origin.y *= heightScaleBy;
+
+            if isMirrored {
+                rect = CGRectOffset(rect, previewBox.origin.x + previewBox.size.width - rect.size.width - (rect.origin.x * 2), previewBox.origin.y)
+            } else {
+                rect = CGRectOffset(rect, previewBox.origin.x, previewBox.origin.y);
+            }
+
+            var featureLayer : CALayer?
+
+            for layer in sublayers! {
+                if layer.name == "RectLayer" {
+                    featureLayer = layer
+                    layer.hidden = false
+                }
+            }
+
+            if featureLayer == nil {
+                featureLayer = CALayer()
+                featureLayer!.borderColor = UIColor.redColor().CGColor
+                featureLayer!.borderWidth = 2
+                featureLayer!.name = "RectLayer"
+                previewLayer.addSublayer(featureLayer!)
+            }
+            featureLayer!.frame = rect
+
+            switch(orientation) {
+            case UIDeviceOrientation.Portrait:
+                featureLayer!.setAffineTransform(CGAffineTransformMakeRotation(radians(0)))
+                break
+            case UIDeviceOrientation.PortraitUpsideDown:
+                featureLayer!.setAffineTransform(CGAffineTransformMakeRotation(radians(180)))
+                break
+            case UIDeviceOrientation.LandscapeLeft:
+                featureLayer!.setAffineTransform(CGAffineTransformMakeRotation(radians(90)))
+                break
+            case UIDeviceOrientation.LandscapeRight:
+                featureLayer!.setAffineTransform(CGAffineTransformMakeRotation(radians(-90)))
+                break
+            default:
+                break
+            }
+        }
+        CATransaction.commit()
+    }
+
+    func exifOrientation(orientation: AVCaptureVideoOrientation) -> UIDeviceOrientation {
+        switch orientation {
+        case AVCaptureVideoOrientation.LandscapeLeft:
+            return UIDeviceOrientation.LandscapeLeft
+        case AVCaptureVideoOrientation.LandscapeRight:
+            return UIDeviceOrientation.LandscapeRight
+        case AVCaptureVideoOrientation.Portrait:
+            return UIDeviceOrientation.Portrait
+        case AVCaptureVideoOrientation.PortraitUpsideDown:
+            return UIDeviceOrientation.PortraitUpsideDown
+        }
     }
 }

@@ -59,6 +59,20 @@ func getWhiteRectangle(image: UIImage) -> CGRect {
     return rect
 }
 
+func drawRect(image: UIImage, rect: CGRect) -> UIImage {
+    UIGraphicsBeginImageContext(image.size)
+    image.drawAtPoint(CGPointZero)
+    let ctx = UIGraphicsGetCurrentContext()
+    UIColor.redColor().setStroke()
+
+    CGContextStrokeRect(ctx, rect)
+    let retImage = UIGraphicsGetImageFromCurrentImageContext()
+
+    UIGraphicsEndImageContext()
+
+    return retImage
+}
+
 struct HSVColors {
     var hue: Double
     var sat: Double
@@ -149,6 +163,10 @@ func rotate(src : UIImage) -> UIImage {
     }
 
     return src
+}
+
+func radians (degrees : Double) -> CGFloat {
+    return CGFloat(degrees * M_PI/180);
 }
 
 func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
