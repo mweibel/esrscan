@@ -11,7 +11,6 @@ import UIKit
 import AVFoundation
 
 class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIAlertViewDelegate {
-    @IBOutlet var imageView: UIImageView!
     @IBOutlet var previewView: UIImageView!
 
     var sessionQueue: dispatch_queue_t?
@@ -20,6 +19,8 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
     var detector: CIDetector?
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         sessionQueue = dispatch_queue_create("SessionQueue", DISPATCH_QUEUE_SERIAL)
         session = AVCaptureSession()
 
@@ -30,11 +31,18 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         previewLayer!.frame = previewView.bounds
         previewView.layer.addSublayer(previewLayer!)
 
-        super.viewDidLoad()
-
         dispatch_async(sessionQueue!, {
             self.setupSession()
         })
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        // http://stackoverflow.com/questions/5117770/avcapturevideopreviewlayer
+        previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
+        previewLayer!.bounds = previewView.bounds
+        previewLayer!.position = CGPointMake(CGRectGetMidX(previewView.bounds), CGRectGetMidY(previewView.bounds))
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -93,9 +101,10 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
 
         //connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
         let orientation = self.exifOrientation(connection.videoOrientation)
+        let curOrientation = UIDevice.currentDevice().orientation
 
         let image = CIImageFromSampleBuffer(sampleBuffer)
-        let options : [String: AnyObject]? = [CIDetectorImageOrientation: orientation.rawValue]
+        let options : [String: AnyObject]? = [CIDetectorImageOrientation: orientation]
         let features = self.detector?.featuresInImage(image, options: options)
 
         // get the clean aperture
@@ -105,7 +114,7 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         let cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc!, false /*originIsTopLeft == false*/);
 
         dispatch_async(dispatch_get_main_queue(), {
-            self.drawStuff(features, cleanAperture: cleanAperture, orientation: orientation)
+            self.drawStuff(features, cleanAperture: cleanAperture, orientation: curOrientation)
         })
     }
 
@@ -245,16 +254,16 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         CATransaction.commit()
     }
 
-    func exifOrientation(orientation: AVCaptureVideoOrientation) -> UIDeviceOrientation {
+    func exifOrientation(orientation: AVCaptureVideoOrientation) -> Int {
         switch orientation {
         case AVCaptureVideoOrientation.LandscapeLeft:
-            return UIDeviceOrientation.LandscapeLeft
+            return 1
         case AVCaptureVideoOrientation.LandscapeRight:
-            return UIDeviceOrientation.LandscapeRight
+            return 3
         case AVCaptureVideoOrientation.Portrait:
-            return UIDeviceOrientation.Portrait
+            return 7
         case AVCaptureVideoOrientation.PortraitUpsideDown:
-            return UIDeviceOrientation.PortraitUpsideDown
+            return 8
         }
     }
 }

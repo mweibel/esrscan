@@ -312,20 +312,20 @@
                         <viewControllerLayoutGuide type="top" id="3oO-BB-2TN"/>
                         <viewControllerLayoutGuide type="bottom" id="WQp-mY-qAj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RqQ-G3-3uF">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="RqQ-G3-3uF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-nI-QXp" userLabel="Preview View">
-                                <rect key="frame" x="40" y="20" width="520" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bGc-nI-QXp" firstAttribute="top" secondItem="3oO-BB-2TN" secondAttribute="bottom" id="Iwc-PJ-T1f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bGc-nI-QXp" secondAttribute="trailing" constant="20" id="K5C-pR-Lm5"/>
-                            <constraint firstItem="WQp-mY-qAj" firstAttribute="top" secondItem="bGc-nI-QXp" secondAttribute="bottom" id="hIg-YY-ulz"/>
-                            <constraint firstItem="bGc-nI-QXp" firstAttribute="leading" secondItem="RqQ-G3-3uF" secondAttribute="leadingMargin" constant="20" id="sbF-jq-Vhf"/>
+                            <constraint firstAttribute="trailing" secondItem="bGc-nI-QXp" secondAttribute="trailing" id="5z0-SK-rg8"/>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="top" secondItem="3oO-BB-2TN" secondAttribute="bottom" id="Nan-4o-p0V"/>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="bottom" secondItem="WQp-mY-qAj" secondAttribute="top" id="WYu-4N-RFc"/>
+                            <constraint firstItem="bGc-nI-QXp" firstAttribute="leading" secondItem="RqQ-G3-3uF" secondAttribute="leading" id="jD1-Rg-2o8"/>
                         </constraints>
                     </view>
                     <connections>
