@@ -61,6 +61,10 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         })
     }
 
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+
     func setupSession() {
         guard let session = session else {
             return

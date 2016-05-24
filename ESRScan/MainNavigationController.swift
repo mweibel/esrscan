@@ -13,6 +13,12 @@ class MainNavigationController : UINavigationController {
 
         trackView("MainNavigationController")
         setHideIntroView()
+    }
 
+    override func shouldAutorotate() -> Bool {
+        guard let currentViewController = topViewController else {
+            return true
+        }
+        return currentViewController.shouldAutorotate()
     }
 }
