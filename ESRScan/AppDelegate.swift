@@ -17,19 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        #if DEBUG
-            print("DEBUG")
-        #else
-            Fabric.with([Crashlytics.self])
-        #endif
-
-        if shouldHideIntroView() {
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("ScansViewController") as UIViewController
-            let navigationController = MainNavigationController(rootViewController: viewController)
-            self.window?.rootViewController = navigationController
-        }
-
         // Configure tracker from GoogleService-Info.plist.
         var configureError:NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
@@ -39,9 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let gai = GAI.sharedInstance()
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
         gai.defaultTracker.set(kGAIAnonymizeIp, value: "1")
-        if TARGET_IPHONE_SIMULATOR == 1 {
+
+        #if DEBUG
+            print("DEBUG")
+            
             gai.logger.logLevel = GAILogLevel.Verbose
             gai.dryRun = true
+        #else
+            Fabric.with([Crashlytics.self])
+        #endif
+
+        if shouldHideIntroView() {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("ScansViewController") as UIViewController
+            let navigationController = MainNavigationController(rootViewController: viewController)
+            self.window?.rootViewController = navigationController
         }
 
         return true
