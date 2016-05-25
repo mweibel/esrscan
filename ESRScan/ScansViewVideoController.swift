@@ -15,6 +15,7 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
 
     var sessionQueue: dispatch_queue_t?
     var session: AVCaptureSession?
+    var device: AVCaptureDevice?
     var previewLayer: AVCaptureVideoPreviewLayer?
     var detector: CIDetector?
 
@@ -73,10 +74,10 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
 
         session.sessionPreset = AVCaptureSessionPresetMedium
 
-        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        try? device.lockForConfiguration()
-        device.activeVideoMinFrameDuration = CMTimeMake(1, 10)
-        device.unlockForConfiguration()
+        device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        try? device?.lockForConfiguration()
+        device?.activeVideoMinFrameDuration = CMTimeMake(1, 5)
+        device?.unlockForConfiguration()
 
         let input = try? AVCaptureDeviceInput(device: device)
         session.addInput(input)
@@ -108,7 +109,10 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         let curOrientation = UIDevice.currentDevice().orientation
 
         let image = CIImageFromSampleBuffer(sampleBuffer)
-        let options : [String: AnyObject]? = [CIDetectorImageOrientation: orientation]
+        let options : [String: AnyObject]? = [
+            CIDetectorAspectRatio: 6,
+            CIDetectorFocalLength: 0.0
+        ]
         let features = self.detector?.featuresInImage(image, options: options)
 
         // get the clean aperture
@@ -169,20 +173,21 @@ class ScansViewVideoController: UIViewController, UITextViewDelegate, UINavigati
         guard let previewLayer = self.previewLayer else {
             return
         }
+        guard let features = features else {
+            return
+        }
+
         let sublayers = previewLayer.sublayers
 
         CATransaction.begin()
         CATransaction.setValue(true, forKey: kCATransactionDisableActions)
 
         for layer in sublayers! {
-            if layer.name != nil && layer.name == "RectLayer" {
+            if layer.name != nil && layer.name == "RectLayer" && !layer.hidden {
                 layer.hidden = true
             }
         }
 
-        guard let features = features else {
-            return
-        }
         guard features.count > 0 else {
             CATransaction.commit()
             return
