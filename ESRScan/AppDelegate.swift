@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        Fabric.with([Crashlytics.self])
+
+        #if DEBUG
+            print("DEBUG")
+        #else
+            Fabric.with([Crashlytics.self])
+        #endif
 
         if shouldHideIntroView() {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
