@@ -23,7 +23,6 @@
 		4C2C30241C3C34CC009421BC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C30231C3C34CC009421BC /* Analytics.swift */; };
 		4C3306D11C69BC6200658B64 /* ConnectionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3306D01C69BC6200658B64 /* ConnectionInfoViewController.swift */; };
 		4C3348531C1B40D500A4709A /* esr.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3348511C1B40D500A4709A /* esr.png */; };
-		4C33DB2B1C802DF6001F9510 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4C33DB2A1C802DF6001F9510 /* Config.xcconfig */; };
 		4C38F9171C20931100673954 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38F9161C20931100673954 /* IntroductionPageViewController.swift */; };
 		4C63E6FD1BEF4FC400F66D9F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4C63E6FC1BEF4FC400F66D9F /* tessdata */; };
 		4C63E6FF1BEF537C00F66D9F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63E6FE1BEF537C00F66D9F /* OCR.swift */; };
@@ -86,7 +85,6 @@
 		4C324F031C4961790080AEE5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4C3306D01C69BC6200658B64 /* ConnectionInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionInfoViewController.swift; sourceTree = "<group>"; };
 		4C3348511C1B40D500A4709A /* esr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = esr.png; sourceTree = "<group>"; };
-		4C33DB2A1C802DF6001F9510 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4C38F9161C20931100673954 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
 		4C63E6FC1BEF4FC400F66D9F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		4C63E6FE1BEF537C00F66D9F /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				4C1CD4911BED2EC900B2CF00 /* Assets.xcassets */,
 				4C63E6FC1BEF4FC400F66D9F /* tessdata */,
 				4C237D1B1C10193A0025044F /* util */,
-				4C33DB2A1C802DF6001F9510 /* Config.xcconfig */,
 			);
 			path = ESRScan;
 			sourceTree = "<group>";
