@@ -103,13 +103,15 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
         trackTiming("Scan", name: "Processing time", interval: endTime - startTime)
 
         let text = ocr.recognisedText()
-        let textArr = text.componentsSeparatedByString("\n").filter{
+        let textLines = text.componentsSeparatedByString("\n")
+        let possibleCodes = textLines.filter{
             // make sure only valid strings in the array go in.
-            $0.containsString(">") && $0.characters.count > 35 && $0.characters.count <= 53
+            $0.containsString(">") && $0.characters.count >= 32 && $0.characters.count <= 53 &&
+            ESR.isValidTypeCode($0)
         }
-        trackEvent("Scan", action: "Possible ESR Codes", label: nil, value: textArr.count)
-        if textArr.count > 0 {
-            let esrCode = textArr[textArr.count-1]
+        trackEvent("Scan", action: "Possible ESR Codes", label: nil, value: possibleCodes.count)
+        if possibleCodes.count > 0 {
+            let esrCode = possibleCodes[possibleCodes.count-1]
             do {
                 let scan = try ESR.parseText(esrCode)
                 self.scans.addScan(scan)
@@ -143,7 +145,7 @@ class ScansViewController: UIViewController, UITextViewDelegate, UINavigationCon
                 )
             }
         } else {
-            trackCaughtException("Error finding ESR Code on picture with width '\(rawImage.size.width)' and height '\(rawImage.size.height)'")
+            trackCaughtException("Error finding ESR Code on picture with width '\(rawImage.size.width)' and height '\(rawImage.size.height)'. Possible text lines: '\(textLines.count)'")
             retryOrShowAlert(rawImage, autoCrop: autoCrop,
                 title: NSLocalizedString("Scan failed", comment: "Scan failed title in alert view"),
                 message: NSLocalizedString("Error finding ESR code on picture, please try again", comment: "Error message")

@@ -44,6 +44,20 @@ class ESRTest: XCTestCase {
         } catch {
             XCTFail("should not throw")
         }
+
+        let code3 = "042>0353629012821441+ 010452561>"
+        do {
+            let esr = try ESR.parseText(code3)
+            XCTAssertEqual(2, esr.amountCheckDigit)
+            XCTAssertNil(esr.amount)
+            XCTAssertEqual("0353629012821441", esr.refNum.num)
+            XCTAssertEqual("0 35362 90128 21441", esr.refNum.string())
+            XCTAssertEqual("010452561", esr.accNum.num)
+            XCTAssertEqual(true, esr.amountCheckDigitValid())
+            XCTAssertEqual(true, esr.refNumCheckDigitValid())
+        } catch {
+            XCTFail("should not throw")
+        }
     }
 
     func testWithoutPlusSign() {

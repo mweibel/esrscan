@@ -149,4 +149,19 @@ public class ESR {
         }
         return (10 - carry) % 10
     }
+
+    // only CHF for now
+    // ref: ESR Handbuch Postfinance
+    static let validTypeCodes: Set<String> = [
+        "01", "03", "04", "11", "14"
+    ]
+
+    static func isValidTypeCode(str: String) -> Bool {
+        for typeCode in validTypeCodes {
+            if(str.hasPrefix(typeCode)) {
+                return true
+            }
+        }
+        return false
+    }
 }
